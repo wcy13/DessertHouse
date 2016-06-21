@@ -20,6 +20,7 @@
 /*common部分*/
 .main{
 	width: 1200px;
+	padding-bottom:50px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -81,12 +82,16 @@ body{
 	height:85px;
 	background-color: white;
 }
+.logo{
+	display: inline-block;
+	margin-left:20px;
+}
 .search-div{
 	height: :100%;
 	width:585px;
-	margin-left:auto;
-	margin-right:auto;
 	padding-top: 22px;
+	margin-left:12%;
+	margin-right:auto;
 }
 .search-box{
 	height:40px;
@@ -200,5 +205,49 @@ body{
 }
 .main-panel{
 	margin-top:1px;
-	border-top:1px solid rgba(0,0,0,0.1);
+	border-top:1px solid #29cdb5;
+}
+.pro-item-panel{
+	width:100%;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+.pro-item{
+	padding-top:20px;
+	background-color:  white;
+	width:195px;
+	height:256px;
+	float:left;
+	margin-bottom:50px;
+}
+.margin-6{
+	margin-left:6px;
+}
+ .pro-item-img{
+ 	width:195px; 
+ } 
+ .pro-item-label{
+ 	font-family:微软雅黑;
+ 	margin-left:15px;
+ 	margin-top:30px;
+ }
+ .pro-item-money{
+ font-size:22px;
+ }
+ 
+.pro-item-add:link,
+.pro-item-add:visited,
+.pro-item-add:active {
+	display: inline-block;
+	margin-left:20px;
+	text-decoration:none;
+    color: gray;
+    font-size:14px;
+    width:100px;
+    padding:5px 10px;
+    backgroud-color:rgba(0,0,0,0.5);
+    
+}
+.pro-item-add:hover {
+    color: black;
 }
