@@ -1,5 +1,6 @@
 package edu.nju.desserthouse.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import edu.nju.desserthouse.dao.BaseDao;
 import edu.nju.desserthouse.dao.ProductCategoryDao;
+import edu.nju.desserthouse.model.Dessert;
 import edu.nju.desserthouse.model.ProductCategory;
 
 @Repository
@@ -38,8 +40,18 @@ public class ProductCategoryDaoImpl implements ProductCategoryDao{
 
 	@Override
 	public List<ProductCategory> getAllChildrenProductCategoryList(int ppcid) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "SELECT * FROM desserthouse.productcategory where ppcid="+ppcid;
+
+		List<Object[]> objects = baseDao.querySQL(sql);
+		List<ProductCategory> list = new ArrayList<ProductCategory>();
+		for (Object[] obj : objects) {
+			ProductCategory d = new ProductCategory();
+			d.setPcid((int) obj[0]);
+			d.setPcname((String) obj[1]);
+			d.setPpcid((int) obj[2]);
+			list.add(d);
+		}
+		return list;
 	}
 
 	@Override

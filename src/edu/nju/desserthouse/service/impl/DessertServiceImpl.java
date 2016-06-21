@@ -1,6 +1,7 @@
 package edu.nju.desserthouse.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import edu.nju.desserthouse.dao.DessertDao;
 import edu.nju.desserthouse.dao.ProductCategoryDao;
 import edu.nju.desserthouse.model.Dessert;
 import edu.nju.desserthouse.model.ProductCategory;
+import edu.nju.desserthouse.model.hci.CakeVO;
 import edu.nju.desserthouse.model.hci.CategoryShowVO;
 import edu.nju.desserthouse.service.DessertService;
 
@@ -83,6 +85,18 @@ public class DessertServiceImpl implements DessertService{
 	public List<Dessert> getCategoryRelatedDesserts(int pcid) {
 		
 		return dessertDao.getCategoryRelatedDesserts(pcid);
+	}
+
+	@Override
+	public CakeVO getCakeVO() {
+		List<ProductCategory> pcList = productCategoryDao.getAllChildrenProductCategoryList(2);
+		HashMap<Integer,List<Dessert>> pdMap = new HashMap<Integer,List<Dessert>>();
+		for(ProductCategory pc:pcList){
+			List<Dessert> l = dessertDao.getCategoryRelatedDesserts(pc.getPcid());
+			pdMap.put(pc.getPcid(), l);
+		}
+		CakeVO cvo = new CakeVO(pcList,pdMap);
+		return cvo;
 	}
 
 }

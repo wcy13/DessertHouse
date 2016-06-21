@@ -12,7 +12,7 @@
 <link href="css/style_hci.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<title>凯罗伊西点</title>
+<title>凯罗伊西点 · 其他商品</title>
 </head>
 <body>
 	<div class="main">
