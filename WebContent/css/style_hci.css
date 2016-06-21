@@ -1,1 +1,204 @@
 @CHARSET "UTF-8";
+
+/*可共用的css布局设置*/
+.float-right{
+	float: right;
+}
+.float-left{
+	float: left;
+}
+.color-white{
+	color: white;
+}
+.color-black{
+	color: black;
+}
+.color-lanlv{
+	color: #29cdb5;
+}
+
+/*common部分*/
+.main{
+	width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+html{
+    height:100%;
+	font-family:微软雅黑;
+}
+body{
+	width:100%; 
+	background-color:#FEFFE4;
+    background: -webkit-linear-gradient(#c2f0c8  , #a4dfe1, #c2f0c8  ); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#c2f0c8  , #a4dfe1, #c2f0c8  ); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#c2f0c8  , #a4dfe1, #c2f0c8  ); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#c2f0c8  , #a4dfe1, #c2f0c8  ); /* 标准的语法（必须放在最后） */
+}
+/*顶部导航*/
+.nav-top{
+	margin-top:0px;
+	height:35px;
+	overflow: hidden;
+    line-height: 35px;
+	background-color:#373331;
+	font-size:12px;
+	color:white;
+}
+/*顶部导航条目*/
+.nav-top-item:link,
+.nav-top-item:visited,
+.nav-top-item:active {
+	font-family:微软雅黑;
+	color:rgba(255,255,255,0.9);
+    text-decoration:none;
+    display: inline-block;
+    text-align: center;
+    height:35px;
+    overflow: hidden;
+    line-height: 35px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.nav-top-item:hover {
+    color: white;
+}
+
+.nav-top-item.active {
+	color: white;
+}
+/*顶部导航 竖线*/
+.nav-top-line{
+	display: inline-block;
+	text-align: center;
+    height:35px;
+    overflow: hidden;
+    line-height: 35px;
+}
+
+/*搜索*/
+.search-panel{
+	height:85px;
+	background-color: white;
+}
+.search-div{
+	height: :100%;
+	width:585px;
+	margin-left:auto;
+	margin-right:auto;
+	padding-top: 22px;
+}
+.search-box{
+	height:40px;
+	width:500px;
+	border:3px solid rgba(41,205,181,1);
+	font-family:微软雅黑;
+	font-size: 15px;
+	outline: none;
+	padding: 0px 15px;
+	dispaly:inline-block;
+}
+.search-box:focus {
+    border:3px solid rgba(41,205,181,0.8);
+}
+.search-btn{
+	dispaly:inline-block;
+	height:40px;
+	width:80px;
+	margin-left:-5px;
+	padding:0px 20px;
+	background-color:#29cdb5;
+	border:none;
+}
+.search-icon{
+	color:white;
+}
+.search-icon:hover {
+    color: rgba(255,255,255,0.8);
+}
+/*主导航 div设置*/
+.nav-main{
+	height: 37px;
+	width: 100%;
+	background-color: white;
+	border-top:1px solid  rgb(227,227,225);
+}
+/*主导航 导航条目设置*/
+.nav-main-item:link,
+.nav-main-item:visited,
+.nav-main-item:active {
+	float: left;
+	width: 200px;
+    font-size: 18px;
+    height: 37px;
+    text-decoration:none;
+    color: #2d1514;
+    display: inline-block;
+    background-color: white;
+    text-align: center;
+    overflow: hidden;
+    line-height: 37px;
+
+}
+.nav-main-item:hover {
+    background-color: #29cdb5;
+    color: white;
+}
+/*主导航中的|分隔 在鼠标放上时的显示*/
+.nav-main-item:hover .float-right{
+    color: #29cdb5;
+}
+
+.nav-main-item.active {
+   background-color: #29cdb5;
+    color: white;
+}
+
+/*右侧购物车*/
+.float-bar{
+	width:35px;
+	backgroud-color:#444851;
+	position:fixed;
+	right:0;
+	top:40%;
+}
+.float-bar-item:link,
+.float-bar-item:visited,
+.float-bar-item:active {
+	font-family:微软雅黑;
+    font-size: 12px;
+    font-weigth:bold;
+    text-decoration:none;
+    color: rgba(255,255,255,0.9);
+    display: inline-block;
+    width:38px;
+    background-color:#444851  ;
+    text-align: center;
+    padding-top:11px;
+    padding-bottom:11px;
+    border-bottom:1px solid gray;
+}
+.float-bar-item:hover {
+    color: white;
+    background-color:  #31353e;
+}
+.css-badge{
+	color:white;
+	background-color: #E84A5F ;
+	margin-top:5px;
+}
+.shopping-cart-icon{
+	margin-bottom:5px;
+}
+
+/*广告牌*/
+。advertise{
+	width:100%;
+	height:438px;
+	background-color:  #31353e;
+	
+}
+.main-panel{
+	margin-top:1px;
+	border-top:1px solid rgba(0,0,0,0.1);
+}

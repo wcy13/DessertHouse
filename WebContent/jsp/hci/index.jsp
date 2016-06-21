@@ -10,77 +10,146 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style_hci.css" rel="stylesheet">
-<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <title>凯罗伊西点</title>
 </head>
-<body class="">
-	<nav class="">
-	<div class="navbar-header">
-		<label class="navbar-brand active">凯罗伊西点</label>
-	</div>
-	<div>
-		<ul class="nav navbar-nav ">
-			<li><a href="/DessertHouse/product">商品</a></li>
-			<li><a href="/DessertHouse/shop">门店</a></li>
-			<li><a href="/DessertHouse/onlineOrder">在线点餐</a></li>
-		</ul>
-		<form action="/DessertHouse/search" method="post"
-			class="navbar-form navbar-left" role="search">
-			<div class="form-group">
-				<s:textfield name="searchContent" class="form-control"/>
+<body>
+	<div class="main">
+		<div class="nav-top">
+			<a href="" class="nav-top-item float-right">帮助中心</a> <span
+				class="nav-top-line float-right">|</span> <a href=""
+				class="nav-top-item float-right">会员登录</a> <span
+				class="nav-top-line float-right">|</span> <a href=""
+				class="nav-top-item float-right">购物车</a>
+
+		</div>
+		<div class="search-panel">
+			<div class="search-div">
+				<form action="/DessertHouse/search" method="post" class="">
+
+					<s:textfield name="searchContent" class="search-box"
+						placeholder="请输出商品名/门店名" />
+					<button class="search-btn ">
+						<i class="fa fa-search fa-fw search-icon"></i>
+					</button>
+
+
+				</form>
 			</div>
-			<button type="submit" class="btn btn-default">提交</button>
-		</form>
-		<ul class="nav navbar-nav pull-right">
-		<%
-				
-				if(session.getAttribute("memberInfo")!=null){
-					System.out.println("here");
-					
-			%>
-			<li class=""><a href="#" class=""> 个人中心</a></li>
-				
-					<li><a href="/DessertHouse/myorder">我的订单</a></li>
-					<li><a href="/DessertHouse/selfInfo">个人信息</a></li>
-					<li><a href="/DessertHouse/signOut">退出</a></li>
-			<%} %>	
-			<li><a href="/DessertHouse/shoppingCart">购物车</a></li>
-			<%
-				
-				if(session.getAttribute("memberInfo")==null){
-					System.out.println("here");
-					
-			%>
-			<li><a href="/DessertHouse/signIn">会员登录</a></li>
-			<%} %>
-			
-		</ul>
-	</div>
-	</nav>
-	<div>
-		<form action="/DessertHouse/category" method="post" class="">
-			<s:hidden name="pcid" value='1'></s:hidden>
-			<input type="submit" class="" value="面包">
-		</form>
-		<form action="/DessertHouse/category" method="post" class="">
-			<s:hidden name="pcid" value='4'></s:hidden>
-			<input type="submit" class="" value="甜品">
-		</form>
-		<form action="/DessertHouse/cake" method="post" class="">
-			<s:hidden name="pcid" value='8'></s:hidden>
-			<input type="submit" class="" value="鲜奶蛋糕">
-		</form>
-		<form action="/DessertHouse/cake" method="post" class="">
-			<s:hidden name="pcid" value='9'></s:hidden>
-			<input type="submit" class="" value="慕斯蛋糕">
-		</form>
-	</div>
+		</div>
+		<div class="nav-main">
+			<a href="/DessertHouse/dessertManage" class="nav-main-item "
+				id="js-nav-1">面包<span class="float-right color-black">|</span></a> <a
+				href="/DessertHouse/dessertManage" class="nav-main-item"
+				id="js-nav-2">蛋糕<span class="float-right color-black">|</span></a> <a
+				href="/DessertHouse/dessertManage" class="nav-main-item"
+				id="js-nav-3">甜点<span class="float-right color-black">|</span></a> <a
+				href="/DessertHouse/dessertManage" class="nav-main-item"
+				id="js-nav-4">饮品<span class="float-right color-black">|</span></a> <a
+				href="/DessertHouse/dessertManage" class="nav-main-item"
+				id="js-nav-5">其他商品<span class="float-right color-black">|</span></a>
+			<a href="/DessertHouse/dessertManage" class="nav-main-item"
+				id="js-nav-6">门店</a>
+		</div>
+		<div class="main-panel">
+			<div class="advertise">
+				<div id="myCarousel" class="carousel slide">
+					<!-- 轮播（Carousel）指标 -->
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+						<li data-target="#myCarousel" data-slide-to="1"></li>
+						<li data-target="#myCarousel" data-slide-to="2"></li>
+					</ol>
+					<!-- 轮播（Carousel）项目 -->
+					<div class="carousel-inner">
+						<div class="item active">
+							<img src="img/lunbo/1.png"
+								alt="First slide">
+						</div>
+						<div class="item">
+							<img src="img/lunbo/2.png"
+								alt="Second slide">
+						</div>
+						<div class="item">
+							<img src="img/lunbo/3.png"
+								alt="Third slide">
+						</div>
+					</div>
+					<!-- 轮播（Carousel）导航 -->
+					<a class="carousel-control left" href="#myCarousel"
+						data-slide="prev">&lsaquo;</a> <a class="carousel-control right"
+						href="#myCarousel" data-slide="next">&rsaquo;</a>
+				</div>
 
-	<script src="../dist/js/jquery-1.9.1.min.js"></script>
-	<script src="../dist/js/bootstrap.js"></script>
-	<script type="text/javascript" charset="utf-8">
+			</div>
+		</div>
 		
-	</script>
+		
+	</div>
 
+	<div class="float-bar">
+		<a href="" class="float-bar-item">TOP</a> <a href=""
+			class="float-bar-item"> <i
+			class="fa fa-shopping-cart fa-fw fa-lg shopping-cart-icon"></i> <br />购<br />物<br />车<br />
+			<span class="badge css-badge">0</span>
+		</a>
+	</div>
+
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript"  src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#js-nav-2").mouseover(function() {
+				$("#js-nav-1").children("span").removeClass("color-black");
+				$("#js-nav-1").children("span").addClass("color-white");
+				$("#js-nav-2").mouseout(function() {
+					$("#js-nav-1").children("span").removeClass("color-white");
+					$("#js-nav-1").children("span").addClass("color-black");
+
+				});
+			});
+
+			$("#js-nav-3").mouseover(function() {
+				$("#js-nav-2").children("span").removeClass("color-black");
+				$("#js-nav-2").children("span").addClass("color-white");
+				$("#js-nav-3").mouseout(function() {
+					$("#js-nav-2").children("span").removeClass("color-white");
+					$("#js-nav-2").children("span").addClass("color-black");
+
+				});
+			});
+
+			$("#js-nav-4").mouseover(function() {
+				$("#js-nav-3").children("span").removeClass("color-black");
+				$("#js-nav-3").children("span").addClass("color-white");
+				$("#js-nav-4").mouseout(function() {
+					$("#js-nav-3").children("span").removeClass("color-white");
+					$("#js-nav-3").children("span").addClass("color-black");
+
+				});
+			});
+
+			$("#js-nav-5").mouseover(function() {
+				$("#js-nav-4").children("span").removeClass("color-black");
+				$("#js-nav-4").children("span").addClass("color-white");
+				$("#js-nav-5").mouseout(function() {
+					$("#js-nav-4").children("span").removeClass("color-white");
+					$("#js-nav-4").children("span").addClass("color-black");
+
+				});
+			});
+
+			$("#js-nav-6").mouseover(function() {
+				$("#js-nav-5").children("span").removeClass("color-black");
+				$("#js-nav-5").children("span").addClass("color-white");
+				$("#js-nav-6").mouseout(function() {
+					$("#js-nav-5").children("span").removeClass("color-white");
+					$("#js-nav-5").children("span").addClass("color-black");
+
+				});
+			});
+		})
+	</script>
 </body>
 </html>
