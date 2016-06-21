@@ -35,5 +35,6 @@ public interface DessertService {
 	public CategoryShowVO getAllCategory();
 	//获得某商品分类下的商品列表
 	public List<Dessert> getCategoryRelatedDesserts(int pcid);
+	//获得蛋糕目录下的蛋糕分类列表和对应的各类商品列表
 	
 }

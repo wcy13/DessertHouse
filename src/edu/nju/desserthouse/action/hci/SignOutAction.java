@@ -8,7 +8,7 @@ public class SignOutAction extends BaseAction{
 	@Override
 	public String execute() throws Exception {
 		HttpSession session = request.getSession(true);
-		session.invalidate();
+		session.removeAttribute("memberInfo");
 		return "index";
 	}
 	

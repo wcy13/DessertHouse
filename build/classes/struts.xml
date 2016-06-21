@@ -307,6 +307,22 @@
 		<action name="test" class="TestAction">
 			<result name="test">/jsp/hci/testshop.jsp</result>
 		</action>
+		
+		<action name="bread" class="BreadAction">
+			<result name="bread">/jsp/hci/bread.jsp</result>
+		</action>
+		
+		<action name="dessert" class="DessertAction">
+			<result name="dessert">/jsp/hci/dessert.jsp</result>
+		</action>
+		
+		<action name="drinks" class="DrinksAction">
+			<result name="drinks">/jsp/hci/drinks.jsp</result>
+		</action>
+		
+		<action name="other" class="OtherAction">
+			<result name="other">/jsp/hci/other.jsp</result>
+		</action>
 	</package>
 </struts>
 

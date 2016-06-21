@@ -523,9 +523,21 @@
 	<bean id="TestAction" class="edu.nju.desserthouse.action.hci.TestAction">
 	</bean>
 
+	<bean id="BreadAction" class="edu.nju.desserthouse.action.hci.BreadAction">
+		<property name="dessertService" ref="dessertService"></property>
+	</bean>
 	
+	<bean id="DessertAction" class="edu.nju.desserthouse.action.hci.DessertAction">
+		<property name="dessertService" ref="dessertService"></property>
+	</bean>
 	
+	<bean id="DrinksAction" class="edu.nju.desserthouse.action.hci.DrinksAction">
+		<property name="dessertService" ref="dessertService"></property>
+	</bean>
 	
+	<bean id="OtherAction" class="edu.nju.desserthouse.action.hci.OtherAction">
+		<property name="dessertService" ref="dessertService"></property>
+	</bean>
 	
 	<!-- 定义 Autowired 自动注入 bean -->
 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />

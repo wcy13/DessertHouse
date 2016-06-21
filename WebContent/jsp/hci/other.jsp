@@ -14,12 +14,6 @@
 	href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <title>凯罗伊西点</title>
 </head>
-<%
-	ShopListVO slvo = (ShopListVO)request.getAttribute("slvo");
-	List<Shop> shopList = slvo.shopList;
-	List<District> districtList = slvo.districtList;
-	HashMap<Integer,List<Shop>> dpMap = slvo.dpMap;
-%>
 <body>
 	<div class="main">
 		<div class="nav-top"> 
@@ -67,26 +61,20 @@
 		</div>
 		<div class="nav-main">
 			<a href="/DessertHouse/bread" class="nav-main-item "
-				id="js-nav-1">面包<span class="float-right color-lanlv">|</span></a> <a
+				id="js-nav-1">面包<span class="float-right color-black">|</span></a> <a
 				href="/DessertHouse/cake" class="nav-main-item"
 				id="js-nav-2">蛋糕<span class="float-right color-black">|</span></a> <a
 				href="/DessertHouse/dessert" class="nav-main-item"
 				id="js-nav-3">甜点<span class="float-right color-black">|</span></a> <a
 				href="/DessertHouse/drinks" class="nav-main-item"
-				id="js-nav-4">饮品<span class="float-right color-black">|</span></a> <a
-				href="/DessertHouse/other" class="nav-main-item"
-				id="js-nav-5">其他商品<span class="float-right color-white">|</span></a>
-			<a href="/DessertHouse/shop" class="nav-main-item active"
+				id="js-nav-4">饮品<span class="float-right color-white">|</span></a> <a
+				href="/DessertHouse/other" class="nav-main-item active"
+				id="js-nav-5">其他商品<span class="float-right color-lanlv">|</span></a>
+			<a href="/DessertHouse/shop" class="nav-main-item"
 				id="js-nav-6">门店</a>
 		</div>
 		<div class="main-panel">
-			<%
-			for(Shop s:shopList){
-			%>
-			<p>
-			<%=s.getDisname() %>-<%=s.getSname() %>
-			</p>
-		<%} %>
+			
 		</div>
 
 
@@ -105,11 +93,11 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$("#js-nav-2").mouseover(function() {
-				$("#js-nav-1").children("span").removeClass("color-lanlv");
+				$("#js-nav-1").children("span").removeClass("color-black");
 				$("#js-nav-1").children("span").addClass("color-white");
 				$("#js-nav-2").mouseout(function() {
 					$("#js-nav-1").children("span").removeClass("color-white");
-					$("#js-nav-1").children("span").addClass("color-lanlv");
+					$("#js-nav-1").children("span").addClass("color-black");
 
 				});
 			});
@@ -127,6 +115,7 @@
 			$("#js-nav-4").mouseover(function() {
 				$("#js-nav-3").children("span").removeClass("color-black");
 				$("#js-nav-3").children("span").addClass("color-white");
+				$("#js-nav-4").children("span").css("color","white");
 				$("#js-nav-4").mouseout(function() {
 					$("#js-nav-3").children("span").removeClass("color-white");
 					$("#js-nav-3").children("span").addClass("color-black");
@@ -134,17 +123,16 @@
 				});
 			});
 
-			$("#js-nav-5").mouseover(function() {
-				$("#js-nav-4").children("span").removeClass("color-black");
-				$("#js-nav-4").children("span").addClass("color-white");
-				$("#js-nav-5").children("span").css("color","white");
-				$("#js-nav-5").mouseout(function() {
-					$("#js-nav-4").children("span").removeClass("color-white");
-					$("#js-nav-4").children("span").addClass("color-black");
+
+			$("#js-nav-6").mouseover(function() {
+				$("#js-nav-5").children("span").removeClass("color-lanlv");
+				$("#js-nav-5").children("span").addClass("color-white");
+				$("#js-nav-6").mouseout(function() {
+					$("#js-nav-5").children("span").removeClass("color-white");
+					$("#js-nav-5").children("span").addClass("color-lanlv");
 
 				});
 			});
-
 		})
 	</script>
 </body>

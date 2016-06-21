@@ -60,15 +60,15 @@
 			</div>
 		</div>
 		<div class="nav-main">
-			<a href="/DessertHouse/dessertManage" class="nav-main-item "
+			<a href="/DessertHouse/bread" class="nav-main-item "
 				id="js-nav-1">面包<span class="float-right color-black">|</span></a> <a
-				href="/DessertHouse/dessertManage" class="nav-main-item"
+				href="/DessertHouse/cake" class="nav-main-item"
 				id="js-nav-2">蛋糕<span class="float-right color-black">|</span></a> <a
-				href="/DessertHouse/dessertManage" class="nav-main-item"
+				href="/DessertHouse/dessert" class="nav-main-item"
 				id="js-nav-3">甜点<span class="float-right color-black">|</span></a> <a
-				href="/DessertHouse/dessertManage" class="nav-main-item"
+				href="/DessertHouse/drinks" class="nav-main-item"
 				id="js-nav-4">饮品<span class="float-right color-black">|</span></a> <a
-				href="/DessertHouse/dessertManage" class="nav-main-item"
+				href="/DessertHouse/other" class="nav-main-item"
 				id="js-nav-5">其他商品<span class="float-right color-black">|</span></a>
 			<a href="/DessertHouse/shop" class="nav-main-item"
 				id="js-nav-6">门店</a>
