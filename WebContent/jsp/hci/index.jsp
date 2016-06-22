@@ -103,26 +103,46 @@
 			</div>
 			<div class="pro-item-panel">
 				<div class="pro-item">
-					<img src="img/dessert/10.png" class="pro-item-img"  >
+					<img src="img/dessert/16.png" class="pro-item-img"  >
 					<div class="pro-item-label">
-						<span class="pro-item-money">¥118</span>
-						<a href="" class="pro-item-add">加入购物车</a>
+						<span class="pro-item-money">¥18</span>
+						<a href="" class="pro-item-add" id="js-11">加入购物车</a>
 					</div>
 				</div>
 				<div class="pro-item margin-6">
-					<img src="img/dessert/10.png" class="pro-item-img"  >
+					<img src="img/dessert/11.jpg" class="pro-item-img"  >
+					<div class="pro-item-label">
+						<span class="pro-item-money">¥15</span>
+						<a href="" class="pro-item-add" id="js-6">加入购物车</a>
+					</div>
 				</div>
 				<div class="pro-item margin-6">
-					<img src="img/dessert/10.png" class="pro-item-img"  >
+					<img src="img/dessert/12.jpg" class="pro-item-img"  >
+					<div class="pro-item-label">
+						<span class="pro-item-money">¥16</span>
+						<a href="" class="pro-item-add" id="js-7">加入购物车</a>
+					</div>
 				</div>
 				<div class="pro-item margin-6">
-					<img src="img/dessert/10.png" class="pro-item-img"  >
+					<img src="img/dessert/13.jpg" class="pro-item-img"  >
+					<div class="pro-item-label">
+						<span class="pro-item-money">¥10</span>
+						<a href="" class="pro-item-add" id="js-8">加入购物车</a>
+					</div>
 				</div>
 				<div class="pro-item margin-6">
-					<img src="img/dessert/10.png" class="pro-item-img"  >
+					<img src="img/dessert/20.jpg" class="pro-item-img"  >
+					<div class="pro-item-label">
+						<span class="pro-item-money">¥20</span>
+						<a href="" class="pro-item-add" id="js-14">加入购物车</a>
+					</div>
 				</div>
 				<div class="pro-item margin-6">
-					<img src="img/dessert/10.png" class="pro-item-img"  >
+					<img src="img/dessert/17.jpg" class="pro-item-img"  >
+					<div class="pro-item-label">
+						<span class="pro-item-money">¥14</span>
+						<a href="" class="pro-item-add" id="js-16">加入购物车</a>
+					</div>
 				</div>
 			</div>
 		</div>
