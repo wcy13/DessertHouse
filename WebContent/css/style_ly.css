@@ -35,7 +35,7 @@
 	overflow:hidden;
 	margin-left:40px;
 	
-	color:#2d1514;
+	color:rbga(45,21,20,0.9);
 	font-size:36px;
 	font-family:微软雅黑;
 }
@@ -159,12 +159,18 @@ a:link{
 }
 
 .bread-name-item{
-	color:#2d1514;
+	color:rbga(45,21,20,0.6);
 	font-size:24px;
 	font-family:微软雅黑;
 }
 .bread-price-item{
-	color:#2d1514;
+	color:rbga(45,21,20,0.8);
 	font-size:36px;
 	font-family:微软雅黑;
+}
+.padding-left-30{
+	padding-left:30px;
+}
+.padding-top-20{
+	padding-top:20px;
 }

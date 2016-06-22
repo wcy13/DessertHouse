@@ -15,6 +15,9 @@
 	href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <title>凯罗伊西点 · 面包</title>
 </head>
+<%
+	List<Dessert> dessertList = (List<Dessert>)request.getAttribute("dessertList");
+%>
 <body>
 	<div class="main">
 		<div class="nav-top">
@@ -80,26 +83,20 @@
 				<a href="/DessertHouse/index" class="bread-nav-item">首页</a> <span
 					class="bread-nav-label"> > </span> <span class="bread-nav-now">面包名录</span>
 			</div>
-			<div class="bread-content-div">
-				<img src="img/dessert/10.png" class="bread-img-item"></img>
+			<%
+				for(Dessert d:dessertList){
+			%>
+			<div class="bread-content-div padding-left-30">
+				<img src="<%=d.getImage() %>" class="bread-img-item"></img>
 				<div class="bread-dscription-div">
-					<div class="bread-name-div">
-						<span class="bread-name-item">Cappuccino卡布奇诺</span>
+					<div class="bread-name-div padding-left-30 padding-top-20">
+						<span class="bread-name-item"><%=d.getName() %></span>
 					</div>
-					<div class="">
-						<span class="bread-description-item">/两层戚风香草胚与咖啡夹心/</span>
-					</div>
-					<div class="">
-						<span class="bread-description-item">/奶油内创造性拌入耶加雪菲咖啡渣，让咖啡口味更香浓/</span>
-					</div>
-					<div class="">
-						<span class="bread-description-item">/表面上撒上现磨咖啡粉，香气四溢/</span>
-					</div>
-					<div class="">
-						<span class="bread-description-item">/体会小确幸/</span>
+					<div class="padding-left-30">
+						<span class="bread-description-item"><%=d.getDiscription() %></span>
 					</div>
 				</div>
-				<div class="bread-price-div">￥36.0</div>
+				<div class="bread-price-div">￥<%=d.getPrice() %></div>
 
 				<div class="bread-cart-div">
 					<div class="cart-plain-div"></div>
@@ -119,6 +116,7 @@
 					<div class="cart-plain-div"></div>
 				</div>
 			</div>
+			<%} %>
 		</div>
 	</div>
 
