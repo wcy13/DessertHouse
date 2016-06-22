@@ -323,6 +323,10 @@
 		<action name="other" class="OtherAction">
 			<result name="other">/jsp/hci/other.jsp</result>
 		</action>
+		
+		<action name="cakeSpeci" class="CakeSpeciAction">
+			<result name="cakeSpeci">/jsp/hci/cakeSpeci.jsp</result>
+		</action>
 	</package>
 </struts>
 

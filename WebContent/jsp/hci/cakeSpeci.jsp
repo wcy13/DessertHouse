@@ -13,12 +13,11 @@
 <link href="css/style_nxf.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<title>凯罗伊西点 · 蛋糕</title>
+<title>凯罗伊西点 · 蛋糕详情</title>
 </head>
 <%
-	CakeVO cvo = (CakeVO) request.getAttribute("cvo");
-	List<ProductCategory> pcList = cvo.pcList;
-	HashMap<Integer, List<Dessert>> pdMap = cvo.pdMap;
+	Dessert cake = (Dessert) request.getAttribute("cake");
+	ProductCategory pc = (ProductCategory) request.getAttribute("pc");
 %>
 <body>
 	<div class="main">
@@ -83,29 +82,12 @@
 		<div class="main-panel">
 			<div class="bread-nav-div">
 				<a href="/DessertHouse/index" class="bread-nav-item">首页</a> <span
-					class="bread-nav-label"> > </span> <span class="bread-nav-now">蛋糕名录</span>
+					class="bread-nav-label"> > </span> 
+					<a href="/DessertHouse/cake" class="bread-nav-item"><%=pc.getPcname() %></a> <span
+					class="bread-nav-label"> > </span>
+					<span class="bread-nav-now"><%=cake.getName() %></span>
 			</div>
-			<div class="bread-filter">
-				<span class="bread-nav-label">蛋糕分类 : </span> <a
-					href="javascript: alert('test');" class="bread-filter-item active">不限</a>
-			</div>
-			<%
-				for (ProductCategory pc : pcList) {
-					List<Dessert> l = pdMap.get(pc.getPcid());
-			%>
-			<h2><%=pc.getPcname()%>-<%=pc.getPcid()%></h2>
-			<%
-				for (Dessert d : l) {
-			%>
-			<p><%=d.getName()%>-<%=d.getPcid()%></p>
-			<form action="/DessertHouse/cakeSpeci" method="post" class="">
-				<s:hidden name="did" value='26'></s:hidden>
-				<input type="submit" class="" value="加入购物车">
-			</form>
-			<%
-				}
-				}
-			%>
+
 		</div>
 
 
