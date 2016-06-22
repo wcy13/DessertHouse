@@ -16,44 +16,46 @@
 <title>凯罗伊西点 · 蛋糕</title>
 </head>
 <%
-	CakeVO cvo = (CakeVO)request.getAttribute("cvo");
+	CakeVO cvo = (CakeVO) request.getAttribute("cvo");
 	List<ProductCategory> pcList = cvo.pcList;
-	HashMap<Integer,List<Dessert>> pdMap = cvo.pdMap;
+	HashMap<Integer, List<Dessert>> pdMap = cvo.pdMap;
 %>
 <body>
 	<div class="main">
-		<div class="nav-top"> 
+		<div class="nav-top">
 			<a href="/DessertHouse/shoppingCart" class="nav-top-item float-right">购物车</a>
-			<span class="nav-top-line float-right">|</span> 
+			<span class="nav-top-line float-right">|</span>
 			<%
-				
-				if(session.getAttribute("memberInfo")==null){
+				if (session.getAttribute("memberInfo") == null) {
 					System.out.println("here");
-					
 			%>
-			<a href="/DessertHouse/signIn" class="nav-top-item float-right">会员登录</a> 
-			<%}else{ 
-				Member m = (Member)session.getAttribute("memberInfo");
-				String sex = "";
-				if(m.getSex()==0){
-					sex = "先生";
-				}else{
-					sex = "女士";
+			<a href="/DessertHouse/signIn" class="nav-top-item float-right">会员登录</a>
+			<%
+				} else {
+					Member m = (Member) session.getAttribute("memberInfo");
+					String sex = "";
+					if (m.getSex() == 0) {
+						sex = "先生";
+					} else {
+						sex = "女士";
+					}
+			%>
+			<a href="/DessertHouse/myorder" class="nav-top-item float-right">订单</a>
+			<span class="nav-top-line float-right">|</span> <a
+				href="/DessertHouse/signOut" class="nav-top-item float-right">[退出]</a>
+			<a href="/DessertHouse/selfInfo"
+				class="nav-top-item float-right top-welcome">您好，<%=m.getCname()%><%=sex%></a>
+
+			<%
 				}
 			%>
-			<a href="/DessertHouse/myorder" class="nav-top-item float-right">订单</a> 
-			<span class="nav-top-line float-right">|</span> 
-			<a href="/DessertHouse/signOut" class="nav-top-item float-right">[退出]</a>
-			<a href="/DessertHouse/selfInfo" class="nav-top-item float-right top-welcome">您好，<%=m.getCname() %><%=sex %></a> 
-			
-			<%} %>
-			
-			
+
+
 
 		</div>
 		<div class="search-panel">
-			<a href="/DessertHouse/index"><img src="img/logo.png" class="logo float-left"
-				alt="KARROY CAKE"></a>
+			<a href="/DessertHouse/index"><img src="img/logo.png"
+				class="logo float-left" alt="KARROY CAKE"></a>
 			<div class="search-div float-left">
 				<form action="/DessertHouse/search" method="post" class="">
 
@@ -66,40 +68,42 @@
 			</div>
 		</div>
 		<div class="nav-main">
-			<a href="/DessertHouse/bread" class="nav-main-item "
-				id="js-nav-1">面包<span class="float-right color-white">|</span></a> <a
-				href="/DessertHouse/cake" class="nav-main-item active"
-				id="js-nav-2">蛋糕<span class="float-right color-lanlv ">|</span></a> <a
-				href="/DessertHouse/dessert" class="nav-main-item"
-				id="js-nav-3">甜点<span class="float-right color-black">|</span></a> <a
-				href="/DessertHouse/drinks" class="nav-main-item "
-				id="js-nav-4">饮品<span class="float-right color-black">|</span></a> <a
-				href="/DessertHouse/other" class="nav-main-item"
-				id="js-nav-5">其他商品<span class="float-right color-black">|</span></a>
-			<a href="/DessertHouse/shop" class="nav-main-item"
-				id="js-nav-6">门店</a>
+			<a href="/DessertHouse/bread" class="nav-main-item " id="js-nav-1">面包<span
+				class="float-right color-white">|</span></a> <a
+				href="/DessertHouse/cake" class="nav-main-item active" id="js-nav-2">蛋糕<span
+				class="float-right color-lanlv ">|</span></a> <a
+				href="/DessertHouse/dessert" class="nav-main-item" id="js-nav-3">甜点<span
+				class="float-right color-black">|</span></a> <a
+				href="/DessertHouse/drinks" class="nav-main-item " id="js-nav-4">饮品<span
+				class="float-right color-black">|</span></a> <a
+				href="/DessertHouse/other" class="nav-main-item" id="js-nav-5">其他商品<span
+				class="float-right color-black">|</span></a> <a
+				href="/DessertHouse/shop" class="nav-main-item" id="js-nav-6">门店</a>
 		</div>
 		<div class="main-panel">
 			<div class="bread-nav-div">
-				<a href="/DessertHouse/index" class="bread-nav-item">首页</a>
-				<span class="bread-nav-label"> > </span>
-				<span class="bread-nav-now">蛋糕名录</span>
+				<a href="/DessertHouse/index" class="bread-nav-item">首页</a> <span
+					class="bread-nav-label"> > </span> <span class="bread-nav-now">蛋糕名录</span>
 			</div>
 			<div class="bread-filter">
-				<span class="bread-nav-label">蛋糕分类 : </span>
-				<a href = "javascript: alert('test');" class="bread-filter-item active">不限</a>
+				<span class="bread-nav-label">蛋糕分类 : </span> <a
+					href="javascript: alert('test');" class="bread-filter-item active">不限</a>
 			</div>
 			<%
-				for(ProductCategory pc:pcList){
+				for (ProductCategory pc : pcList) {
 					List<Dessert> l = pdMap.get(pc.getPcid());
 			%>
-				<h2><%=pc.getPcname() %>-<%=pc.getPcid() %></h2>
-			<% 
-					for(Dessert d:l){
-						%>
-						<p><%=d.getName() %>-<%=d.getPcid() %></p>
-						<% 
-					}
+			<h2><%=pc.getPcname()%>-<%=pc.getPcid()%></h2>
+			<%
+				for (Dessert d : l) {
+			%>
+			<p><%=d.getName()%>-<%=d.getPcid()%></p>
+			<form action="/DessertHouse/category" method="post" class="">
+				<s:hidden name="pcid" value='1'></s:hidden>
+				<input type="submit" class="" value="加入购物车">
+			</form>
+			<%
+				}
 				}
 			%>
 		</div>
@@ -108,9 +112,10 @@
 	</div>
 
 	<div class="float-bar">
-		<a href="" class="float-bar-item">TOP</a> <a href="/DessertHouse/shoppingCart"
-			class="float-bar-item" onclick="javascript:document.getElementsByTagName('BODY')[0].scrollTop=0;"> <i
-			class="fa fa-shopping-cart fa-fw fa-lg shopping-cart-icon"></i> <br />购<br />物<br />车<br />
+		<a href="" class="float-bar-item">TOP</a> <a
+			href="/DessertHouse/shoppingCart" class="float-bar-item"
+			onclick="javascript:document.getElementsByTagName('BODY')[0].scrollTop=0;">
+			<i class="fa fa-shopping-cart fa-fw fa-lg shopping-cart-icon"></i> <br />购<br />物<br />车<br />
 			<span class="badge css-badge">0</span>
 		</a>
 	</div>
@@ -121,12 +126,12 @@
 		$(document).ready(function() {
 
 			$("#js-nav-1").mouseover(function() {
-				$("#js-nav-1").children("span").css("color","white");
+				$("#js-nav-1").children("span").css("color", "white");
 				$("#js-nav-3").mouseout(function() {
 
 				});
 			});
-			
+
 			$("#js-nav-3").mouseover(function() {
 				$("#js-nav-2").children("span").removeClass("color-lanlv");
 				$("#js-nav-2").children("span").addClass("color-white");
