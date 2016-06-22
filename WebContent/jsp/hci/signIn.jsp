@@ -54,22 +54,22 @@
 				id="js-nav-6">门店</a>
 		</div>
 		<div class="main-panel">
-			<fieldset class="">
-		 	<legend class="">登录</legend>
-		 	<form action="/DessertHouse/signInValidate" method="post" class="">
-		 		<div class="form-group">
-      				<label class="">手机号</label>
-      				<s:textfield name="tel" class="form-control"/>
-         	
-   				</div>
-   				<div class="form-group">
-      				<label class="">密码</label>
-      				<s:password name="password" class="form-control"/>
-   				</div>
-   				<input type="submit" class="btn btn-success " value="登陆">
-			</form>
-			<br/>
-         	</fieldset>
+			<div class="signin-panel">
+				<div class="signin-div">
+					<div class="signin-label">会 员 登 录</div>
+				 	<form action="/DessertHouse/signInValidate" method="post" class="">
+				 		<div class="">
+		      				<s:textfield name="tel" id="js-input" class="signin-input" placeholder="请输入手机号"  onblur="myFunction(this);"/>
+		         	
+		   				</div>
+		   				<div class="">
+		      				<s:password name="password" class="signin-input" placeholder="请输入密码"/>
+		   				</div>
+		   				<input type="submit" class="signin-btn" value="登陆" id="sign-btn"/>
+		   				</form>
+				</div>
+			</div>
+			
 		</div>
 
 
@@ -86,6 +86,33 @@
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript">
+	function myFunction(obj){
+		var text = $("#js-input").val();
+		var myArray=new Array();
+		<%
+			for(int i=0;i<telList.size();i++){
+				%>
+				myArray[<%=i %>] = <%=telList.get(i) %>
+				<%
+			}
+		%>
+		var x = 0;
+		if(text.length>0){
+			for(var i=0;i<myArray.length;i++){
+				if(text==myArray[i]){
+					x=1;
+				}
+			}
+		}else{
+			x = 2;
+		}
+		alert(x);
+		if(x==1){
+			//账号正确
+		}else if(x==0){
+			//账号不存在
+		}
+	}
 		$(document).ready(function() {
 			$("#js-nav-2").mouseover(function() {
 				$("#js-nav-1").children("span").removeClass("color-black");
@@ -137,6 +164,15 @@
 				});
 			});
 		})
+		
+		$("#sign-btn").mouseover(function() {
+			$("#sign-btn").css("background", "rgba(41,205,181,0.8)");
+			$("#sign-btn").css("color", "rgba(255,255,255,0.8)");
+				$("#sign-btn").mouseout(function() {
+					$("#sign-btn").css("background", " rgba(41,205,181,1)");
+					$("#sign-btn").css("color", "white");
+				});
+			});
 	</script>
 </body>
 </html>
