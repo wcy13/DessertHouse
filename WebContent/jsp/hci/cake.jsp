@@ -10,6 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style_hci.css" rel="stylesheet">
+<link href="css/style_nxf.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <title>凯罗伊西点 · 蛋糕</title>
@@ -79,6 +80,15 @@
 				id="js-nav-6">门店</a>
 		</div>
 		<div class="main-panel">
+			<div class="bread-nav-div">
+				<a href="/DessertHouse/index" class="bread-nav-item">首页</a>
+				<span class="bread-nav-label"> > </span>
+				<span class="bread-nav-now">蛋糕名录</span>
+			</div>
+			<div class="bread-filter">
+				<span class="bread-nav-label">蛋糕分类 : </span>
+				<a href = "javascript: alert('test');" class="bread-filter-item active">不限</a>
+			</div>
 			<%
 				for(ProductCategory pc:pcList){
 					List<Dessert> l = pdMap.get(pc.getPcid());

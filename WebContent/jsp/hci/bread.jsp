@@ -10,6 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style_hci.css" rel="stylesheet">
+<link href="css/style_ly.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <title>凯罗伊西点 · 面包</title>
@@ -74,10 +75,8 @@
 				id="js-nav-6">门店</a>
 		</div>
 		<div class="main-panel">
-			
+			here
 		</div>
-
-
 	</div>
 
 	<div class="float-bar">
