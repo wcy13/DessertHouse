@@ -333,7 +333,7 @@ body{
 	background:#fff; 
 }
 .signin-div{
-	width:400px;
+	width:560px;
 	height:300px;
 	margin-left:auto;
 	margin-right:auto;
@@ -351,7 +351,7 @@ body{
 	font-family:微软雅黑;
 	width:320px;
 	height:40px;
-	margin-left:40px;
+	margin-left:120px;
 	margin-top:20px;
 	padding-left:20px;
 	backgroud-color:#000;
@@ -362,7 +362,7 @@ body{
 	font-family:微软雅黑;
 	width:320px;
 	height:40px;
-	margin-left:40px;
+	margin-left:120px;
 	margin-top:20px;
 	background: rgba(41,205,181,1);
 	font-size:18px;
@@ -371,4 +371,10 @@ body{
 }
 .signin-input:focus {
     border:1px solid rgba(41,205,181,0.8);
+}
+.input-check{
+	font-family:微软雅黑;
+}
+.color-red{
+	color:#E84A5F;
 }

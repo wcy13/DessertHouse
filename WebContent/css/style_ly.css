@@ -51,11 +51,11 @@
 .cart-plain-div{
 	width:100%;
 	height:25%;
-	background:#9bf4d5;
+	background:rgba(155,214,213,0.2);
 	border-bottom:1px solid #fff;
-	font-size:20px;
+	font-size:18px;
 	font-family:微软雅黑;
-	color:#fff;
+	color:rgba(41,205,181,0.8);
 }
 
 .cart-content-div{
@@ -63,11 +63,12 @@
 	height:25%;
 	line-height:45px;
 	overflow:hidden;
-	background:#9bf4d5;
+	background:rgba(155,214,213,0.2);
 	border-bottom:1px solid #fff;
-	color:#fff;
-	font-size:20px;
+	color:rgba(41,205,181,0.8);
+	font-size:18px;
 	font-family:微软雅黑;
+	padding-left:10px;
 }
 
 .add-icon{
@@ -83,78 +84,77 @@
 
 .cart-content-div:hover
 {
-	background:#29cdb5;
+	background:rgba(155,214,213,0.4);
 	cursor:pointer;
 }
 
 .minus-item{
-	color:#fff;
-	font-size:20px;
+	color:rgba(41,205,181,0.8);
+	font-size:14px;
 	float:left;
-	margin-left:15px;
-	margin-top:7.5px;
-	margin-right:15px;
-	width:30px;
-	height:30px;
-	line-height:30px;
+	margin-left:17.5px;
+	margin-top:10px;
+	margin-right:17.5px;
+	width:25px;
+	height:25px;
+	line-height:25px;
 	overflow:hidden;
-	border:2px solid #fff;
+	border:1px solid rgba(41,205,181,0.8);
 }
 
 .plus-item{
-	color:#fff;
-	font-size:20px;
+	color:rgba(41,205,181,0.8);
+	font-size:14px;
 	float:left;
-	margin-left:15px;
-	margin-top:7.5px;
-	margin-right:15px;
-	width:30px;
-	height:30px;
-	line-height:30px;
+	margin-left:17.5px;
+	margin-top:10px;
+	margin-right:17.5px;
+	width:25px;
+	height:25px;
+	line-height:25px;
 	overflow:hidden;
-	border:2px solid #fff;
+	border:1px solid rgba(41,205,181,0.8);
 }
 
 .input-item{
 	float:left;
-	margin-top:7.5px;
+	margin-top:10px;
 	width:60px;
-	height:30px;
-	line-height:30px;
+	height:25px;
+	line-height:25px;
 	overflow:hidden;
-	border:2px solid #fff;
+	border:1px solid rgba(41,205,181,0.8);
 	text-align:center;
 	outline: none;
-	color:black
+	color:#29cdb5;
+	font-size:10px;
 }
 
 .cal{
-	margin-left:5px;
-	margin-top:4px;
+	margin-left:6px;
+	margin-top:5px;
 }
 
 .minus-item:hover{
-	border:2px solid #29cdb5;
-	background:#fff;
-	color:#29cdb5;
+	background:rgba(155,214,213,0.4);
+	color:#fff;
 	cursor:pointer;
 }
 
 a:active{
-	color:#fff;
+	color:rgba(41,205,181,0.8);
 }
 a:visited:{
-	color:#fff;
+	color:rgba(41,205,181,0.8);
 }
 a:link{
-	color:#fff;
+	color:rgba(41,205,181,0.8);
 }
 
 .plus-item:hover
 {
-	border:2px solid #29cdb5;
-	background:#fff;
-	color:#29cdb5;
+	background:rgba(155,214,213,0.4);
+	color:#fff;
 	cursor:pointer;
 }
 

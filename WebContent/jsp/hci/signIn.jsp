@@ -60,7 +60,7 @@
 				 	<form action="/DessertHouse/signInValidate" method="post" class="">
 				 		<div class="">
 		      				<s:textfield name="tel" id="js-input" class="signin-input" placeholder="请输入手机号"  onblur="myFunction(this);"/>
-		         	
+		         			<label id="js-check-label"></label>
 		   				</div>
 		   				<div class="">
 		      				<s:password name="password" class="signin-input" placeholder="请输入密码"/>
@@ -106,11 +106,12 @@
 		}else{
 			x = 2;
 		}
-		alert(x);
 		if(x==1){
 			//账号正确
+			$("#js-check-label").html('<span class="input-check color-lanlv"><i class="fa fa-check fa-fw"></i></span>');
 		}else if(x==0){
 			//账号不存在
+			$("#js-check-label").html('<span class="input-check color-red"><i class="fa fa-close fa-fw"></i>账号不存在</span>');
 		}
 	}
 		$(document).ready(function() {
