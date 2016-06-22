@@ -17,7 +17,19 @@ public class OrderDetail implements Serializable{
 	private int did;
 	private double price;
 	private int amount;
+	private String discription;
 	public OrderDetail(){}
+	
+	public OrderDetail(int odid, int oid, int did, double price, int amount, String discription) {
+		super();
+		this.odid = odid;
+		this.oid = oid;
+		this.did = did;
+		this.price = price;
+		this.amount = amount;
+		this.discription = discription;
+	}
+
 	public OrderDetail(int odid, int oid, int did, double price, int amount) {
 		super();
 		this.odid = odid;
@@ -55,6 +67,12 @@ public class OrderDetail implements Serializable{
 	}
 	public void setAmount(int amount) {
 		this.amount = amount;
+	}
+	public String getDiscription() {
+		return discription;
+	}
+	public void setDiscription(String discription) {
+		this.discription = discription;
 	}
 	
 	

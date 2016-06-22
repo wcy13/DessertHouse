@@ -15,9 +15,20 @@ public class Dessert implements Serializable{
 	private String image;
 	private int pcid;
 	private double price;
+	private String discription;
 	
 	public Dessert(){}
 	
+	public Dessert(int did, String name, String image, int pcid, double price, String discription) {
+		super();
+		this.did = did;
+		this.name = name;
+		this.image = image;
+		this.pcid = pcid;
+		this.price = price;
+		this.discription = discription;
+	}
+
 	public Dessert(int did, String name, String image, int pcid, double price) {
 		super();
 		this.did = did;
@@ -74,6 +85,14 @@ public class Dessert implements Serializable{
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	public String getDiscription() {
+		return discription;
+	}
+
+	public void setDiscription(String discription) {
+		this.discription = discription;
 	}
 	
 }

@@ -115,6 +115,10 @@
 				id="js-nav-6">门店</a>
 		</div>
 		<div class="main-panel">
+		<div class="bread-nav-div">
+				<a href="/DessertHouse/index" class="bread-nav-item">首页</a> <span
+					class="bread-nav-label"> > </span> <span class="bread-nav-now">购物车</span>
+			</div>
 			<%
 			Iterator<TestCakeVO> iterator = orderedCakes.iterator();
 		%>

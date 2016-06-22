@@ -69,6 +69,7 @@ public class DessertDaoImpl implements DessertDao{
 			d.setImage((String) obj[2]);
 			d.setPcid((int) obj[3]);
 			d.setPrice((double) obj[4]);
+			d.setDiscription((String) obj[5]);
 			list.add(d);
 		}
 		return list;
@@ -76,7 +77,7 @@ public class DessertDaoImpl implements DessertDao{
 
 	@Override
 	public List<Dessert> getAllDessertListWithoutCake() {
-		String sql = "select d.did,d.name,d.image,d.pcid,d.price "
+		String sql = "select d.did,d.name,d.image,d.pcid,d.price,d.discription "
 				+ "from dessert d join productcategory pc on d.pcid=pc.pcid "
 				+ "where pc.ppcid!=2";
 
@@ -89,6 +90,7 @@ public class DessertDaoImpl implements DessertDao{
 			d.setImage((String) obj[2]);
 			d.setPcid((int) obj[3]);
 			d.setPrice((double) obj[4]);
+			d.setDiscription((String) obj[5]);
 			list.add(d);
 		}
 		return list;

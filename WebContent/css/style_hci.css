@@ -224,12 +224,14 @@ body{
 	margin-left:6px;
 }
  .pro-item-img{
- 	width:195px; 
+ 	width:160px; 
+ 	display:block; margin:0 auto;
+ 	padding-top:10px;
  } 
  .pro-item-label{
  	font-family:微软雅黑;
  	margin-left:15px;
- 	margin-top:30px;
+ 	margin-top:40px;
  }
  .pro-item-money{
  font-size:22px;
@@ -239,11 +241,10 @@ body{
 .pro-item-add:visited,
 .pro-item-add:active {
 	display: inline-block;
-	margin-left:20px;
+	margin-left:45px;
 	text-decoration:none;
     color: gray;
     font-size:14px;
-    width:100px;
     padding:5px 10px;
     backgroud-color:rgba(0,0,0,0.5);
     
