@@ -1,1 +1,170 @@
 @CHARSET "UTF-8";
+.bread-content-div
+{
+	width:100%;
+	height:200px;
+	margin-top:10px;
+	background:#fff;
+	border: 1px solid #29cdb5;
+}
+
+.bread-img-item
+{
+	float:left;
+	margin-top:10px;
+	margin-left:10px;
+	width:180px;
+}
+
+.bread-dscription-div{
+	width:500px;
+	float:left;
+	margin-left:10px;
+	margin-top:10px;
+	font-family:微软雅黑;
+}
+
+.bread-name-div{
+	margin-bottom:30px;
+}
+
+.bread-price-div{
+	float:left;
+	height:200px;
+	line-height:200px;
+	overflow:hidden;
+	margin-left:40px;
+	
+	color:#2d1514;
+	font-size:36px;
+	font-family:微软雅黑;
+}
+
+.bread-cart-div{
+	width:180px;
+	height:180px;
+	float:right;
+	margin-top:10px;
+	margin-right:10px;
+}
+
+.cart-plain-div{
+	width:100%;
+	height:25%;
+	background:#9bf4d5;
+	border-bottom:1px solid #fff;
+	font-size:20px;
+	font-family:微软雅黑;
+	color:#fff;
+}
+
+.cart-content-div{
+	width:100%;
+	height:25%;
+	line-height:45px;
+	overflow:hidden;
+	background:#9bf4d5;
+	border-bottom:1px solid #fff;
+	color:#fff;
+	font-size:20px;
+	font-family:微软雅黑;
+}
+
+.add-icon{
+	float:left;
+	margin-left:20px;
+	margin-top:13px;
+}
+
+.add-text{
+	float:left;
+	margin-left:10px;
+}
+
+.cart-content-div:hover
+{
+	background:#29cdb5;
+	cursor:pointer;
+}
+
+.minus-item{
+	color:#fff;
+	font-size:20px;
+	float:left;
+	margin-left:15px;
+	margin-top:7.5px;
+	margin-right:15px;
+	width:30px;
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	border:2px solid #fff;
+}
+
+.plus-item{
+	color:#fff;
+	font-size:20px;
+	float:left;
+	margin-left:15px;
+	margin-top:7.5px;
+	margin-right:15px;
+	width:30px;
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	border:2px solid #fff;
+}
+
+.input-item{
+	float:left;
+	margin-top:7.5px;
+	width:60px;
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	border:2px solid #fff;
+	text-align:center;
+	outline: none;
+	color:black
+}
+
+.cal{
+	margin-left:5px;
+	margin-top:4px;
+}
+
+.minus-item:hover{
+	border:2px solid #29cdb5;
+	background:#fff;
+	color:#29cdb5;
+	cursor:pointer;
+}
+
+a:active{
+	color:#fff;
+}
+a:visited:{
+	color:#fff;
+}
+a:link{
+	color:#fff;
+}
+
+.plus-item:hover
+{
+	border:2px solid #29cdb5;
+	background:#fff;
+	color:#29cdb5;
+	cursor:pointer;
+}
+
+.bread-name-item{
+	color:#2d1514;
+	font-size:24px;
+	font-family:微软雅黑;
+}
+.bread-price-item{
+	color:#2d1514;
+	font-size:36px;
+	font-family:微软雅黑;
+}
