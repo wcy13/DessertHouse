@@ -86,8 +86,11 @@
 			<p><%=o.getOid()%>-<%=o.getCid()%></p>
 				<%
 					for (OrderDetailVO odvo : od) {
+						if(odvo.getDiscription()==null){
+							System.out.println("null");
+						}
 				%>
-				<p><%=odvo.getDid() %>-<%=odvo.getDname() %><%=odvo.getAmount() %>-<%=odvo.getPrice() %></p>
+				<p><%=odvo.getDid() %>-<%=odvo.getDname() %><%=odvo.getAmount() %>-<%=odvo.getPrice() %>-<%=odvo.getDiscription() %></p>
 			<%
 					}
 				}

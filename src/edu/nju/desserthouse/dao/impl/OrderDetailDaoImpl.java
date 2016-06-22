@@ -47,7 +47,7 @@ public class OrderDetailDaoImpl implements OrderDetailDao{
 
 	@Override
 	public List<OrderDetailVO> getAllOrderDetailList(int oid) {
-		String sql = "SELECT od.odid,od.oid,od.did,od.price,od.amount,d.name,d.image FROM desserthouse.orderdetail od join dessert d on od.did=d.did where od.oid="+oid;
+		String sql = "SELECT od.odid,od.oid,od.did,od.price,od.amount,od.discription,d.name,d.image FROM desserthouse.orderdetail od join dessert d on od.did=d.did where od.oid="+oid;
 
 		List<Object[]> objects = baseDao.querySQL(sql);
 		List<OrderDetailVO> list = new ArrayList<OrderDetailVO>();
@@ -58,8 +58,9 @@ public class OrderDetailDaoImpl implements OrderDetailDao{
 			od.setDid((int) obj[2]);
 			od.setPrice((double) obj[3]);
 			od.setAmount((int) obj[4]);
-			od.setDname((String) obj[5]);
-			od.setImage((String) obj[6]);
+			od.setDiscription((String) obj[5]);
+			od.setDname((String) obj[6]);
+			od.setImage((String) obj[7]);
 			list.add(od);
 		}
 		return list;

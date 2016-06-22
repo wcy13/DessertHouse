@@ -6,6 +6,7 @@ public class OrderDetailVO {
 	private int did;
 	private double price;
 	private int amount;
+	private String discription;
 	private String dname;
 	private String image;
 	public int getOdid() {
@@ -50,6 +51,12 @@ public class OrderDetailVO {
 	public void setImage(String image) {
 		this.image = image;
 	}
+	public String getDiscription() {
+		return discription;
+	}
+	public void setDiscription(String discription) {
+		this.discription = discription;
+	}
 	public OrderDetailVO(){}
 	public OrderDetailVO(int odid, int oid, int did, double price, int amount, String dname, String image) {
 		super();
@@ -58,6 +65,18 @@ public class OrderDetailVO {
 		this.did = did;
 		this.price = price;
 		this.amount = amount;
+		this.dname = dname;
+		this.image = image;
+	}
+	public OrderDetailVO(int odid, int oid, int did, double price, int amount, String discription, String dname,
+			String image) {
+		super();
+		this.odid = odid;
+		this.oid = oid;
+		this.did = did;
+		this.price = price;
+		this.amount = amount;
+		this.discription = discription;
 		this.dname = dname;
 		this.image = image;
 	}
