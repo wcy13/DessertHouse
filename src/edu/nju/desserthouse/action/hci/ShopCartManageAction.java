@@ -1,11 +1,8 @@
 package edu.nju.desserthouse.action.hci;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import edu.nju.desserthouse.action.BaseAction;
 
 public class ShopCartManageAction extends BaseAction{
-	@Autowired
 	private String type;
 	private int did;
 	
