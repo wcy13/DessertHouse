@@ -327,6 +327,10 @@
 		<action name="cakeSpeci" class="CakeSpeciAction">
 			<result name="cakeSpeci">/jsp/hci/cakeSpeci.jsp</result>
 		</action>
+		
+		<action name="shopCartManage" class="ShopCartManageAction">
+			<result name="shopCartManage">/jsp/hci/index.jsp</result>
+		</action>
 	</package>
 </struts>
 

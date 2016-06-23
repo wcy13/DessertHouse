@@ -21,9 +21,9 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/desserthouse?characterEncoding=utf-8" />
-		<property name="username" value="root" />
-		<property name="password" value="" />
+			value="jdbc:mysql://192.168.45.99:3306/desserthouse?characterEncoding=utf-8" />
+		<property name="username" value="ly" />
+		<property name="password" value="ly1996.3.17" />
 	</bean>
 
 	<!-- 配置sessionFactory -->
@@ -546,6 +546,9 @@
 	<bean id="CakeSpeciAction" class="edu.nju.desserthouse.action.hci.CakeSpeciAction">
 		<property name="dessertService" ref="dessertService"></property>
 		<property name="productCategoryService" ref="productCategoryService"></property>
+	</bean>
+	
+	<bean id="ShopCartManageAction" class="edu.nju.desserthouse.action.hci.ShopCartManageAction">
 	</bean>
 	
 	<!-- 定义 Autowired 自动注入 bean -->
