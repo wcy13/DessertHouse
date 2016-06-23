@@ -16,7 +16,7 @@
 <title>凯罗伊西点 · 面包</title>
 </head>
 <%
-	List<Dessert> dessertList = (List<Dessert>)request.getAttribute("dessertList");
+	List<Dessert> dessertList = (List<Dessert>) request.getAttribute("dessertList");
 %>
 <body>
 	<div class="main">
@@ -84,39 +84,45 @@
 					class="bread-nav-label"> > </span> <span class="bread-nav-now">面包名录</span>
 			</div>
 			<%
-				for(Dessert d:dessertList){
+				for (Dessert d : dessertList) {
 			%>
 			<div class="bread-content-div padding-left-30">
-				<img src="<%=d.getImage() %>" class="bread-img-item"></img>
+				<img src="<%=d.getImage()%>" class="bread-img-item"></img>
 				<div class="bread-dscription-div">
 					<div class="bread-name-div padding-left-30 padding-top-20">
-						<span class="bread-name-item"><%=d.getName() %></span>
+						<span class="bread-name-item"><%=d.getName()%></span>
 					</div>
 					<div class="padding-left-30">
-						<span class="bread-description-item"><%=d.getDiscription() %></span>
+						<span class="bread-description-item"><%=d.getDiscription()%></span>
 					</div>
 				</div>
-				<div class="bread-price-div">￥<%=d.getPrice() %></div>
+				<div class="bread-price-div">
+					￥<%=d.getPrice()%></div>
 
 				<div class="bread-cart-div">
 					<div class="cart-plain-div"></div>
 					<div class="cart-content-div">
 						<i class="fa fa-plus-circle fa-lg add-icon"></i>
-						<div class="add-text">加入购物车</div>
+						<div class="add-text"
+							id='<%=d.getDid()%>-<%= d.getName()%>-<%=d.getImage()%>-<%=d.getPrice()%>'
+							onclick="addCart(this)">加入购物车</div>
 					</div>
 					<div class="cart-plain-div">
-						<a href="javascript:void(0);" onclick="delFunc()"
+						<a href="javascript:void(0);" onclick="delFunc(this)" id = 'del-mount-<%= d.getDid()%>'
 							class="minus-item"><i class="fa fa-minus cal"></i></a> 
 							<input
-							class="input-item" type="text" value="1" name="g" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/> 
-							<a
-							href="javascript:void(0);" onclick="addFunc()" class="plus-item"><i
-							class="fa fa-plus cal"></i></a>
+							class="input-item" id = 'buy-amount-<%= d.getDid()%>' type="text" value="1" name="g"
+							onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
+							onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" />
+						<a href="javascript:void(0);" onclick="addFunc(this)" id = 'add-mount-<%= d.getDid()%>'
+							class="plus-item"><i class="fa fa-plus cal"></i></a>
 					</div>
 					<div class="cart-plain-div"></div>
 				</div>
 			</div>
-			<%} %>
+			<%
+				}
+			%>
 		</div>
 	</div>
 
@@ -185,21 +191,67 @@
 			});
 		})
 	</script>
-	<script>
-		function addFunc() {
-			var i = $("input[name='g']").val();
-			i++;
-			var input = $("input[name='g']");
-			input[0].value = i;
+	<script type="text/javascript">
+		function addFunc(obj) {
+			var id = obj.getAttribute("id");
+			arr = id.split('-');
+			var tmpId = "#buy-amount-"+arr[2];
+			var mount = $(tmpId)[0].value;
+			//alert(mount);
+			mount ++;
+			$(tmpId)[0].value = mount;
 		}
-		function delFunc() {
-			var i = $("input[name='g']").val();
-			if (i == 1)
+		function delFunc(obj) {
+			var id = obj.getAttribute("id");
+			arr = id.split('-');
+			var tmpId = "#buy-amount-"+arr[2];
+			var mount = $(tmpId)[0].value;
+			if(mount == 1)
 				return;
-			i--;
-			var input = $("input[name='g']");
-			input[0].value = i;
+			//alert(mount);
+			mount --;
+			$(tmpId)[0].value = mount;
 		}
+	</script>
+
+	<script type="text/javascript">
+		function addCart(obj) {
+			var max = obj.getAttribute("id");
+			arr = max.split('-');
+			var id = arr[0];
+			var dname = arr[1];
+			var img = arr[2];
+			var dprice = arr[3];
+			
+			var tmpId = "#buy-amount-"+id;
+			//alert(tmpId);
+			var dcount = $(tmpId).val();
+			
+			var dtype = "addItem";
+			
+			//alert(id +" id: "+ dcount +" count: ");
+			
+			$.ajax({
+				type : "post",
+				url : "/DessertHouse/shopCartManage",
+				async : false,
+				data : {
+					did: id,
+					name: dname,
+					image: img,
+					price: dprice,
+					count: dcount,
+					type: dtype,
+				},
+				success : function(data) {
+					alert("success");
+					location.reload();
+				},
+				error : function() {
+					alert("购买失败");
+				}
+			});
+			}
 	</script>
 </body>
 </html>

@@ -329,7 +329,7 @@
 		</action>
 		
 		<action name="shopCartManage" class="ShopCartManageAction">
-			<result name="shopCartManage">/jsp/hci/index.jsp</result>
+			<result name="bread">/jsp/hci/index.jsp</result>
 		</action>
 	</package>
 </struts>

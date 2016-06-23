@@ -106,42 +106,42 @@
 					<img src="img/dessert/16.png" class="pro-item-img"  >
 					<div class="pro-item-label">
 						<span class="pro-item-money">¥18</span>
-						<a href="" class="pro-item-add" id="js-11">加入购物车</a>
+						<a href="javascript:void(0);"  onclick="addCart(this)" class="pro-item-add" id="js-11-迷你披萨风味面包-img/dessert/16.png-18">加入购物车</a>
 					</div>
 				</div>
 				<div class="pro-item margin-6">
 					<img src="img/dessert/11.jpg" class="pro-item-img"  >
 					<div class="pro-item-label">
 						<span class="pro-item-money">¥15</span>
-						<a href="" class="pro-item-add" id="js-6">加入购物车</a>
+						<a href="javascript:void(0);" onclick="addCart(this)" class="pro-item-add" id="js-6-奶油芝士面包-img/dessert/11.jpg-15">加入购物车</a>
 					</div>
 				</div>
 				<div class="pro-item margin-6">
 					<img src="img/dessert/12.jpg" class="pro-item-img"  >
 					<div class="pro-item-label">
 						<span class="pro-item-money">¥16</span>
-						<a href="" class="pro-item-add" id="js-7">加入购物车</a>
+						<a href="javascript:void(0);" onclick="addCart(this)" class="pro-item-add" id="js-7-红豆奶油包-img/dessert/12.jpg-16">加入购物车</a>
 					</div>
 				</div>
 				<div class="pro-item margin-6">
 					<img src="img/dessert/13.jpg" class="pro-item-img"  >
 					<div class="pro-item-label">
 						<span class="pro-item-money">¥10</span>
-						<a href="" class="pro-item-add" id="js-8">加入购物车</a>
+						<a href="javascript:void(0);" onclick="addCart(this)" class="pro-item-add" id="js-8-蒜香酥菠萝包-img/dessert/13.jpg-10">加入购物车</a>
 					</div>
 				</div>
 				<div class="pro-item margin-6">
 					<img src="img/dessert/20.jpg" class="pro-item-img"  >
 					<div class="pro-item-label">
 						<span class="pro-item-money">¥20</span>
-						<a href="" class="pro-item-add" id="js-14">加入购物车</a>
+						<a href="javascript:void(0);" onclick="addCart(this)" class="pro-item-add" id="js-14-黑糖核桃卷-img/dessert/20.jpg-20">加入购物车</a>
 					</div>
 				</div>
 				<div class="pro-item margin-6">
 					<img src="img/dessert/17.jpg" class="pro-item-img"  >
 					<div class="pro-item-label">
 						<span class="pro-item-money">¥14</span>
-						<a href="" class="pro-item-add" id="js-16">加入购物车</a>
+						<a href="javascript:void(0);" onclick="addCart(this)" class="pro-item-add" id="js-16-芝士蒸蛋糕-img/dessert/17.jpg-14">加入购物车</a>
 					</div>
 				</div>
 			</div>
@@ -212,6 +212,44 @@
 				});
 			});
 		})
+	</script>
+	
+	<script type="text/javascript">
+		function addCart(obj) {
+			var max = obj.getAttribute("id");
+			arr = max.split('-');
+			var id = arr[1];
+			var dname = arr[2];
+			var img = arr[3];
+			var dprice = arr[4];
+			
+			var dcount = 1;
+			
+			var dtype = "addItem";
+			
+			//alert(id +" id: "+ dcount +" count: ");
+			
+			$.ajax({
+				type : "post",
+				url : "/DessertHouse/shopCartManage",
+				async : false,
+				data : {
+					did: id,
+					name: dname,
+					image: img,
+					price: dprice,
+					count: dcount,
+					type: dtype,
+				},
+				success : function(data) {
+					alert("success");
+					location.reload();
+				},
+				error : function() {
+					alert("购买失败");
+				}
+			});
+			}
 	</script>
 </body>
 </html>
