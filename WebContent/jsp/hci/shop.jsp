@@ -15,10 +15,9 @@
 <title>凯罗伊西点 · 门店</title>
 </head>
 <%
-	ShopListVO slvo = (ShopListVO)request.getAttribute("slvo");
-	List<Shop> shopList = slvo.shopList;
-	List<District> districtList = slvo.districtList;
-	HashMap<Integer,List<Shop>> dpMap = slvo.dpMap;
+	List<Shop> shopList = (List<Shop>)request.getAttribute("sList");
+	List<District> districtList = (List<District>)request.getAttribute("disList");
+	int disid = (int)request.getAttribute("disid");
 %>
 <body>
 	<div class="main">
@@ -80,14 +79,50 @@
 				id="js-nav-6">门店</a>
 		</div>
 		<div class="main-panel">
-		<a href="/DessertHouse/onlineOrder">在线点单</a>
-			<%
-			for(Shop s:shopList){
-			%>
-			<p>
-			<%=s.getDisname() %>-<%=s.getSname() %>
-			</p>
-		<%} %>
+
+				<div class="bread-nav-div">
+					<a href="/DessertHouse/index" class="bread-nav-item">首页</a> <span
+						class="bread-nav-label"> > </span> <span class="bread-nav-now">门店搜索</span>
+				</div>
+				<div class="shop-panel">
+					<div class="shop-filter">
+						<select class="shop-select" id="js-select-dis" onchange=disChange()>
+							<option value='0'>所有地区</option>
+							<%
+								for (District dis : districtList) {
+							%>
+								<option value='<%=dis.getDisid() %>'
+								<%if (dis.getDisid() == disid) {%> selected="selected" <%}%>><%=dis.getDisname()%></option>
+							<%
+								}
+							%>
+		      			</select>
+					</div>
+					<div class="shop-table-div">
+						<table class="shop-table">
+							<tr class="table-head">
+								<th class="sname">门店</th>
+								<th class="sadd">地址</th>
+								<th class="stel">联系电话</th>
+								<th class="sbtn"></th>
+							</tr>
+							
+							<tbody>
+								<%
+									for(Shop shop:shopList){
+								%>
+								<tr class="table-row">
+									<td class="sname text-align-center"><%=shop.getSname() %></td>
+									<td class="sadd padding-left-70"><%=shop.getAddress() %></td>
+									<td class="stel text-align-center"><%=shop.getStel() %></td>
+									<td class="sbtn padding-left-30"><a href="/DessertHouse/onlineOrder" class="shop-enter-btn" id="<%=shop.getSid() %>">在线点餐</a></td>
+								</tr>
+								<%} %>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			
 		</div>
 
 
@@ -104,6 +139,23 @@
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript">
+	function disChange(){
+		var disId = $("#js-select-dis").val();
+		$.ajax({
+			type : "post",
+			url : "/DessertHouse/shop",
+			async : false,
+			data : {
+				disid:disId,
+			},
+			success : function(data) {
+				location.reload();
+			},
+			error : function() {
+				alert("fail");
+			}
+		});
+	}
 		$(document).ready(function() {
 			$("#js-nav-2").mouseover(function() {
 				$("#js-nav-1").children("span").removeClass("color-lanlv");
@@ -147,6 +199,7 @@
 			});
 
 		})
+		
 	</script>
 </body>
 </html>

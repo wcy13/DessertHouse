@@ -16,7 +16,18 @@
 .color-lanlv{
 	color: #29cdb5;
 }
-
+.color-red{
+	color:#E84A5F;
+}
+.text-align-center{
+	text-align:center;
+}
+.padding-left-70{
+	padding-left:70px;
+}
+.padding-left-30{
+	padding-left:30px;
+}
 /*common部分*/
 .main{
 	width: 1200px;
@@ -375,6 +386,81 @@ body{
 .input-check{
 	font-family:微软雅黑;
 }
-.color-red{
-	color:#E84A5F;
+
+
+.shop-panel{
+	width:100%;
+	margin-top:10px;
+}
+.shop-filter{
+	width:100%;
+	height:70px;
+	background:#e0f2ee;
+}
+.shop-select{
+	color:#2e1312;
+	width:150px;
+	height:34px;
+	border:1px solid #c5c3c3;
+	font-family:微软雅黑;
+	padding-left:10px;
+	margin-left:20px;
+	margin-top:18px;
+	
+}
+.shop-table-div{
+	width:100%;
+}
+.shop-table{
+	width:100%;
+	font-family:微软雅黑;
+}
+.table-head{
+	height:40px;
+	color:white;
+	font-size:14px;
+	background:#444851;
+}
+.sname{
+	width:200px;
+}
+.sadd{
+	width:600px;
+}
+.stel{
+	width:200px;
+}
+.sbtn{
+	width:200px;
+}
+.table-head th{
+	text-align:center;
+}
+.table-row{
+	height:60px;
+	font-size:12px;
+	color:#2e1312;
+	background-color:white;
+	border-top:2px solid rgba(192,192,192,0.2);
+}
+
+.shop-enter-btn:link,
+.shop-enter-btn:visited,
+.shop-enter-btn:active {
+	display: inline-block;
+	text-decoration:none;
+    color: #2e1312;
+    font-size:12px;
+    height:35px;
+    width:130px;
+    overflow: hidden;
+    line-height: 35px;
+    border:1px solid #8e8c8c; 
+    text-align:center;
+    font-family:微软雅黑;
+}
+.shop-enter-btn:hover {
+    color: white;
+    background:#29cdb5;
+    border:1px solid #29cdb5;
 }
