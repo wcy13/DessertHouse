@@ -1,5 +1,7 @@
 package edu.nju.desserthouse.action.hci;
 
+import java.util.Enumeration;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import edu.nju.desserthouse.action.BaseAction;
@@ -21,6 +23,8 @@ public class OnlineOrderAction extends BaseAction{
 
 	@Override
 	public String execute() throws Exception {
+		Enumeration<String> es = request.getParameterNames();
+		String s = es.nextElement();
 		ShopListVO slvo = shopService.getShopListVO();
 		request.setAttribute("slvo", slvo);
 		CatProVO cpvo = shopService.getCatProVO();

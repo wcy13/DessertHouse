@@ -115,7 +115,12 @@
 									<td class="sname text-align-center"><%=shop.getSname() %></td>
 									<td class="sadd padding-left-70"><%=shop.getAddress() %></td>
 									<td class="stel text-align-center"><%=shop.getStel() %></td>
-									<td class="sbtn padding-left-30"><a href="/DessertHouse/onlineOrder" class="shop-enter-btn" id="<%=shop.getSid() %>">在线点餐</a></td>
+									<td class="sbtn padding-left-30">
+										<form method="post" action="/DessertHouse/onlineOrder">
+										<input class="shop-enter-btn" type="submit" name="<%=shop.getSid() %>-<%=shop.getDisname() %>-<%=shop.getSname() %>" value="在线点餐" />
+										</form>
+									</td>
+								
 								</tr>
 								<%} %>
 							</tbody>

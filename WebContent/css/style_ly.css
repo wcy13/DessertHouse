@@ -1,4 +1,7 @@
 @CHARSET "UTF-8";
+.display-none{
+	diaplay:none;
+}
 .bread-content-div
 {
 	width:100%;
