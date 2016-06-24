@@ -15,6 +15,7 @@
 <title>凯罗伊西点</title>
 </head>
 <body>
+	
 	<div class="main">
 		<div class="nav-top"> 
 			<a href="/DessertHouse/shoppingCart" class="nav-top-item float-right">购物车</a>
@@ -146,7 +147,7 @@
 				</div>
 			</div>
 		</div>
-
+<div id="toaster" class="toaster"></div>
 
 	</div>
 
@@ -160,8 +161,11 @@
 
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
 	<script type="text/javascript">
+	 
 		$(document).ready(function() {
+			//toaster("创建新公告成功！","success");
 			$("#js-nav-2").mouseover(function() {
 				$("#js-nav-1").children("span").removeClass("color-black");
 				$("#js-nav-1").children("span").addClass("color-white");
