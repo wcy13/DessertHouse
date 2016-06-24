@@ -103,6 +103,7 @@
 							<tr class="table-head">
 								<th class="sname">门店</th>
 								<th class="sadd">地址</th>
+								<th class="stel">营业时间</th>
 								<th class="stel">联系电话</th>
 								<th class="sbtn"></th>
 							</tr>
@@ -114,6 +115,7 @@
 								<tr class="table-row">
 									<td class="sname text-align-center"><%=shop.getSname() %></td>
 									<td class="sadd padding-left-70"><%=shop.getAddress() %></td>
+									<td class="stel text-align-center"><%=shop.getOpenTime() %></td>
 									<td class="stel text-align-center"><%=shop.getStel() %></td>
 									<td class="sbtn padding-left-30">
 										<form method="post" action="/DessertHouse/onlineOrder">

@@ -80,7 +80,7 @@
 		<div class="main-panel">
 						<div class="bread-nav-div">
 				<a href="/DessertHouse/index" class="bread-nav-item">首页</a> <span
-					class="bread-nav-label"> > </span> <span class="bread-nav-now">面包名录</span>
+					class="bread-nav-label"> > </span> <span class="bread-nav-now">其他商品</span>
 			</div>
 			<%
 				for (Dessert d : dessertList) {

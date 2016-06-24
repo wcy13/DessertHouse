@@ -444,23 +444,20 @@ body{
 	border-top:2px solid rgba(192,192,192,0.2);
 }
 
-.shop-enter-btn:link,
-.shop-enter-btn:visited,
-.shop-enter-btn:active {
-	display: inline-block;
-	text-decoration:none;
-    color: #2e1312;
-    font-size:12px;
-    height:35px;
-    width:130px;
-    overflow: hidden;
-    line-height: 35px;
-    border:1px solid #8e8c8c; 
-    text-align:center;
-    font-family:微软雅黑;
-}
+
 .shop-enter-btn:hover {
     color: white;
     background:#29cdb5;
     border:1px solid #29cdb5;
+}
+.shop-enter-btn{
+	display: inline-block;
+	font-family:微软雅黑;
+	width:130px;
+	height:35px;
+	text-align:center;
+	font-size:12px;
+	border:1px solid #8e8c8c; 
+	color:#2e1312;
+	background:white;
 }

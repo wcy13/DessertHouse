@@ -23,7 +23,9 @@
 	List<ProductCategory> productCategoryList = cpvo.productCategoryList;
 	List<Dessert> dessertList = cpvo.dessertList;
 	HashMap<Integer,List<Dessert>> cpMap = cpvo.cpMap;
-	System.out.println("here");
+	String sid = (String)session.getAttribute("sid");
+	String disname = (String)session.getAttribute("disname");
+	String sname = (String)session.getAttribute("sname");
 %>
 <body>
 	<div class="main">
@@ -85,6 +87,10 @@
 				id="js-nav-6">门店</a>
 		</div>
 		<div class="main-panel">
+			<div class="bread-nav-div">
+				<a href="/DessertHouse/index" class="bread-nav-item">首页</a> <span
+					class="bread-nav-label"> > </span> <span class="bread-nav-now">在线点单</span>
+			</div>
 			<%
 				for(ProductCategory c:productCategoryList){
 			%>
