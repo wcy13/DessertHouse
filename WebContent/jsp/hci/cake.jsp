@@ -100,77 +100,128 @@
 					class="bread-filter-itemLy">&nbsp;婚庆蛋糕&nbsp;</a>
 			</div>
 			<div class="cake-div" id='js-1'>
-			<%
-				for (Entry<Integer, List<Dessert>> entry : pdMap.entrySet()) {
-					List<Dessert> l = entry.getValue();
-					for(Dessert dessert:l){
-			%>
+				<%
+					for (Entry<Integer, List<Dessert>> entry : pdMap.entrySet()) {
+						List<Dessert> l = entry.getValue();
+						for (Dessert dessert : l) {
+				%>
 				<div class="bread-content-div padding-left-30">
-					<img src='<%=dessert.getImage() %>' class="bread-img-item"></img>
+					<img src='<%=dessert.getImage()%>' class="bread-img-item"></img>
 					<div class="bread-dscription-div">
 						<div class="bread-name-div padding-left-30 padding-top-20">
-							<span class="bread-name-item"><%=dessert.getName() %></span>
+							<span class="bread-name-item"><%=dessert.getName()%></span>
 						</div>
 						<div class="padding-left-30">
-							<span class="bread-description-item"><%=dessert.getDiscription() %></span>
+							<span class="bread-description-item"><%=dessert.getDiscription()%></span>
 						</div>
 					</div>
-					<div class="cake-price-div">￥<%=dessert.getPrice() %><%if(dessert.getPrice()<2000){ %>/1.0磅<%} %></div>
+					<div class="cake-price-div">
+						￥<%=dessert.getPrice()%>
+						<%
+							if (dessert.getPrice() < 2000) {
+						%>/1.0磅<%
+							}
+						%>
+					</div>
 					<div class="bread-cart-div">
-					<div class="cart-plain-div"></div>
-					<div class="cart-content-div">
-						<i class="fa fa-plus-circle fa-lg add-icon"></i>
-						<div class="add-text">加入购物车</div>
+						<div class="cart-plain-div"></div>
+						<div class="cart-content-div"
+							id="js-btn-div-<%=dessert.getDid()%> " onclick='change(this)'>
+							<form method="post" id="js-btn-<%=dessert.getDid()%>"
+								target="_blank" action="/DessertHouse/cakeSpeci">
+
+								<div class="">
+									<i class="fa fa-plus-circle fa-lg add-icon"></i>
+									<input  readonly="readonly" class="cake-input-btn" type="text" name="<%=dessert.getDid()%>" value="加入购物车" placeholder="加入购物车" />
+								</div>
+							</form>
+
+						</div>
+						<div class="cart-content-div"
+							id="js-btn-div1-<%=dessert.getDid()%> " onclick='change(this)'>
+							<form method="post" id="js-btn-<%=dessert.getDid()%>"
+								target="_blank" action="/DessertHouse/cakeSpeci">
+
+								<div class="">
+									<i class="fa fa-plus-circle fa-lg add-icon"></i>
+									<input  readonly="readonly" class="cake-input-btn" type="text" name="<%=dessert.getDid()%>" value="查看详情" placeholder="查看详情" />
+								</div>
+							</form>
+
+						</div>
+						<div class="cart-plain-div"></div>
 					</div>
-					<div class="cart-content-div">
-						<i class="fa fa-arrow-circle-right fa-lg add-icon"></i>
-						<div class="add-text">查看详情</div>
-					</div>
-					<div class="cart-plain-div"></div>
 				</div>
-				</div>
-			<% 
+				<%
 					}
+					}
+				%>
+
+			</div>
+
+			<%
+				for (int i = 2; i < pcList.size() + 2; i++) {
+					ProductCategory pc = pcList.get(i - 2);
+					List<Dessert> l = pdMap.get(pc.getPcid());
+			%>
+			<div class="cake-div" id='js-<%=i%>'>
+				<%
+					for (Dessert dessert : l) {
+				%>
+				<div class="bread-content-div padding-left-30">
+					<img src='<%=dessert.getImage()%>' class="bread-img-item"></img>
+					<div class="bread-dscription-div">
+						<div class="bread-name-div padding-left-30 padding-top-20">
+							<span class="bread-name-item"><%=dessert.getName()%></span>
+						</div>
+						<div class="padding-left-30">
+							<span class="bread-description-item"><%=dessert.getDiscription()%></span>
+						</div>
+					</div>
+					<div class="cake-price-div">
+						￥<%=dessert.getPrice()%>
+						<%
+							if (dessert.getPrice() < 2000) {
+						%>/1.0磅<%
+							}
+						%>
+					</div>
+					<div class="bread-cart-div">
+						<div class="cart-plain-div"></div>
+						<div class="cart-content-div"
+							id="js-btn-div-<%=dessert.getDid()%> " onclick='change(this)'>
+							<form method="post" id="js-btn-<%=dessert.getDid()%>"
+								target="_blank" action="/DessertHouse/cakeSpeci">
+
+								<div class="">
+									<i class="fa fa-plus-circle fa-lg add-icon"></i>
+									<input  readonly="readonly" class="cake-input-btn" type="text" name="<%=dessert.getDid()%>" value="加入购物车" placeholder="加入购物车" />
+								</div>
+							</form>
+
+						</div>
+						<div class="cart-content-div"
+							id="js-btn-div1-<%=dessert.getDid()%> " onclick='change(this)'>
+							<form method="post" id="js-btn-<%=dessert.getDid()%>"
+								target="_blank" action="/DessertHouse/cakeSpeci">
+
+								<div class="">
+									<i class="fa fa-plus-circle fa-lg add-icon"></i>
+									<input  readonly="readonly" class="cake-input-btn" type="text" name="<%=dessert.getDid()%>" value="查看详情" placeholder="查看详情" />
+								</div>
+							</form>
+
+						</div>
+						<div class="cart-plain-div"></div>
+					</div>
+				</div>
+				<%
+					}
+				%>
+			</div>
+			<%
 				}
 			%>
-				
-			</div>
-			
-			<%for(int i = 2;i<pcList.size()+2;i++){ 
-				ProductCategory pc = pcList.get(i-2);
-				List<Dessert> l = pdMap.get(pc.getPcid());
-			%>
-				<div class="cake-div" id='js-<%=i%>'>
-					<%
-						for(Dessert dessert:l){
-					%>
-						<div class="bread-content-div padding-left-30">
-					<img src='<%=dessert.getImage() %>' class="bread-img-item"></img>
-					<div class="bread-dscription-div">
-						<div class="bread-name-div padding-left-30 padding-top-20">
-							<span class="bread-name-item"><%=dessert.getName() %></span>
-						</div>
-						<div class="padding-left-30">
-							<span class="bread-description-item"><%=dessert.getDiscription() %></span>
-						</div>
-					</div>
-					<div class="cake-price-div">￥<%=dessert.getPrice() %><%if(dessert.getPrice()<2000){ %>/1.0磅<%} %></div>
-					<div class="bread-cart-div">
-					<div class="cart-plain-div"></div>
-					<div class="cart-content-div">
-						<i class="fa fa-plus-circle fa-lg add-icon"></i>
-						<div class="add-text">加入购物车</div>
-					</div>
-					<div class="cart-content-div">
-						<i class="fa fa-arrow-circle-right fa-lg add-icon"></i>
-						<div class="add-text">查看详情</div>
-					</div>
-					<div class="cart-plain-div"></div>
-				</div>
-				</div>
-					<%} %>
-				</div>
-			<%} %>
 		</div>
 
 
@@ -242,6 +293,13 @@
 		})
 	</script>
 	<script type="text/javascript">
+		function change(obj) {
+			var id = obj.getAttribute("id");
+			arr = id.split('-');
+			var did = arr[3];
+			did = "#js-btn-" + did;
+			$(did).submit();
+		}
 		function select(obj) {
 			$("#js-cake-1").removeClass("active");
 			$("#js-cake-2").removeClass("active");
@@ -252,13 +310,13 @@
 			arr = id.split('-');
 			var index = arr[2];
 			$("#js-cake-" + index).addClass("active");
-			
+
 			$("#js-1").hide();
 			$("#js-2").hide();
 			$("#js-3").hide();
 			$("#js-4").hide();
 			$("#js-5").hide();
-			$("#js-"+index).show();
+			$("#js-" + index).show();
 		}
 	</script>
 </body>

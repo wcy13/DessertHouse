@@ -10,13 +10,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style_hci.css" rel="stylesheet">
-<link href="css/style_nxf.css" rel="stylesheet">
+<link href="css/style_ly.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <title>凯罗伊西点 · 蛋糕详情</title>
 </head>
 <%
-	Dessert cake = (Dessert) request.getAttribute("cake");
+	Dessert d = (Dessert) request.getAttribute("cake");
 	ProductCategory pc = (ProductCategory) request.getAttribute("pc");
 %>
 <body>
@@ -82,12 +82,29 @@
 		<div class="main-panel">
 			<div class="bread-nav-div">
 				<a href="/DessertHouse/index" class="bread-nav-item">首页</a> <span
-					class="bread-nav-label"> > </span> 
-					<a href="/DessertHouse/cake" class="bread-nav-item"><%=pc.getPcname() %></a> <span
-					class="bread-nav-label"> > </span>
-					<span class="bread-nav-now"><%=cake.getName() %></span>
+					class="bread-nav-label"> > </span> <a href="/DessertHouse/cake"
+					class="bread-nav-item"><%=pc.getPcname()%></a> <span
+					class="bread-nav-label"> > </span> <span class="bread-nav-now"><%=d.getName()%></span>
 			</div>
-
+			<div class="cake-content-div">
+				<img src="<%=d.getImage()%>" class="cake-img-item"></img>
+				<div class="cake-right-div">
+					<div class="cake-name-div padding-top-20">
+						<span class="cake-name-item"><%=d.getName()%></span>
+					</div>
+					<div>
+						<span class="cake-price-label">价格：</span>
+						<span class="cake-price-text">￥198.0</span>
+						<span class="cake-avgprice-text">￥198.0/磅</span>
+					</div>
+					<div class = "spec-div">
+					<span class="cake-price-label">选择规格：</span>
+					<div>
+					
+					</div>
+					</div>
+				</div>
+			</div>
 		</div>
 
 
