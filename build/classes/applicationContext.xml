@@ -112,6 +112,10 @@
 	<bean id="promotionDao" class="edu.nju.desserthouse.dao.impl.PromotionDaoImpl">
 		<property name="baseDao" ref="baseDao"></property>
 	</bean>
+	
+	<bean id="cakediscriptionDao" class="edu.nju.desserthouse.dao.impl.CakediscriptionDaoImpl">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
 	<!-- =========================HCI====================== -->
 	
 	<bean id="orderDetailDao" class="edu.nju.desserthouse.dao.impl.OrderDetailDaoImpl">
@@ -148,6 +152,7 @@
 	<bean id="dessertService" class="edu.nju.desserthouse.service.impl.DessertServiceImpl">
 		<property name="dessertDao" ref="dessertDao"></property>
 		<property name="productCategoryDao" ref="productCategoryDao"></property>
+		<property name="cakediscriptionDao" ref="cakediscriptionDao"></property>
 	</bean>
 	
 	<bean id="salesRecordService" class="edu.nju.desserthouse.service.impl.SalesRecordServiceImpl">
@@ -549,6 +554,9 @@
 	</bean>
 	
 	<bean id="ShopCartManageAction" class="edu.nju.desserthouse.action.hci.ShopCartManageAction">
+	</bean>
+	
+	<bean id="CheckoutAction" class="edu.nju.desserthouse.action.hci.CheckoutAction">
 	</bean>
 	
 	<!-- 定义 Autowired 自动注入 bean -->

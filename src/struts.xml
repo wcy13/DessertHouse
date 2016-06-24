@@ -331,6 +331,10 @@
 		<action name="shopCartManage" class="ShopCartManageAction">
 			<result name="bread">/jsp/hci/index.jsp</result>
 		</action>
+		
+		<action name="checkout" class="CheckoutAction">
+			<result name="checkout">/jsp/hci/checkout.jsp</result>
+		</action>
 	</package>
 </struts>
 

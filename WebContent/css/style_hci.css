@@ -242,12 +242,17 @@ body{
  .pro-item-label{
  	font-family:微软雅黑;
  	margin-left:15px;
- 	margin-top:40px;
+ 	margin-top:15px;
  }
  .pro-item-money{
  font-size:22px;
  }
- 
+ .pro-item-name{
+ 	margin-top:20px;
+ 	font-family:微软雅黑;
+ 	font-size:16px;
+ 	margin-left:15px;
+ }
 .pro-item-add:link,
 .pro-item-add:visited,
 .pro-item-add:active {
@@ -460,42 +465,4 @@ body{
 	border:1px solid #8e8c8c; 
 	color:#2e1312;
 	background:white;
-}
-/*------------------------------------*\
-    $ toaster
-\*------------------------------------*/
-.toaster {
-    position: fixed;
-    top: 40%;
-    width: 300px;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
-    z-index: 9999;
-}
-
-.toast-item {
-    width: 100%;
-    font-family:微软雅黑;
-    margin-bottom: 15px;
-    color: #fff;
-    padding: 16px 15px;
-    display: none;
-    text-align: center;
-    min-height: 30px;
-    font-size: 18px;
-    line-height: 28px;
-    box-shadow: 0 0 6px rgba(0,0,0,0.15);
-}
-
-.toast-item.error {
-    background-color:rgba(232,74,95,0.8);
-}
-
-.toast-item.success {
-    background-color:rgba(41,205,181,0.8);
-}
-.toaster-icon{
-	margin-right:10px;
-	
 }
