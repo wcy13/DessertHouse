@@ -209,7 +209,6 @@
 			var mount = $(tmpId)[0].value;
 			if(mount == 1)
 				return;
-			//alert(mount);
 			mount --;
 			$(tmpId)[0].value = mount;
 		}

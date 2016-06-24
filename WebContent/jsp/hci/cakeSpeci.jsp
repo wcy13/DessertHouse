@@ -18,6 +18,7 @@
 <%
 	Dessert d = (Dessert) request.getAttribute("cake");
 	ProductCategory pc = (ProductCategory) request.getAttribute("pc");
+	Cakediscription cd = (Cakediscription) request.getAttribute("cd");
 %>
 <body>
 	<div class="main">
@@ -93,16 +94,48 @@
 						<span class="cake-name-item"><%=d.getName()%></span>
 					</div>
 					<div>
-						<span class="cake-price-label">价格：</span>
-						<span class="cake-price-text">￥198.0</span>
-						<span class="cake-avgprice-text">￥198.0/磅</span>
+						<span class="cake-price-label">价格：</span> <span
+							class="cake-price-text">￥198.0</span>
 					</div>
-					<div class = "spec-div">
-					<span class="cake-price-label">选择规格：</span>
-					<div>
-					
+					<div class="spec-div ">
+						<span class="cake-spe-label">选择规格：</span>
+						<div class="spec-div-left">
+							<div class="spec-field active" id = "mount-1" onclick = "changeMount(this)">1.0磅</div>
+							<div class="spec-field" id = "mount-3" onclick = "changeMount(this)">3.0磅</div>
+						</div>
+						<div class="spec-div-right">
+							<div class="spec-field" id = "mount-2" onclick = "changeMount(this)">2.0磅</div>
+							<div class="spec-field" id = "mount-5" onclick = "changeMount(this)">5.0磅</div>
+						</div>
 					</div>
+					<div class="spec-div padding-top-100">
+						<span class="cake-spe-label">选择夹层：</span>
+						<div class="spec-div-left">
+							<div class="spec-field active" id="j-1" onclick = "changeJ(this)">时令水果</div>
+							<div class="spec-field" id = "j-2" onclick = "changeJ(this)">奶油布丁</div>
+						</div>
+						<div class="spec-div-right ">
+							<div class="spec-field" id = "j-3" onclick = "changeJ(this)">密豆</div>
+							<div class="spec-field" id = "j-4" onclick = "changeJ(this)">果冻</div>
+						</div>
 					</div>
+					<div class="mount-div padding-top-120">
+						<div>
+							<a href="javascript:void(0);" onclick="delFunc(this)"
+								id='del-mount' class="minus-item-cake"> <i
+								class="fa fa-minus cal"></i>
+							</a> <input class="input-item-cake" id='buy-amount'
+								type="text" value="1" name="g"
+								onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
+								onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" />
+							<a href="javascript:void(0);" onclick="addFunc(this)"
+								id='add-mount' class="plus-item-cake"><i
+								class="fa fa-plus cal"></i></a>
+						</div>
+						<div class="cake-add-text"
+							id='<%=d.getDid()%>-<%=d.getName()%>-<%=d.getImage()%>-<%=d.getPrice()%>' onclick="addCart(this)">加入购物车</div>
+					</div>
+					<div></div>
 				</div>
 			</div>
 		</div>
@@ -121,6 +154,81 @@
 
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script>
+		var m = 1;
+		var j = 1;
+		var mount = 1;
+		function changeMount(obj){
+			var id = obj.getAttribute("id");
+			arr = id.split('-');
+			m = arr[1];
+			//alert("mount : "+mount);
+			$("#mount-1").removeClass("active");
+			$("#mount-2").removeClass("active");
+			$("#mount-3").removeClass("active");
+			$("#mount-5").removeClass("active");
+			$("#mount-"+m).addClass("active");
+		}
+		
+		function changeJ(obj){
+			var id = obj.getAttribute("id");
+			arr = id.split('-');
+			j = arr[1];
+			$("#j-1").removeClass("active");
+			$("#j-2").removeClass("active");
+			$("#j-3").removeClass("active");
+			$("#j-4").removeClass("active");
+			$("#j-"+j).addClass("active");
+		}
+		
+		function addFunc(obj) {
+			mount = $("#buy-amount")[0].value;
+			//alert(mount);
+			mount ++;
+			$("#buy-amount")[0].value = mount;
+		}
+		function delFunc(obj) {
+			mount = $("#buy-amount")[0].value;
+			if(mount == 1)
+				return;
+			//alert(mount);
+			mount --;
+			$("#buy-amount")[0].value = mount;
+		}
+		function addCart(obj) {
+			var max = obj.getAttribute("id");
+			arr = max.split('-');
+			var id = arr[0];
+			var dname = arr[1];
+			var img = arr[2];
+			var dprice = arr[3];
+			
+			var dtype = "addItemCake-"+m+"-"+j;
+			
+			//alert(id +" id: "+ dcount +" count: ");
+			
+			$.ajax({
+				type : "post",
+				url : "/DessertHouse/shopCartManage",
+				async : false,
+				data : {
+					did: id,
+					name: dname,
+					image: img,
+					price: dprice,
+					count: mount,
+					type: dtype,
+				},
+				success : function(data) {
+					toaster("成功加入购物车！","success");
+					location.reload();
+				},
+				error : function() {
+					alert("购买失败");
+				}
+			});
+			}
+	</script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 

@@ -18,12 +18,21 @@ public class ShoppingCart {
 	public void add(DessertItem d ,int count){
 		System.out.println("add start");
 		System.out.println(d.getDid() + " : "+d.getName() + " count:" + count);
-		ShopItem item= map.get(String.valueOf(d.getDid()));
+		String id;
+		if(d.isCake())
+		{
+			id = d.getDid() +"-"+ d.getMount()+"-" + d.getJ();
+		}
+		else
+		{
+			id = String.valueOf(d.getDid());
+		}
+		ShopItem item= map.get(id);
 		if(item == null){
 			item = new ShopItem();
 			item.setDessert(d);
 			item.setCount(count);
-			map.put(Integer.toString(d.getDid()),item); 
+			map.put(id,item);
 		}
 		else
 		{
@@ -37,7 +46,7 @@ public class ShoppingCart {
 		String s = "";
 		for(String key : map.keySet())
 		{
-			s +="name: "+ map.get(key).getDessert().getName() +" count : "+map.get(key).getCount() +"\n";
+			s +="name: "+ map.get(key).getDessert().getName()+" ¼Ð²ã: " +map.get(key).getDessert().getJ() +" count : "+map.get(key).getCount() +"°õÊý: "+map.get(key).getDessert().getMount()+"\n";
 		}
 		return s;
 	} 

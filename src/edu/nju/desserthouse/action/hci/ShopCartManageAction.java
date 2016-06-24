@@ -64,26 +64,60 @@ public class ShopCartManageAction extends BaseAction{
 	}
 	@Override
 	public String execute() throws Exception {
-		System.out.println("excute开始：id: "+did + " name: "+ name + " count: " + count +" price:"+price+" img:"+image);
-		DessertItem d = new DessertItem();
-		d.setDid(Integer.parseInt(did));
-		d.setName(name);
-		d.setImage(image);
-		d.setPrice(Double.parseDouble(price));
-		//DessertItem d = new DessertItem(Integer.parseInt(did), name, image, Integer.parseInt(pcid), Double.parseDouble(price), discription);
-		System.out.println("d 创建");
-		HttpSession session = request.getSession(true);
-		System.out.println("session 获取");
-		ShoppingCart cart = (ShoppingCart)session.getAttribute("cart");
-		System.out.println("cart = " + cart);
-		if(cart == null)
-		{
-			cart = new ShoppingCart();
+		if(type.equals("addItem")){
+			System.out.println("excute开始：id: "+did + " name: "+ name + " count: " + count +" price:"+price+" img:"+image);
+			DessertItem d = new DessertItem();
+			d.setDid(Integer.parseInt(did));
+			d.setName(name);
+			d.setImage(image);
+			d.setPrice(Double.parseDouble(price));
+			//DessertItem d = new DessertItem(Integer.parseInt(did), name, image, Integer.parseInt(pcid), Double.parseDouble(price), discription);
+			System.out.println("d 创建");
+			HttpSession session = request.getSession(true);
+			System.out.println("session 获取");
+			ShoppingCart cart = (ShoppingCart)session.getAttribute("cart");
+			System.out.println("cart = " + cart);
+			if(cart == null)
+			{
+				cart = new ShoppingCart();
+			}
+			cart.add(d , Integer.valueOf(count));
+			session.setAttribute("cart", cart);
+			String s = cart.show();
+			System.out.println(s);
+			return "bread";
 		}
-		cart.add(d , Integer.valueOf(count));
-		session.setAttribute("cart", cart);
-		String s = cart.show();
-		System.out.println(s);
+		else if(type.indexOf("addItem") > -1)
+		{
+			
+			String arr[] = type.split("-");
+			int m = Integer.parseInt(arr[1]);
+			String j = arr[2];
+			System.out.println("addItemCake excute开始：id: "+did + " name: "+ name + " count: " + count +" price:"+price+" img:"+image + " m: "+m + " j: "+j);
+			DessertItem d = new DessertItem();
+			price += 100 *(m - 1);
+			d.setDid(Integer.parseInt(did));
+			d.setName(name);
+			d.setImage(image);
+			d.setPrice(Double.parseDouble(price));
+			d.setMount(m);
+			d.setJ(j);
+			d.setCake(true);
+			
+			HttpSession session = request.getSession(true);
+			System.out.println("session 获取");
+			ShoppingCart cart = (ShoppingCart)session.getAttribute("cart");
+			System.out.println("cart = " + cart);
+			if(cart == null)
+			{
+				cart = new ShoppingCart();
+			}
+			cart.add(d , Integer.valueOf(count));
+			session.setAttribute("cart", cart);
+			String s = cart.show();
+			System.out.println(s);
+			return "bread";
+		}
 		return "bread";
 	}
 }
