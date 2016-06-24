@@ -108,12 +108,18 @@
 				<div class="bread-content-div padding-left-30">
 					<img src='<%=dessert.getImage()%>' class="bread-img-item"></img>
 					<div class="bread-dscription-div">
-						<div class="bread-name-div padding-left-30 padding-top-20">
+						<div class="cake-name-div padding-left-30 padding-top-20">
 							<span class="bread-name-item"><%=dessert.getName()%></span>
 						</div>
+						<%
+							String dis = dessert.getDiscription();
+							String[]disArr = dis.split(";");
+							for(String s:disArr){
+						%>
 						<div class="padding-left-30">
-							<span class="bread-description-item"><%=dessert.getDiscription()%></span>
+							<span class="cake-description-item"><%=s %></span>
 						</div>
+						<%} %>
 					</div>
 					<div class="cake-price-div">
 						￥<%=dessert.getPrice()%>
@@ -143,7 +149,7 @@
 								target="_blank" action="/DessertHouse/cakeSpeci">
 
 								<div class="">
-									<i class="fa fa-plus-circle fa-lg add-icon"></i>
+									<i class="fa fa-arrow-circle-right fa-lg add-icon"></i>
 									<input  readonly="readonly" class="cake-input-btn" type="text" name="<%=dessert.getDid()%>" value="查看详情" placeholder="查看详情" />
 								</div>
 							</form>
@@ -171,12 +177,18 @@
 				<div class="bread-content-div padding-left-30">
 					<img src='<%=dessert.getImage()%>' class="bread-img-item"></img>
 					<div class="bread-dscription-div">
-						<div class="bread-name-div padding-left-30 padding-top-20">
+						<div class="cake-name-div padding-left-30 padding-top-20">
 							<span class="bread-name-item"><%=dessert.getName()%></span>
 						</div>
+						<%
+							String dis = dessert.getDiscription();
+							String[]disArr = dis.split(";");
+							for(String s:disArr){
+						%>
 						<div class="padding-left-30">
-							<span class="bread-description-item"><%=dessert.getDiscription()%></span>
+							<span class="cake-description-item"><%=s %></span>
 						</div>
+						<%} %>
 					</div>
 					<div class="cake-price-div">
 						￥<%=dessert.getPrice()%>

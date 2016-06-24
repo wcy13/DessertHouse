@@ -1,1 +1,274 @@
 @CHARSET "UTF-8";
+
+/*购物车顶部标签*/
+.cart-container{
+	font-family: 微软雅黑;
+	color: #2e1312;
+	padding-top: 10px;
+}
+.cart-main {
+	color: #2e1312;
+}
+
+.cart-main thead {
+	display: table-header-group;
+	vrtical-align: middle;
+	background-color:#DEF2EE;
+}
+
+.cart-main thead tr {
+	border:solid 1px #eee;
+	backgroud-color:#f8f8f8;
+	height: 70px;
+	line-height:70px;
+}
+
+.cart-main thead th {
+	font-weight: 400;
+	font-size:18px;
+	text-align:center;
+	align: center;
+}
+
+_th, tr, td {
+	margin: 0;
+	padding: 0;
+}
+
+a:link, a:visited {
+	text-decoration: none;
+}
+
+td, th {
+	display: table-cell;
+	height: 70px;
+	line-height: 70px;
+	
+}
+
+.cart-main .cart-item {
+	height: 183px;
+	background-color: #FFF;
+}
+.cart-main td {
+	line-height: 20px;
+	vertical-align: top;
+	text-align: center;
+	padding: 2px 0;
+}
+
+.cart-main .p-pic {
+	float: left;
+	padding: 0;
+	margin: 0;
+}
+
+.p-pic img {
+	height:160px;
+	padding: 0;
+	padding-left: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin:0;
+	
+}
+
+.cart-item .p-info {
+	line-height: 20px;
+	padding-left: 0;
+	margin-bottom: 5px;
+}
+
+.cart-item .p-info .p-title {
+	font-size: 14px;
+}
+
+.cart-item .p-info .p-title a {
+	float: left;
+	color: #2e1312;
+}
+
+.cart-item .p-info .p-spec {
+	font-size: 14px;
+	float: left;
+	padding: 0;
+	line-height: 20px;
+	margin-bottom: 6px;
+}
+
+.cart-item .last td {
+	vertical-align: middle;
+	horizon-align: middle;
+	padding-right:0;
+	margin-right:0;
+}
+
+
+.cart-main ,cart-product td.p-info div {
+	padding-left: 20px;
+}
+
+.cart-item .p-price {
+	font-size: 14px;
+}
+
+.cart-item .p-quantity {
+	width: 135;
+}
+
+.cart-item .p-quantity a {
+	width: 30px;
+	height: 30px;
+	border: solid #8e8c8c 1px;
+}
+
+.cart-item .p-quantity .btn-decrease:hover ,.cart-item .p-quantity .btn-increase:hover{
+	background-color: #e0f2ee;
+}
+
+.cart-item .p-quantity input {
+	width:70px;
+	height: 30px;
+	border: solid #8e8c8c 1px;
+}
+
+.cart-item .last td {
+	vertical-align: middle;
+	padding: 0;
+	margin: 0;
+}
+
+.cart-main .order-price {
+	font-size: 18px;
+	padding: 15px 1px 10px;
+	line-height: 70px;
+	whitespace: nowrap;
+}
+
+.cart-main .order-price ul {
+	float: right;
+	list-style: none;
+}
+
+.cart-main .order-price .total {
+	line-height: 70px;
+}
+
+.cart-main .order-price li {
+	overflow: hidden;
+	clear: both;
+	list-style: none;
+}
+
+.cart-main .order-price .label {
+	float: left;
+	text-align: right;
+	width: 200px;
+	line-height: 70px;
+}
+
+.cart-main .order-price .price {
+	float: right;
+	text-align: left;
+	padding-left: 5px;
+	width: auto;
+	padding-right: 20px;
+}
+
+.cart-main .order-price .total em {
+	font-size: 18px;
+	font-style: normal;
+	font-weight: bold;
+	color:#2e1312;
+	
+	
+}
+
+.cart-main .order-price .total b {
+	font-size: 24px;
+}
+
+.p-action {
+	width: 60px;
+}
+
+.p-action a{
+	float: left;
+	color: #2e1312;
+}
+
+.hr-bg {
+	border: none;
+	background-color: #DEF2EE;
+	padding: 0;
+	margin: 0;
+}
+
+.cart-main .cart-left {
+	padding: 10px, 15px;
+	background-color: #fff;
+	text-align: left;
+	vertical-align: middle;
+}
+
+.cart-main .cart-right {
+	background-color: #fff;
+	text-align: right;
+	padding: 10px, 20px;
+	
+}
+
+.cart-main .cart-right .btn-link {
+	vertical-align:middle;
+}
+.cart-right .btn-link {
+	font-family="微软雅黑";
+	width: 180px;
+	height: 48px;
+	color: #29cdb5;
+	backgourd-color: #e0f2ee;
+	border: solid 2px #29cdb5;
+	font-size: 22px;
+	display: inline-block;
+	line-height: 48px;
+	text-align: center;
+}
+
+.btn {
+	border: 0 none;
+	background-color: transparent;
+	padding: 0;
+	font-size: 22px;
+	width: 180px;
+	height: 48px;
+}
+.cart-right .btn-huge {
+	vertical-align: top;
+	font-size: 0;
+	line-height: 0;
+	color: #fff;
+	background-color: #29cdb5;
+	margin-right: 20px;
+}
+
+.cart-right .btn-huge span {
+	vertical-align: top;
+}
+
+.btn-huge span {
+	line-height: 48px;
+	font-family: "微软雅黑";
+	font-size: 22px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+.cart-main .cart-right .clear-all {
+	padding-right: 20px;
+}
+
+.clear-all a:link, a:visited{
+	color: #2e1312;
+	text-decoration: none;
+}
+
+

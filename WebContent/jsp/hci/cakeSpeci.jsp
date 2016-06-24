@@ -123,14 +123,14 @@
 						<div>
 							<a href="javascript:void(0);" onclick="delFunc(this)"
 								id='del-mount' class="minus-item-cake"> <i
-								class="fa fa-minus cal"></i>
+								class="fa fa-minus cal-cake"></i>
 							</a> <input class="input-item-cake" id='buy-amount'
 								type="text" value="1" name="g"
 								onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
 								onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" />
 							<a href="javascript:void(0);" onclick="addFunc(this)"
 								id='add-mount' class="plus-item-cake"><i
-								class="fa fa-plus cal"></i></a>
+								class="fa fa-plus cal-cake"></i></a>
 						</div>
 						<div class="cake-add-text"
 							id='<%=d.getDid()%>-<%=d.getName()%>-<%=d.getImage()%>-<%=d.getPrice()%>' onclick="addCart(this)">加入购物车</div>
