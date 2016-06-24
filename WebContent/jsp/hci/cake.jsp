@@ -108,12 +108,18 @@
 				<div class="bread-content-div padding-left-30">
 					<img src='<%=dessert.getImage()%>' class="bread-img-item"></img>
 					<div class="bread-dscription-div">
-						<div class="bread-name-div padding-left-30 padding-top-20">
+						<div class="cake-name-div padding-left-30 padding-top-20">
 							<span class="bread-name-item"><%=dessert.getName()%></span>
 						</div>
+						<%
+							String dis = dessert.getDiscription();
+							String[]disArr = dis.split(";");
+							for(String s:disArr){
+						%>
 						<div class="padding-left-30">
-							<span class="bread-description-item"><%=dessert.getDiscription()%></span>
+							<span class="cake-description-item"><%=s %></span>
 						</div>
+						<%} %>
 					</div>
 					<div class="cake-price-div">
 						￥<%=dessert.getPrice()%>
@@ -171,12 +177,18 @@
 				<div class="bread-content-div padding-left-30">
 					<img src='<%=dessert.getImage()%>' class="bread-img-item"></img>
 					<div class="bread-dscription-div">
-						<div class="bread-name-div padding-left-30 padding-top-20">
+						<div class="cake-name-div padding-left-30 padding-top-20">
 							<span class="bread-name-item"><%=dessert.getName()%></span>
 						</div>
+						<%
+							String dis = dessert.getDiscription();
+							String[]disArr = dis.split(";");
+							for(String s:disArr){
+						%>
 						<div class="padding-left-30">
-							<span class="bread-description-item"><%=dessert.getDiscription()%></span>
+							<span class="cake-description-item"><%=s %></span>
 						</div>
+						<%} %>
 					</div>
 					<div class="cake-price-div">
 						￥<%=dessert.getPrice()%>

@@ -49,6 +49,9 @@
 .bread-name-div{
 	margin-bottom:30px;
 }
+.cake-name-div{
+	margin-bottom:10px;
+}
 
 .bread-price-div{
 	float:left;
@@ -289,4 +292,7 @@ a:link{
 }
 .spec-div{
 	margin-top:20px;
+}
+.cake-description-item{
+	font-size:10px;
 }
