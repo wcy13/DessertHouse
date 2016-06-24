@@ -242,12 +242,17 @@ body{
  .pro-item-label{
  	font-family:微软雅黑;
  	margin-left:15px;
- 	margin-top:40px;
+ 	margin-top:15px;
  }
  .pro-item-money{
  font-size:22px;
  }
- 
+ .pro-item-name{
+ 	margin-top:20px;
+ 	font-family:微软雅黑;
+ 	font-size:16px;
+ 	margin-left:15px;
+ }
 .pro-item-add:link,
 .pro-item-add:visited,
 .pro-item-add:active {

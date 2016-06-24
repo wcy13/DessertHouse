@@ -3,6 +3,7 @@ package edu.nju.desserthouse.action.hci;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import edu.nju.desserthouse.action.BaseAction;
+import edu.nju.desserthouse.model.Cakediscription;
 import edu.nju.desserthouse.model.Dessert;
 import edu.nju.desserthouse.model.ProductCategory;
 import edu.nju.desserthouse.service.DessertService;
@@ -45,6 +46,8 @@ public class CakeSpeciAction extends BaseAction{
 		request.setAttribute("cake", cake);
 		ProductCategory pc =  productCategoryService.find(cake.getPcid());
 		request.setAttribute("pc", pc);
+		Cakediscription cd = dessertService.getCakediscription(did);
+		request.setAttribute("cd", cd);
 		return "cakeSpeci";
 	}
 	

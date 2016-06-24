@@ -134,7 +134,8 @@
 			<span class="badge css-badge">0</span>
 		</a>
 	</div>
-
+<div id="toaster" class="toaster"></div>
+<script type="text/javascript" src="js/script.js"></script>
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript">
@@ -234,7 +235,7 @@
 					type: dtype,
 				},
 				success : function(data) {
-					alert("success");
+					toaster("成功加入购物车！","success");
 					location.reload();
 				},
 				error : function() {

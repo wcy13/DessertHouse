@@ -6,8 +6,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import edu.nju.desserthouse.dao.CakediscriptionDao;
 import edu.nju.desserthouse.dao.DessertDao;
 import edu.nju.desserthouse.dao.ProductCategoryDao;
+import edu.nju.desserthouse.model.Cakediscription;
 import edu.nju.desserthouse.model.Dessert;
 import edu.nju.desserthouse.model.ProductCategory;
 import edu.nju.desserthouse.model.hci.CakeVO;
@@ -18,6 +20,7 @@ public class DessertServiceImpl implements DessertService{
 	@Autowired
 	private DessertDao dessertDao;
 	private ProductCategoryDao productCategoryDao;
+	private CakediscriptionDao cakediscriptionDao;
 	
 	public DessertDao getDessertDao() {
 		return dessertDao;
@@ -33,6 +36,14 @@ public class DessertServiceImpl implements DessertService{
 
 	public void setProductCategoryDao(ProductCategoryDao productCategoryDao) {
 		this.productCategoryDao = productCategoryDao;
+	}
+
+	public CakediscriptionDao getCakediscriptionDao() {
+		return cakediscriptionDao;
+	}
+
+	public void setCakediscriptionDao(CakediscriptionDao cakediscriptionDao) {
+		this.cakediscriptionDao = cakediscriptionDao;
 	}
 
 	@Override
@@ -97,6 +108,11 @@ public class DessertServiceImpl implements DessertService{
 		}
 		CakeVO cvo = new CakeVO(pcList,pdMap);
 		return cvo;
+	}
+
+	@Override
+	public Cakediscription getCakediscription(int did) {
+		return cakediscriptionDao.find(did);
 	}
 
 }

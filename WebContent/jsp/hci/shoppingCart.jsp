@@ -163,7 +163,7 @@
 			<% }%>
 			</form>
 		</div>
-
+<a href="/DessertHouse/checkout">结算</a>
 
 	</div>
 
