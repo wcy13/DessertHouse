@@ -43,6 +43,18 @@
 	font-family:微软雅黑;
 }
 
+.cake-price-div{
+	float:left;
+	height:200px;
+	line-height:200px;
+	overflow:hidden;
+	margin-left:40px;
+	
+	color:rbga(45,21,20,0.9);
+	font-size:24px;
+	font-family:微软雅黑;
+}
+
 .bread-cart-div{
 	width:180px;
 	height:180px;
@@ -176,4 +188,29 @@ a:link{
 }
 .padding-top-20{
 	padding-top:20px;
+}
+
+.bread-filter-itemLy:link,
+.bread-filter-itemLy:visited,
+.bread-filter-itemLy:active{
+    font-size: 12px;
+    height: 20px;
+    text-decoration:none;
+    display: inline-block;
+    background-color: white;
+    color:#2d1514;
+    text-align: center;
+    overflow: hidden;
+    line-height: 20px;
+    margin-left:15px;
+    margin-right:15px;
+    margin-bottom:5px;
+    font-family:微软雅黑;
+}
+.bread-filter-itemLy:hover{
+	color: #29cdb5;
+}
+.bread-filter-itemLy.active{
+	background-color: #29cdb5;
+	color:white;
 }
