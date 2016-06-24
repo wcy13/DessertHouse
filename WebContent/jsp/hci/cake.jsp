@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ page import="java.util.*"%>
+<%@ page import="java.util.Map.Entry"%>
 <%@ page import="edu.nju.desserthouse.model.*"%>
 <%@ page import="edu.nju.desserthouse.model.hci.*"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
@@ -10,7 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style_hci.css" rel="stylesheet">
-<link href="css/style_nxf.css" rel="stylesheet">
+<link href="css/style_ly.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <title>凯罗伊西点 · 蛋糕</title>
@@ -87,23 +88,138 @@
 			</div>
 			<div class="bread-filter">
 				<span class="bread-nav-label">蛋糕分类 : </span> <a
-					href="javascript: alert('test');" class="bread-filter-item active">不限</a>
+					href="javascript:void(0);" id="js-cake-1" onclick="select(this)"
+					class="bread-filter-itemLy active">&nbsp;不限分类&nbsp;</a> <a
+					href="javascript:void(0);" id="js-cake-2" onclick="select(this)"
+					class="bread-filter-itemLy">&nbsp;鲜奶蛋糕&nbsp;</a> <a
+					href="javascript:void(0);" id="js-cake-3" onclick="select(this)"
+					class="bread-filter-itemLy">&nbsp;慕斯蛋糕&nbsp;</a> <a
+					href="javascript:void(0);" id="js-cake-4" onclick="select(this)"
+					class="bread-filter-itemLy">&nbsp;冰淇凌蛋糕&nbsp;</a> <a
+					href="javascript:void(0);" id="js-cake-5" onclick="select(this)"
+					class="bread-filter-itemLy">&nbsp;婚庆蛋糕&nbsp;</a>
 			</div>
+			<div class="cake-div" id='js-1'>
+				<%
+					for (Entry<Integer, List<Dessert>> entry : pdMap.entrySet()) {
+						List<Dessert> l = entry.getValue();
+						for (Dessert dessert : l) {
+				%>
+				<div class="bread-content-div padding-left-30">
+					<img src='<%=dessert.getImage()%>' class="bread-img-item"></img>
+					<div class="bread-dscription-div">
+						<div class="bread-name-div padding-left-30 padding-top-20">
+							<span class="bread-name-item"><%=dessert.getName()%></span>
+						</div>
+						<div class="padding-left-30">
+							<span class="bread-description-item"><%=dessert.getDiscription()%></span>
+						</div>
+					</div>
+					<div class="cake-price-div">
+						￥<%=dessert.getPrice()%>
+						<%
+							if (dessert.getPrice() < 2000) {
+						%>/1.0磅<%
+							}
+						%>
+					</div>
+					<div class="bread-cart-div">
+						<div class="cart-plain-div"></div>
+						<div class="cart-content-div"
+							id="js-btn-div-<%=dessert.getDid()%> " onclick='change(this)'>
+							<form method="post" id="js-btn-<%=dessert.getDid()%>"
+								target="_blank" action="/DessertHouse/cakeSpeci">
+
+								<div class="">
+									<i class="fa fa-plus-circle fa-lg add-icon"></i>
+									<input  readonly="readonly" class="cake-input-btn" type="text" name="<%=dessert.getDid()%>" value="加入购物车" placeholder="加入购物车" />
+								</div>
+							</form>
+
+						</div>
+						<div class="cart-content-div"
+							id="js-btn-div1-<%=dessert.getDid()%> " onclick='change(this)'>
+							<form method="post" id="js-btn-<%=dessert.getDid()%>"
+								target="_blank" action="/DessertHouse/cakeSpeci">
+
+								<div class="">
+									<i class="fa fa-plus-circle fa-lg add-icon"></i>
+									<input  readonly="readonly" class="cake-input-btn" type="text" name="<%=dessert.getDid()%>" value="查看详情" placeholder="查看详情" />
+								</div>
+							</form>
+
+						</div>
+						<div class="cart-plain-div"></div>
+					</div>
+				</div>
+				<%
+					}
+					}
+				%>
+
+			</div>
+
 			<%
-				for (ProductCategory pc : pcList) {
+				for (int i = 2; i < pcList.size() + 2; i++) {
+					ProductCategory pc = pcList.get(i - 2);
 					List<Dessert> l = pdMap.get(pc.getPcid());
 			%>
-			<h2><%=pc.getPcname()%>-<%=pc.getPcid()%></h2>
+			<div class="cake-div" id='js-<%=i%>'>
+				<%
+					for (Dessert dessert : l) {
+				%>
+				<div class="bread-content-div padding-left-30">
+					<img src='<%=dessert.getImage()%>' class="bread-img-item"></img>
+					<div class="bread-dscription-div">
+						<div class="bread-name-div padding-left-30 padding-top-20">
+							<span class="bread-name-item"><%=dessert.getName()%></span>
+						</div>
+						<div class="padding-left-30">
+							<span class="bread-description-item"><%=dessert.getDiscription()%></span>
+						</div>
+					</div>
+					<div class="cake-price-div">
+						￥<%=dessert.getPrice()%>
+						<%
+							if (dessert.getPrice() < 2000) {
+						%>/1.0磅<%
+							}
+						%>
+					</div>
+					<div class="bread-cart-div">
+						<div class="cart-plain-div"></div>
+						<div class="cart-content-div"
+							id="js-btn-div-<%=dessert.getDid()%> " onclick='change(this)'>
+							<form method="post" id="js-btn-<%=dessert.getDid()%>"
+								target="_blank" action="/DessertHouse/cakeSpeci">
+
+								<div class="">
+									<i class="fa fa-plus-circle fa-lg add-icon"></i>
+									<input  readonly="readonly" class="cake-input-btn" type="text" name="<%=dessert.getDid()%>" value="加入购物车" placeholder="加入购物车" />
+								</div>
+							</form>
+
+						</div>
+						<div class="cart-content-div"
+							id="js-btn-div1-<%=dessert.getDid()%> " onclick='change(this)'>
+							<form method="post" id="js-btn-<%=dessert.getDid()%>"
+								target="_blank" action="/DessertHouse/cakeSpeci">
+
+								<div class="">
+									<i class="fa fa-plus-circle fa-lg add-icon"></i>
+									<input  readonly="readonly" class="cake-input-btn" type="text" name="<%=dessert.getDid()%>" value="查看详情" placeholder="查看详情" />
+								</div>
+							</form>
+
+						</div>
+						<div class="cart-plain-div"></div>
+					</div>
+				</div>
+				<%
+					}
+				%>
+			</div>
 			<%
-				for (Dessert d : l) {
-			%>
-			<p><%=d.getName()%>-<%=d.getPcid()%></p>
-			<form action="/DessertHouse/cakeSpeci" method="post" class="">
-				<s:hidden name="did" value='26'></s:hidden>
-				<input type="submit" class="" value="加入购物车">
-			</form>
-			<%
-				}
 				}
 			%>
 		</div>
@@ -124,7 +240,10 @@
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-
+			$("#js-2").hide();
+			$("#js-3").hide();
+			$("#js-4").hide();
+			$("#js-5").hide();
 			$("#js-nav-1").mouseover(function() {
 				$("#js-nav-1").children("span").css("color", "white");
 				$("#js-nav-3").mouseout(function() {
@@ -172,6 +291,33 @@
 				});
 			});
 		})
+	</script>
+	<script type="text/javascript">
+		function change(obj) {
+			var id = obj.getAttribute("id");
+			arr = id.split('-');
+			var did = arr[3];
+			did = "#js-btn-" + did;
+			$(did).submit();
+		}
+		function select(obj) {
+			$("#js-cake-1").removeClass("active");
+			$("#js-cake-2").removeClass("active");
+			$("#js-cake-3").removeClass("active");
+			$("#js-cake-4").removeClass("active");
+			$("#js-cake-5").removeClass("active");
+			var id = obj.getAttribute("id");
+			arr = id.split('-');
+			var index = arr[2];
+			$("#js-cake-" + index).addClass("active");
+
+			$("#js-1").hide();
+			$("#js-2").hide();
+			$("#js-3").hide();
+			$("#js-4").hide();
+			$("#js-5").hide();
+			$("#js-" + index).show();
+		}
 	</script>
 </body>
 </html>
