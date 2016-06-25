@@ -16,18 +16,20 @@
 </head>
 <body>
 	<div class="main">
-		<div class="nav-top"> 
+		<div class="nav-top">
 			<a href="/DessertHouse/logout" class="nav-top-item float-right">注销</a>
 		</div>
-		<div class="search-panel">
-			<a href="#"><img src="img/logo.png" class="logo float-left"
-				alt="KARROY CAKE"></a>
-			
-		</div>
-		<div class="main-panel">
-			
-		</div>
 
+		<div class="branch-main-div">
+			<div class="branch-left-div">
+				<div class="search-panel">
+					<a href="#"><img src="img/logo.png" class="logo-branch "
+						alt="KARROY CAKE"></a>
+				</div>
+			</div>
+
+			<div class="branch-right-div"></div>
+		</div>
 
 	</div>
 

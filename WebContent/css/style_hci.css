@@ -478,3 +478,27 @@ body{
 	overflow: hidden;
     line-height: 50px;
 }
+.branch-main-div{
+	width:100%;
+	background:white;
+	height:600px;
+}
+.branch-left-div{
+	background:black;
+	width:310px;
+	height:100%;
+	float:left;
+	margin-left:20px;
+}
+
+.branch-right-div{
+	background:black;
+	width:700px;
+	height:100%;
+	float:right;
+	margin-right:20px;
+}
+.logo-branch{
+	display: inline-block;
+	margin-left:80px;;
+}

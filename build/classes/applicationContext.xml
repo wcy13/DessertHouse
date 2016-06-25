@@ -232,6 +232,7 @@
 	
 	<bean id="LoginAction" class="edu.nju.desserthouse.action.LoginAction">
 		<property name="userService" ref="userService"></property>
+		<property name="shopService" ref="shopService"></property>
 	</bean>
 	
 	<bean id="GetMemberIdAction" class="edu.nju.desserthouse.action.GetMemberIdAction">
