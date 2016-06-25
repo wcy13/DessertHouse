@@ -74,7 +74,25 @@
 				id="js-nav-6">门店</a>
 		</div>
 		<div class="main-panel">
-
+			<div class="bread-nav-div">
+				<a href="/DessertHouse/index" class="bread-nav-item">首页</a> <span
+					class="bread-nav-label"> > </span> <span class="bread-nav-now">个人信息</span>
+			</div>
+			<div class="signin-panel">
+				<div class="signin-div">
+					<div class="signin-label">会 员 登 录</div>
+				 	<form action="/DessertHouse/signInValidate" method="post" class="">
+				 		<div class="">
+		      				<s:textfield name="tel" id="js-input" class="signin-input" placeholder="请输入手机号"  onblur="myFunction(this);"/>
+		         			<label id="js-check-label"></label>
+		   				</div>
+		   				<div class="">
+		      				<s:password name="password" class="signin-input" placeholder="请输入密码"/>
+		   				</div>
+		   				<input type="submit" class="signin-btn" value="登陆" id="sign-btn"/>
+		   				</form>
+				</div>
+			</div>
 		</div>
 
 
