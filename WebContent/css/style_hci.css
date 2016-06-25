@@ -674,3 +674,35 @@ table.branch-table-sale tr{
 	color:#fff;
 	cursor:pointer;
 }
+
+/*my order*/
+.myorder-panel{
+	width:100%;
+	margin-top:10px;
+}
+.myorder-title{
+	height:40px;
+	line-height: 40px;
+	overflow: hidden;
+	width:100%;
+	color:#2e1312;
+	font-size:12px;
+	background:#f5f5f5;
+	font-family:微软雅黑;
+	border:1px solid rgba(192,192,192,0.6);
+	padding-right:10px;
+}
+.myorder-label{
+	margin-left:10px;
+}
+.myorder-dessert-item{
+	background:white;
+	height:100px;
+	border:1px solid rgba(192,192,192,0.6);
+	width:600px;
+}
+.myorder-img{
+	width:80px;
+	margin-left:20px;
+	margin-top:10px;
+}

@@ -105,7 +105,7 @@ public class ShopServiceImpl implements ShopService{
 		List<Dessert> dessertList = dessertDao.getAllDessertListWithoutCake();
 		HashMap<Integer,List<Dessert>> cpMap = new HashMap<Integer,List<Dessert>>();
 		for (ProductCategory d : productCategoryList) {
-			if((d.getPcid()!=2)||(d.getPpcid()!=2)){
+			if((d.getPcid()!=2)&&(d.getPpcid()!=2)){
 				pcList.add(d);
 				List<Dessert> l = new ArrayList<Dessert>();
 				cpMap.put(d.getPcid(), l);
