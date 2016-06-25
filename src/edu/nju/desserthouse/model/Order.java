@@ -17,7 +17,7 @@ public class Order implements Serializable{
 	private int scid;
 	private Timestamp orderTime;
 	private double total;
-	private double realToral;
+	private double realTotal;
 	private int isOnline;
 	private Date takeDate;
 	private String takeTime;
@@ -27,7 +27,7 @@ public class Order implements Serializable{
 	private String seat;
 	private int verification;
 	public Order(){}
-	public Order(int oid, int sid, int scid, Timestamp orderTime, double total, double realToral, int isOnline,
+	public Order(int oid, int sid, int scid, Timestamp orderTime, double total, double realTotal, int isOnline,
 			Date takeDate, String takeTime, int isValid, int cid, String discountMessage, String seat,
 			int verification) {
 		super();
@@ -36,7 +36,7 @@ public class Order implements Serializable{
 		this.scid = scid;
 		this.orderTime = orderTime;
 		this.total = total;
-		this.realToral = realToral;
+		this.realTotal = realTotal;
 		this.isOnline = isOnline;
 		this.takeDate = takeDate;
 		this.takeTime = takeTime;
@@ -76,11 +76,11 @@ public class Order implements Serializable{
 	public void setTotal(double total) {
 		this.total = total;
 	}
-	public double getRealToral() {
-		return realToral;
+	public double getRealTotal() {
+		return realTotal;
 	}
-	public void setRealToral(double realToral) {
-		this.realToral = realToral;
+	public void setRealTotal(double realToral) {
+		this.realTotal = realToral;
 	}
 	public int getIsOnline() {
 		return isOnline;

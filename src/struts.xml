@@ -335,6 +335,10 @@
 		<action name="checkout" class="CheckoutAction">
 			<result name="checkout">/jsp/hci/checkout.jsp</result>
 		</action>
+		
+		<action name="cancelMyOrder" class="CancelMyOrderAction">
+			<result name="myorder">/jsp/hci/myorder.jsp</result>
+		</action>
 	</package>
 </struts>
 

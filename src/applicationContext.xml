@@ -227,6 +227,10 @@
 		<property name="productCategoryDao" ref="productCategoryDao"></property>
 	</bean>	
 	
+	<bean id="orderService" class="edu.nju.desserthouse.service.impl.OrderServiceImpl">
+		<property name="orderDao" ref="orderDao"></property>
+	</bean>	
+	
 	<!-- define xxAction -->
 	<bean id="StartAction" class="edu.nju.desserthouse.action.StartAction">
 	</bean>
@@ -559,6 +563,11 @@
 	</bean>
 	
 	<bean id="CheckoutAction" class="edu.nju.desserthouse.action.hci.CheckoutAction">
+	</bean>
+	
+	<bean id="CancelMyOrderAction" class="edu.nju.desserthouse.action.hci.CancelMyOrderAction">
+		<property name="memberService" ref="memberService"></property>
+		<property name="orderService" ref="orderService"></property>
 	</bean>
 	
 	<!-- 定义 Autowired 自动注入 bean -->

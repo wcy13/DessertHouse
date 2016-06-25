@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import edu.nju.desserthouse.dao.BaseDao;
 import edu.nju.desserthouse.dao.OrderDao;
+import edu.nju.desserthouse.model.Bank;
 import edu.nju.desserthouse.model.Order;
 import edu.nju.desserthouse.model.OrderDetail;
 import edu.nju.desserthouse.model.stavo.AutoGeneratingPlanItem;
@@ -727,7 +728,7 @@ public class OrderDaoImpl implements OrderDao {
 			o.setTotal((double) obj[4]);
 			double num = (Double)obj[5];
 			num = (double)Math.round(num*100)/100;
-			o.setRealToral(num);
+			o.setRealTotal(num);
 			o.setIsOnline((int) obj[6]);
 			o.setTakeDate((Date) obj[7]);
 			o.setTakeTime((String) obj[8]);
@@ -740,4 +741,34 @@ public class OrderDaoImpl implements OrderDao {
 		}
 		return list;
 	}
+
+	@Override
+	public void cancleOrder(int oid) {
+		String sql = "update`order` set isValid=0 where oid="+oid;
+		baseDao.excuteBySQL(sql);
+	}
+
+	@Override
+	public Order find(int oid) {
+		Order order = new Order();
+		String sql = "select * from `order` where oid="+oid;
+		List<Object[]> objects = baseDao.querySQL(sql);
+		order.setOid((int) objects.get(0)[0]);
+		order.setSid((int) objects.get(0)[1]);
+		order.setScid((int) objects.get(0)[2]);
+		order.setOrderTime((Timestamp) objects.get(0)[3]);
+		order.setTotal((double) objects.get(0)[4]);;
+		order.setRealTotal((double) objects.get(0)[5]);
+		order.setIsOnline((int) objects.get(0)[6]);
+		order.setTakeDate((Date) objects.get(0)[7]);
+		order.setTakeTime((String) objects.get(0)[8]);
+		order.setIsValid((int) objects.get(0)[9]);
+		order.setCid((int) objects.get(0)[10]);
+		order.setDiscountMessage((String) objects.get(0)[11]);
+		order.setSeat((String) objects.get(0)[12]);
+		order.setVerification((int) objects.get(0)[13]);
+		return order;
+	}
+
+	
 }

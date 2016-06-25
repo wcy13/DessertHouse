@@ -98,4 +98,6 @@ public interface OrderDao {
 	
 	/*************************HCI************************/
 	public List<Order> getMyOrderList(int cid);
+	public void cancleOrder(int oid);
+	public Order find(int oid);
 }
