@@ -520,11 +520,16 @@ a:link {
 .price-span {
 	margin-left: 260px;
 }
+.arr-price-span{
+	margin-left: 380px;
+}
 
 .mount-span {
 	margin-left: 115px;
 }
-
+.arr-mount-span{
+	margin-left: 200px;
+}
 .total-span {
 	margin-left: 163px;
 }
@@ -589,6 +594,7 @@ a:link {
 	font-family: 微软雅黑;
 	line-height: 183px;
 	overflow: hidden;
+	width:80px;
 }
 .check-price-div{
 	float: left;
@@ -600,10 +606,32 @@ a:link {
 	line-height: 100px;
 	overflow: hidden;
 }
+
+.avi-check-price-div{
+	float: left;
+	height: 100%;
+	margin-left: 228px;
+	color: #2e1312;
+	font-size: 14px;
+	font-family: 微软雅黑;
+	line-height: 100px;
+	overflow: hidden;
+}
+
 .check-mount-div{
 	float: left;
 	height: 100%;
 	margin-left: 133px;
+	color: #2e1312;
+	font-size: 14px;
+	font-family: 微软雅黑;
+	line-height: 100px;
+	overflow: hidden;
+}
+.avi-check-mount-div{
+	float: left;
+	height: 100%;
+	margin-left: 218px;
 	color: #2e1312;
 	font-size: 14px;
 	font-family: 微软雅黑;
@@ -620,6 +648,7 @@ a:link {
 	font-family: 微软雅黑;
 	line-height: 183px;
 	overflow: hidden;
+	width:80px;
 }
 .check-total-div{
 	float: left;
@@ -632,11 +661,22 @@ a:link {
 	overflow: hidden;
 }
 
+.avi-check-total-div{
+	float: left;
+	height: 100%;
+	margin-left: 173px;
+	color: #2e1312;
+	font-size: 14px;
+	font-family: 微软雅黑;
+	line-height: 100px;
+	overflow: hidden;
+}
+
 .cart-delete-div {
 	float: left;
 	height: 100%;
-	margin-left: 178px;
-	margin-top: 73px;
+	margin-left: 133px;
+	padding-top:73px;
 	color: #2e1312;
 	font-size: 24px;
 	font-family: 微软雅黑;
@@ -646,7 +686,7 @@ a:link {
 
 .cart-change-div {
 	float: left;
-	margin-left: 75px;
+	margin-left: 35px;
 	margin-top: 61.5px;
 }
 
@@ -761,6 +801,12 @@ a:link {
 	border :1px solid #cddedb;
 	outline: none;
 }
+.area-input{
+	width:70px;
+	height:28px;
+	border :1px solid #818181;
+	outline: none;
+}
 .bless-div{
 	float:left;
 	margin-left:120px;
@@ -773,11 +819,16 @@ a:link {
 	
 }
 .area-div{
+	padding-top:10px;
 	padding-left:10px;
 	background:white;
 	border:1px solid white;
 	width:100%;
 	height:200px;
+	font-family:微软雅黑;
+}
+.seat-div{
+	padding-top:20px;
 }
 .area-select{
 	width:150px;
@@ -801,4 +852,16 @@ a:link {
 	height:100px;
 	background:white;
 	width:100%;
+}
+.area-span-1{
+	font-color:#2c1412;
+	font-size:12px;
+}
+.area-span-3{
+	font-color:#818181;
+	font-size:12px;
+}
+.area-span-2{
+	font-color:#2c1412;
+	font-size:24px;
 }

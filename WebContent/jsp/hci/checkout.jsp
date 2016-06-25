@@ -18,7 +18,7 @@
 </head>
 
 <body>
-	
+
 	<div class="main">
 		<div class="nav-top">
 			<a href="/DessertHouse/shoppingCart"
@@ -85,7 +85,9 @@
 					class="bread-nav-label"> > </span> <span class="bread-nav-now">订单结算</span>
 			</div>
 			<%
-				if(session.getAttribute("sid")==null){
+				String sid = (String) session.getAttribute("sid");
+				sid = "";
+				if (sid == null) {
 			%>
 			<!-- 购物车主体 -->
 			<div class="cart-div">
@@ -133,20 +135,102 @@
 
 					</div>
 				</div>
+				<div class="area-div">
+					<div>
+						<span class="area-span">提货站点：</span> <select class="area-select">
+							<option>鼓楼区</option>
+							<option>栖霞区</option>
+						</select>
+						<form class="area-form">
+							<input type="radio" checked="checked" name="Sex" value="1" />一号站
+							&nbsp;地址：珠江路糖果车站 &nbsp;联系电话:15850568637 <br> <input
+								type="radio" checked="checked" name="Sex" value="2" />二号站
+							&nbsp;地址：珠江路糖果车站 &nbsp;联系电话:15850568637
+						</form>
+					</div>
+					<div>
+
+						<span class="area-span">提货时间：</span>
+
+					</div>
+				</div>
 				<div class="tail-div">
 					<span class="cart-total-span">总计金额：￥333.0</span>
 				</div>
 				<div class="check-select-div">
-					<a href="" class="check-continue-item">返回购物车</a>
+					<a href="/DessertHouse/shoppingCart" class="check-continue-item">返回购物车</a>
 					<a href="/DessertHouse/checkout" class="check-account-item">立即支付</a>
 				</div>
 			</div>
 			<!-- 购物车主体结束 -->
-			<% }else{
-				String sid = (String)session.getAttribute("sid");
-				String disname = (String)session.getAttribute("disname");
-				String sname = (String)session.getAttribute("sname");
-			} %>
+			<%
+				} else {
+					String disname = (String) session.getAttribute("disname");
+					String sname = (String) session.getAttribute("sname");
+			%>
+			<!-- 购物车主体 -->
+			<div class="cart-div">
+				<div class="title-div">
+					<span class="name-span">商品</span> <span class="arr-price-span">单价</span>
+					<span class="arr-mount-span">数量</span> <span class="total-span">小计</span>
+				</div>
+				<%
+					if (session.getAttribute("cart") != null) {
+							ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
+							Map<String, ShopItem> map = cart.getMap();
+							for (String key : map.keySet()) {
+								ShopItem item = map.get(key);
+								DessertItem d = item.getDessert();
+								int count = item.getCount();
+								double price = d.getPrice();
+								double totalPrice = item.getTotalPrice();
+								String name = d.getName();
+								String img = d.getImage();
+				%>
+				<div class="check-item-div">
+					<img src='<%=img%>' class="check-img-item"></img>
+					<div class="check-dis-div">
+						<div class="cake-name-div padding-top-20">
+							<span class="cart-name-item"><%=name%></span>
+						</div>
+						<%
+							if (d.isCake()) {
+						%>
+						<div>
+							<span class="cart-detail-item">规格：<%=d.getMount()%>磅&nbsp;夹馅：<%=d.getJ()%>
+							</span>
+						</div>
+						<div>
+							<span class="cart-detail-item">含<%=d.getP()%>套餐具
+							</span>
+						</div>
+						<%
+							}
+						%>
+					</div>
+					<span class="avi-check-price-div">￥<%=price%></span> <span
+						class="avi-check-mount-div"><%=count%></span> <span
+						class="avi-check-total-div"><%=totalPrice%></span>
+				</div>
+				<%
+					}
+				%>
+				
+				<div class="tail-div">
+					<span class="cart-total-span">总计金额：￥<%=cart.getTotalPrices()%></span>
+				</div>
+				<div class="check-select-div">
+					<a href="/DessertHouse/shoppingCart" class="check-continue-item">返回购物车</a>
+					<a href="/DessertHouse/checkout" class="check-account-item">立即支付</a>
+				</div>
+				<%
+					}
+				%>
+			</div>
+			<!-- 购物车主体结束 -->
+			<%
+				}
+			%>
 		</div>
 
 	</div>
