@@ -11,6 +11,7 @@ public class DessertItem {
 	/*for cake*/
 	private int mount = 0;
 	private String j = "";
+	private int p = 0;
 	private boolean isCake = false;
 	
 	public DessertItem(){}
@@ -93,6 +94,13 @@ public class DessertItem {
 	
 	public void setMount(int mount) {
 		this.mount = mount;
+		switch(mount){
+		case 1: p =4;break;
+		case 2: p =6;break;
+		case 3: p =8;break;
+		case 4: p =10;break;
+		default:p = 4;break;
+		}
 	}
 
 	public String getJ() {
@@ -116,5 +124,13 @@ public class DessertItem {
 
 	public void setCake(boolean isCake) {
 		this.isCake = isCake;
+	}
+
+	public int getP() {
+		return p;
+	}
+
+	public void setP(int p) {
+		this.p = p;
 	}
 }
