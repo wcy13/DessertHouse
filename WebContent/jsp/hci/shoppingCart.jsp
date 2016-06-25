@@ -194,7 +194,7 @@
 			</div>
 			<div class="select-div">
 				<a href="/DessertHouse/checkout" class="account-item">下单结算</a> <a
-					href="" class="continue-item">继续购物</a>
+					href="/DessertHouse/index" class="continue-item">继续购物</a>
 
 			</div>
 			<!-- 购物车主体结束 -->

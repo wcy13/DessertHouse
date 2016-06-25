@@ -558,6 +558,7 @@
 	</bean>
 	
 	<bean id="CheckoutAction" class="edu.nju.desserthouse.action.hci.CheckoutAction">
+		<property name="shopService" ref="shopService"></property>
 	</bean>
 	
 	<!-- 定义 Autowired 自动注入 bean -->
