@@ -9,6 +9,10 @@ public class SignOutAction extends BaseAction{
 	public String execute() throws Exception {
 		HttpSession session = request.getSession(true);
 		session.removeAttribute("memberInfo");
+		session.removeAttribute("cart");
+		session.removeAttribute("sid");
+		session.removeAttribute("sname");
+		session.removeAttribute("disname");
 		return "index";
 	}
 	

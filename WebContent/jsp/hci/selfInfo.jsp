@@ -14,6 +14,13 @@
 	href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <title>凯罗伊西点 · 个人中心</title>
 </head>
+<%
+	int amount = 0;
+	if (session.getAttribute("cart") != null) {
+		ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
+		amount = cart.getMount();
+	}					
+%>
 <body>
 	<div class="main">
 		<div class="nav-top"> 
@@ -80,7 +87,7 @@
 			</div>
 			<div class="signin-panel">
 				<div class="signin-div">
-					<div class="signin-label">会 员 登 录</div>
+					<div class="signin-label">个人信息</div>
 				 	<form action="/DessertHouse/signInValidate" method="post" class="">
 				 		<div class="">
 		      				<s:textfield name="tel" id="js-input" class="signin-input" placeholder="请输入手机号"  onblur="myFunction(this);"/>
@@ -102,7 +109,7 @@
 		<a href="" class="float-bar-item">TOP</a> <a href="/DessertHouse/shoppingCart"
 			class="float-bar-item" onclick="javascript:document.getElementsByTagName('BODY')[0].scrollTop=0;"> <i
 			class="fa fa-shopping-cart fa-fw fa-lg shopping-cart-icon"></i> <br />购<br />物<br />车<br />
-			<span class="badge css-badge">0</span>
+			<span class="badge css-badge"><%=amount %></span>
 		</a>
 	</div>
 

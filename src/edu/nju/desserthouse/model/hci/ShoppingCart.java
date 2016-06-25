@@ -11,7 +11,15 @@ public class ShoppingCart {
 	public Map<String,ShopItem> getMap() {
 		return map;
 	}
-
+	
+	public int getMount(){
+		int mount = 0;
+		for(String key : map.keySet()){
+			mount += map.get(key).getCount();
+		}
+		return mount;
+	}
+	
 	public void remove(){
 		this.map.clear();
 	}

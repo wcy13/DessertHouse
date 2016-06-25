@@ -17,6 +17,13 @@
 <link href="css/style_ly.css" rel="stylesheet">
 <title>凯罗伊西点 · 购物车</title>
 </head>
+<%
+	int amount = 0;
+	if (session.getAttribute("cart") != null) {
+		ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
+		amount = cart.getMount();
+	}					
+%>
 <body>
 	<%
 		boolean isSelected = false;
@@ -124,6 +131,7 @@
 				<a href="/DessertHouse/index" class="bread-nav-item">首页</a> <span
 					class="bread-nav-label"> > </span> <span class="bread-nav-now">购物车</span>
 			</div>
+			<%if(amount>0) {%>
 			<!-- 购物车主体 -->
 			<div class="cart-div">
 				<div class="title-div">
@@ -188,16 +196,22 @@
 					}
 				%>
 			</div>
-			<div class="empty-div">
-				<a href="javascript:void(0);" onclick="removeCart(this)"
-					class="empty-item">清空购物车</a>
-			</div>
-			<div class="select-div">
+			<div class="sc-select-div">
+				<div class="empty-div">
+					<a href="javascript:void(0);" onclick="removeCart(this)"
+						class="empty-item">清空购物车</a>
+				</div>
 				<a href="/DessertHouse/checkout" class="account-item">下单结算</a> <a
 					href="/DessertHouse/index" class="continue-item">继续购物</a>
 
 			</div>
 			<!-- 购物车主体结束 -->
+			<%}else{ %>
+			<div class="search-filter">
+					<p>您的购物车里什么也没有，快去买些什么吧~
+					</p>
+				</div>
+			<%} %>
 		</div>
 	</div>
 
@@ -206,7 +220,7 @@
 			href="/DessertHouse/shoppingCart" class="float-bar-item"
 			onclick="javascript:document.getElementsByTagName('BODY')[0].scrollTop=0;">
 			<i class="fa fa-shopping-cart fa-fw fa-lg shopping-cart-icon"></i> <br />购<br />物<br />车<br />
-			<span class="badge css-badge">0</span>
+			<span class="badge css-badge"><%=amount %></span>
 		</a>
 	</div>
 

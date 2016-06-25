@@ -19,6 +19,13 @@
 	List<District> districtList = (List<District>)request.getAttribute("disList");
 	int disid = (int)request.getAttribute("disid");
 %>
+<%
+	int amount = 0;
+	if (session.getAttribute("cart") != null) {
+		ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
+		amount = cart.getMount();
+	}					
+%>
 <body>
 	<div class="main">
 		<div class="nav-top"> 
@@ -139,7 +146,7 @@
 		<a href="" class="float-bar-item">TOP</a> <a href="/DessertHouse/shoppingCart"
 			class="float-bar-item" onclick="javascript:document.getElementsByTagName('BODY')[0].scrollTop=0;"> <i
 			class="fa fa-shopping-cart fa-fw fa-lg shopping-cart-icon"></i> <br />购<br />物<br />车<br />
-			<span class="badge css-badge">0</span>
+			<span class="badge css-badge"><%=amount %></span>
 		</a>
 	</div>
 

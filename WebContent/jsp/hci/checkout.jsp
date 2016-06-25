@@ -23,6 +23,13 @@
 	List<Shop> shopList = slvo.shopList;
 	int size = dpMap.size();
 %>
+<%
+	int amount = 0;
+	if (session.getAttribute("cart") != null) {
+		ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
+		amount = cart.getMount();
+	}					
+%>
 <body>
 
 	<div class="main">
@@ -92,10 +99,11 @@
 			</div>
 			<%
 				String sid = (String) session.getAttribute("sid");
-				sid = null;
+				
 				if (sid == null) {
 			%>
 			<!-- 购物车主体 -->
+			<form action="/DessertHouse/search" method="post" class="">
 			<div class="cart-div">
 				<div class="title-div">
 					<span class="name-span">商品</span> <span class="price-span">单价</span>
@@ -137,9 +145,17 @@
 							}
 						%>
 					</div>
-					<span class="avi-check-price-div">￥<%=price%></span> <span
-						class="avi-check-mount-div"><%=count%></span> <span
-						class="avi-check-total-div"><%=totalPrice%></span>
+					<span class="check-price-div">￥<%=price%></span> <span
+						class="check-mount-div"><%=count%></span>
+					<div class="bless-div">
+						<% 
+							if(d.getJ().length()>0){
+						%>
+						<input type="text" name="bless-<%=d.getDid() %>" class="bless-input" />
+						<%} %>
+					</div>
+					<span class="check-total-div">￥<%=totalPrice %></span>
+
 				</div>
 
 				<%
@@ -197,14 +213,15 @@
 					<span class="cart-total-span">总计金额：￥<%=cart.getTotalPrices()%></span>
 				</div>
 				<div class="check-select-div">
-					<a href="/DessertHouse/shoppingCart" class="check-continue-item">返回购物车</a>
 					<a href="/DessertHouse/checkout" class="check-account-item">立即支付</a>
+					<a href="/DessertHouse/shoppingCart" class="check-continue-item">返回购物车</a>
 				</div>
 				<%
 					}
 				%>
 
 			</div>
+			</form>
 			<!-- 购物车主体结束 -->
 			<%
 				} else {
@@ -212,6 +229,7 @@
 					String sname = (String) session.getAttribute("sname");
 			%>
 			<!-- 购物车主体 -->
+			<form action="/DessertHouse/search" method="post" class="">
 			<div class="cart-div">
 				<div class="title-div">
 					<span class="name-span">商品</span> <span class="arr-price-span">单价</span>
@@ -272,13 +290,14 @@
 				</div>
 
 				<div class="check-select-div">
-					<a href="/DessertHouse/shoppingCart" class="check-continue-item">返回购物车</a>
 					<a href="/DessertHouse/checkout" class="check-account-item">立即支付</a>
+					<a href="/DessertHouse/shoppingCart" class="check-continue-item">返回购物车</a>
 				</div>
 				<%
 					}
 				%>
 			</div>
+			</form>
 			<!-- 购物车主体结束 -->
 			<%
 				}
@@ -292,7 +311,7 @@
 			href="/DessertHouse/shoppingCart" class="float-bar-item"
 			onclick="javascript:document.getElementsByTagName('BODY')[0].scrollTop=0;">
 			<i class="fa fa-shopping-cart fa-fw fa-lg shopping-cart-icon"></i> <br />购<br />物<br />车<br />
-			<span class="badge css-badge">0</span>
+			<span class="badge css-badge"><%=amount %></span>
 		</a>
 	</div>
 
@@ -364,12 +383,13 @@
 			var intGet = obj.options[obj.selectedIndex].id.split('-')[1];
 			//alert(intGet);
 			$("#shop-select-all").hide();
-			for(var i = 0 ; i < <%=size%> ; i ++)
-				{
+			for (var i = 0; i <
+	<%=size%>
+		; i++) {
 				var p = i + 1;
 				$("#shop-select-" + p).hide();
-				}
-			$("#shop-select-"+ intGet).show();
+			}
+			$("#shop-select-" + intGet).show();
 		}
 	</script>
 	<script type="text/javascript">

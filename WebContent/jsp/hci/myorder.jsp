@@ -24,6 +24,13 @@
 	HashMap<Integer, List<OrderDetailVO>> oodMap = movo.oodMap;//key为oid
 	HashMap<Integer, Shop> sidshopMap = movo.sidshopMap;
 %>
+<%
+	int amount = 0;
+	if (session.getAttribute("cart") != null) {
+		ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
+		amount = cart.getMount();
+	}					
+%>
 <body>
 	<div class="main">
 		<div class="nav-top">
@@ -219,7 +226,7 @@
 			href="/DessertHouse/shoppingCart" class="float-bar-item"
 			onclick="javascript:document.getElementsByTagName('BODY')[0].scrollTop=0;">
 			<i class="fa fa-shopping-cart fa-fw fa-lg shopping-cart-icon"></i> <br />购<br />物<br />车<br />
-			<span class="badge css-badge">0</span>
+			<span class="badge css-badge"><%=amount %></span>
 		</a>
 	</div>
 

@@ -20,6 +20,13 @@
 	ProductCategory pc = (ProductCategory) request.getAttribute("pc");
 	Cakediscription cd = (Cakediscription) request.getAttribute("cd");
 %>
+<%
+	int amount = 0;
+	if (session.getAttribute("cart") != null) {
+		ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
+		amount = cart.getMount();
+	}					
+%>
 <body>
 	<div class="main">
 		<div class="nav-top">
@@ -95,7 +102,8 @@
 					</div>
 					<div id = "price-div">
 						<span class="cake-price-label">价格：</span> <span
-							class="cake-price-text" id = 'price-<%=d.getPrice() %>'>￥<%=d.getPrice() %></span>
+							class="cake-price-text">￥</span><span
+							class="cake-price-text" id = 'price-<%=d.getPrice() %>'><%=(int)d.getPrice() %></span>
 					</div>
 					<div class="spec-div ">
 						<span class="cake-spe-label">选择规格：</span>
@@ -148,7 +156,7 @@
 			href="/DessertHouse/shoppingCart" class="float-bar-item"
 			onclick="javascript:document.getElementsByTagName('BODY')[0].scrollTop=0;">
 			<i class="fa fa-shopping-cart fa-fw fa-lg shopping-cart-icon"></i> <br />购<br />物<br />车<br />
-			<span class="badge css-badge">0</span>
+			<span class="badge css-badge"><%=amount %></span>
 		</a>
 	</div>
 
@@ -170,9 +178,9 @@
 			$("#mount-"+m).addClass("active");
 			$("#price-div").children("span")[1];
 			//alert($("#price-div").children("span")[1].id);
-			var price = $("#price-div").children("span")[1].id.split('-')[1];
+			var price = $("#price-div").children("span")[2].id.split('-')[1];
 			price = parseFloat(price) + (m - 1.0)*100.0;
-			$("#price-div").children("span")[1].innerHTML = price;
+			$("#price-div").children("span")[2].innerHTML = price;
 		}
 		
 		function changeJ(obj){

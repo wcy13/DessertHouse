@@ -712,7 +712,7 @@ a:link {
 	text-decoration: none;
 	color: #818181;
 	font-size: 14px;
-	padding: 5px 10px;
+	padding: 5px 0px;
 }
 
 .empty-item:hover {
@@ -738,6 +738,11 @@ a:link {
 	float:right;
 	margin-right:10px;
 }
+.continue-item:hover{
+	text-decoration:none;
+	background: rgba(224,242,238,0.8);
+	color:rgba(41,205,181,0.8);
+}
 .check-continue-item:link, 
 .check-continue-item:visited, 
 .check-continue-item:active{
@@ -752,12 +757,14 @@ a:link {
 	line-height: 44px;
 	overflow: hidden;
 	text-align: center;
-	float:left;
-	margin-left:10px;
+	float:right;
+	margin-right:10px;
 	margin-top:26px;
 }
 .check-continue-item:hover{
-	text-decoration:none
+	text-decoration:none;
+	background: rgba(224,242,238,0.8);
+	color:rgba(41,205,181,0.8);
 }
 
 
@@ -774,7 +781,10 @@ a:link {
 	text-align: center;
 	float:right;
 }
-
+.account-item:hover{
+	text-decoration:none;
+	background:rgba(41,205,181,0.8);
+}
 .check-account-item:link, .check-account-item:visited, .check-account-item:active {
 	display: inline-block;
 	width: 180px;
@@ -792,7 +802,9 @@ a:link {
 	text-decoration:none
 }
 .check-account-item:hover{
-	text-decoration:none
+	text-decoration:none;
+	background:rgba(41,205,181,0.8);
+	color:white;
 }
 
 .bless-input{
@@ -811,6 +823,7 @@ a:link {
 	float:left;
 	margin-left:120px;
 	margin-top:35px;
+	width:180px;
 }
 .area-span{
 	color : #2c1412;
@@ -864,4 +877,11 @@ a:link {
 .area-span-2{
 	font-color:#2c1412;
 	font-size:24px;
+}
+.sc-select-div{
+	width:100%;
+	height:120px;
+	background:white;
+	padding-right:10px;
+	padding-top:10px;
 }
