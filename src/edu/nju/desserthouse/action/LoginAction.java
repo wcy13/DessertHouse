@@ -7,11 +7,22 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import edu.nju.desserthouse.model.User;
+import edu.nju.desserthouse.model.hci.CatProVO;
+import edu.nju.desserthouse.service.ShopService;
 import edu.nju.desserthouse.service.UserService;
 
 public class LoginAction extends BaseAction{
 	@Autowired
 	private UserService userService;
+	private ShopService shopService;//负责调用商品和商品分类的dao进行展示
+
+	public ShopService getShopService() {
+		return shopService;
+	}
+
+	public void setShopService(ShopService shopService) {
+		this.shopService = shopService;
+	}
 	
 	public UserService getUserService() {
 		return userService;
@@ -59,6 +70,8 @@ public class LoginAction extends BaseAction{
 				}else if(type == '4'){
 					session.setAttribute("type", "FD");
 					session.setAttribute("id", id);
+					CatProVO cpvo = shopService.getCatProVO();
+					request.setAttribute("cpvo", cpvo);
 					return "branchMain";
 				}else if(type == '5'){
 					session.setAttribute("type", "JL");

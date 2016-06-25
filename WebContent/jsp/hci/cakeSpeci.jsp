@@ -220,7 +220,8 @@
 					type: dtype,
 				},
 				success : function(data) {
-					toaster("成功加入购物车！","success");
+					//toaster("成功加入购物车！","success");
+					alert("ok");
 					location.reload();
 				},
 				error : function() {

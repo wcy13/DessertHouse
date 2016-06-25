@@ -21,9 +21,9 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:mysql://192.168.43.72:3306/desserthouse?characterEncoding=utf-8" />
-		<property name="username" value="ly" />
-		<property name="password" value="ly1996.3.17" />
+			value="jdbc:mysql://localhost:3306/desserthouse?characterEncoding=utf-8" />
+		<property name="username" value="root" />
+		<property name="password" value="" />
 	</bean>
 
 	<!-- 配置sessionFactory -->
@@ -232,6 +232,7 @@
 	
 	<bean id="LoginAction" class="edu.nju.desserthouse.action.LoginAction">
 		<property name="userService" ref="userService"></property>
+		<property name="shopService" ref="shopService"></property>
 	</bean>
 	
 	<bean id="GetMemberIdAction" class="edu.nju.desserthouse.action.GetMemberIdAction">
