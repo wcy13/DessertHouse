@@ -95,7 +95,9 @@ public class ShopCartManageAction extends BaseAction{
 			String j = arr[2];
 			System.out.println("addItemCake excute开始：id: "+did + " name: "+ name + " count: " + count +" price:"+price+" img:"+image + " m: "+m + " j: "+j);
 			DessertItem d = new DessertItem();
-			price += 100 *(m - 1);
+			System.out.println(price);
+			price = Double.parseDouble(price)+100 *(m - 1)+"";
+			System.out.println(price);
 			d.setDid(Integer.parseInt(did));
 			d.setName(name);
 			d.setImage(image);
@@ -116,6 +118,38 @@ public class ShopCartManageAction extends BaseAction{
 			session.setAttribute("cart", cart);
 			String s = cart.show();
 			System.out.println(s);
+			return "bread";
+		}
+		else if(type.equals("changeCount"))
+		{
+			System.out.println("type: "+type + "id: " + did +" count: "+count);
+			HttpSession session = request.getSession(true);
+			System.out.println("session 获取");
+			ShoppingCart cart = (ShoppingCart)session.getAttribute("cart");
+			cart.changeMount(did, count);
+			session.setAttribute("cart", cart);
+			String s = cart.show();
+			System.out.println(s);
+			return "bread";
+		}
+		else if(type.equals("delItem"))
+		{
+			HttpSession session = request.getSession(true);
+			System.out.println("session 获取");
+			ShoppingCart cart = (ShoppingCart)session.getAttribute("cart");
+			cart.delItem(did);
+			session.setAttribute("cart", cart);
+			String s = cart.show();
+			System.out.println(s);
+			return "bread";
+		}
+		else if(type.equals("removeCart"))
+		{
+			HttpSession session = request.getSession(true);
+			System.out.println("session 获取");
+			ShoppingCart cart = (ShoppingCart)session.getAttribute("cart");
+			cart.remove();
+			session.setAttribute("cart", cart);
 			return "bread";
 		}
 		return "bread";

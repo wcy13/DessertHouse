@@ -1,3 +1,4 @@
+<%@page import="java.awt.event.ItemEvent"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ page import="java.util.*"%>
@@ -131,15 +132,15 @@
 					<span class="total-span">操作</span>
 				</div>
 				<%
-					ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
-					if (cart != null) {
+					if (session.getAttribute("cart") != null) {
+						ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
 						Map<String, ShopItem> map = cart.getMap();
 						for (String key : map.keySet()) {
 							ShopItem item = map.get(key);
 							DessertItem d = item.getDessert();
 							int count = item.getCount();
 				%>
-				<div class="item-div">
+				<div class="item-div" id = 'item-div-<%= item.getItemId()%>'>
 					<img src=<%=d.getImage()%> class="cart-img-item"></img>
 					<div class="cart-dis-div">
 						<div class="cake-name-div padding-top-20">
@@ -149,7 +150,7 @@
 							if (d.isCake()) {
 						%>
 						<div>
-							<span class="cart-detail-item">规格：<%=d.getMount()%>磅&nbsp;夹馅：<=d.getJ()>
+							<span class="cart-detail-item">规格：<%=d.getMount()%>磅&nbsp;夹馅：<%=d.getJ() %>
 							</span>
 						</div>
 						<div>
@@ -163,119 +164,41 @@
 					<span class="cart-price-div">￥<%=d.getPrice()%></span>
 					<div class="cart-change-div">
 						<a href="javascript:void(0);" onclick="delFunc(this)"
-							id='del-mount' class="minus-item-cake"> <i
+							id='del--mount--<%=item.getItemId() %>--<%=d.getPrice() %>' class="minus-item-cake"> <i
 							class="fa fa-minus cal-cake"></i>
-						</a> <input class="input-item-cake" id='buy-amount' type="text"
-							value="1" name="g"
+						</a> <input class="input-item-cake" id='buy--amount--<%=item.getItemId() %>' type="text"
+							value=<%= item.getCount() %> name="g"
 							onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
 							onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" />
 						<a href="javascript:void(0);" onclick="addFunc(this)"
-							id='add-mount' class="plus-item-cake"><i
+							id='add--mount--<%=item.getItemId() %>--<%=d.getPrice() %>' class="plus-item-cake"><i
 							class="fa fa-plus cal-cake"></i></a>
 					</div>
-					<span class="cart-total-div">￥<%=item.getTotalPrice()%>
-					</span> <span class="cart-delete-div"><i
-						class="fa fa-trash-o fa-lg"></i></span>
+					<span class="cart-total-div" id = 'total-price-<%=item.getItemId()%>'>￥<%=item.getTotalPrice()%>
+					</span> <span class="cart-delete-div"><i id = '<%=item.getItemId() %>'
+						class="fa fa-trash-o fa-lg" onclick = "delCart(this)" ></i></span>
 				</div>
 				<%
 					}
 				%>
+				<div class="tail-div" >
+					<span class="cart-total-span" id = "total-prices">总计金额：￥<%=cart.getTotalPrices()%></span>
+				</div>
 				<%
 					}
 				%>
-				<div class="item-div">
-					<img src="img/dessert/1.png" class="cart-img-item"></img>
-					<div class="cart-dis-div">
-						<div class="cake-name-div padding-top-20">
-							<span class="cart-name-item">百利情人</span>
-						</div>
-						<div>
-							<span class="cart-detail-item">规格：3.0磅&nbsp;夹馅：布丁</span>
-						</div>
-						<div>
-							<span class="cart-detail-item">含4套餐具</span>
-						</div>
-					</div>
-					<span class="cart-price-div">￥288</span>
-					<div class="cart-change-div">
-						<a href="javascript:void(0);" onclick="delFunc(this)"
-							id='del-mount' class="minus-item-cake"> <i
-							class="fa fa-minus cal-cake"></i>
-						</a> <input class="input-item-cake" id='buy-amount' type="text"
-							value="1" name="g"
-							onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
-							onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" />
-						<a href="javascript:void(0);" onclick="addFunc(this)"
-							id='add-mount' class="plus-item-cake"><i
-							class="fa fa-plus cal-cake"></i></a>
-					</div>
-					<span class="cart-total-div">￥288 </span> <span
-						class="cart-delete-div"><i class="fa fa-trash-o fa-lg"></i></span>
-				</div>
-				<div class="item-div"></div>
-				<div class="tail-div">
-					<span class="cart-total-span">总计金额：￥333.0</span>
-				</div>
 			</div>
 			<div class="empty-div">
-				<a href="javascript:void(0);" onclick="addCart(this)"
+				<a href="javascript:void(0);" onclick="removeCart(this)"
 					class="empty-item">清空购物车</a>
 			</div>
 			<div class="select-div">
-				<a href="/DessertHouse/checkout" class="account-item">下单结算</a> <a href=""
-					class="continue-item">继续购物</a>
+				<a href="/DessertHouse/checkout" class="account-item">下单结算</a> <a
+					href="/DessertHouse/index" class="continue-item">继续购物</a>
 
 			</div>
 			<!-- 购物车主体结束 -->
-			<%
-				Iterator<TestCakeVO> iterator = orderedCakes.iterator();
-			%>
-			你选购的蛋糕： <br>
-			<form method="post" action="/DessertHouse/shoppingCart">
-				<%
-					if (!orderedCakes.isEmpty()) {
-				%>
-
-				<table width="600" border="1" cellspacing="0" cellpadding="0">
-					<tr>
-						<td>选择</td>
-						<td>名字</td>
-						<td>价格</td>
-					</tr>
-					<%
-						while (iterator.hasNext()) {
-								TestCakeVO bvo = iterator.next();
-					%>
-					<tr>
-						<td><input name="checked" type="checkbox"
-							value=<%=bvo.getId()%> /></td>
-						<td><%=bvo.getName()%></td>
-						<td><%=bvo.getPrice()%></td>
-					</tr>
-					<%
-						}
-					%>
-					<tr>
-						<td colspan="6"><input type="submit" name="goBack"
-							value="放回货架" />&nbsp;&nbsp;&nbsp;<input type="submit"
-							name="continue" value="继续购物" /></td>
-					</tr>
-				</table>
-
-				<%
-					} else {
-				%>
-				<b>对不起,您的购物车里面没有东西!</b>
-				<p>
-					<input type="submit" name="continue" value="继续购物" />
-					<%
-						}
-					%>
-				
-			</form>
 		</div>
-		<a href="/DessertHouse/checkout">结算</a>
-
 	</div>
 
 	<div class="float-bar">
@@ -341,6 +264,118 @@
 				});
 			});
 		})
+	</script>
+	
+	<script type="text/javascript">
+		function addFunc(obj) {
+			var id = obj.getAttribute("id");
+			arr = id.split('--');
+			var tmpId = "#buy--amount--"+arr[2];
+			var mount = $(tmpId)[0].value;
+			//alert(mount);
+			mount ++;
+			$(tmpId)[0].value = mount;
+			$("#total-price-"+arr[2]).text("￥"+mount * arr[3]);
+			$.ajax({
+				type : "post",
+				url : "/DessertHouse/shopCartManage",
+				async : false,
+				data : {
+					did: arr[2],
+					name: "",
+					image: "",
+					price: "",
+					count: mount,
+					type: "changeCount",
+				},
+				success : function(data) {
+					//toaster("成功加入购物车！","success");
+					location.reload();
+				},
+				error : function() {
+					alert("购买失败");
+				}
+			});
+		}
+		function delFunc(obj) {
+			var id = obj.getAttribute("id");
+			arr = id.split('--');
+			var tmpId = "#buy--amount--"+arr[2];
+			var mount = $(tmpId)[0].value;
+			if(mount == 1)
+				return;
+			mount --;
+			$(tmpId)[0].value = mount;
+			$("#total-price-"+arr[2]).text("￥"+mount * arr[3]);
+			//$("#total-prices").text("总计金额：￥"+);
+			$.ajax({
+				type : "post",
+				url : "/DessertHouse/shopCartManage",
+				async : false,
+				data : {
+					did: arr[2],
+					name: "",
+					image: "",
+					price: "",
+					count: mount,
+					type: "changeCount",
+				},
+				success : function(data) {
+					//toaster("成功加入购物车！","success");
+					location.reload();
+				},
+				error : function() {
+					alert("购买失败");
+				}
+			});
+		}
+		function delCart(obj){
+			var id = obj.getAttribute("id");
+			var mount = 0;
+			$("#item-div-"+id).hide();
+			$.ajax({
+				type : "post",
+				url : "/DessertHouse/shopCartManage",
+				async : false,
+				data : {
+					did: id,
+					name: "",
+					image: "",
+					price: "",
+					count: mount,
+					type: "delItem",
+				},
+				success : function(data) {
+					//toaster("成功加入购物车！","success");
+					location.reload();
+				},
+				error : function() {
+					alert("购买失败");
+				}
+			});
+			
+		}
+		function removeCart(obj){
+			$.ajax({
+				type : "post",
+				url : "/DessertHouse/shopCartManage",
+				async : false,
+				data : {
+					did: "",
+					name: "",
+					image: "",
+					price: "",
+					count: 0,
+					type: "removeCart",
+				},
+				success : function(data) {
+					location.reload();
+				},
+				error : function() {
+					alert("购买失败");
+				}
+			});
+		}
 	</script>
 </body>
 </html>

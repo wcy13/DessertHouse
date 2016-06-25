@@ -93,9 +93,9 @@
 					<div class="cake-name-div padding-top-20">
 						<span class="cake-name-item"><%=d.getName()%></span>
 					</div>
-					<div>
+					<div id = "price-div">
 						<span class="cake-price-label">价格：</span> <span
-							class="cake-price-text">￥198.0</span>
+							class="cake-price-text" id = 'price-<%=d.getPrice() %>'>￥<%=d.getPrice() %></span>
 					</div>
 					<div class="spec-div ">
 						<span class="cake-spe-label">选择规格：</span>
@@ -168,6 +168,11 @@
 			$("#mount-3").removeClass("active");
 			$("#mount-5").removeClass("active");
 			$("#mount-"+m).addClass("active");
+			$("#price-div").children("span")[1];
+			//alert($("#price-div").children("span")[1].id);
+			var price = $("#price-div").children("span")[1].id.split('-')[1];
+			price = parseFloat(price) + (m - 1.0)*100.0;
+			$("#price-div").children("span")[1].innerHTML = price;
 		}
 		
 		function changeJ(obj){

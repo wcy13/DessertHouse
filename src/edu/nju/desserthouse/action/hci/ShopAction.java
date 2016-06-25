@@ -44,6 +44,7 @@ public class ShopAction extends BaseAction{
 		request.setAttribute("disList", slvo.districtList);
 		request.setAttribute("sList", sList);
 		request.setAttribute("disid", disid);
+		request.setAttribute("slvo", slvo);
 		return "shop";
 	}
 	

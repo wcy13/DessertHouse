@@ -12,9 +12,31 @@ public class ShoppingCart {
 		return map;
 	}
 
+	public void remove(){
+		this.map.clear();
+	}
+	
+	public double getTotalPrices(){
+		double result = 0;
+		for(String key : map.keySet()){
+			result += map.get(key).getTotalPrice();
+		}
+		return result;
+	}
+	
 	public void setMap(Map<String,ShopItem> map) {
 		this.map = map;
 	}
+	
+	public void delItem(String id){
+		map.remove(id);
+	}
+	
+	public void changeMount(String id , int count){
+		ShopItem item= map.get(id);
+		item.setCount(count);
+	}
+	
 	public void add(DessertItem d ,int count){
 		System.out.println("add start");
 		System.out.println(d.getDid() + " : "+d.getName() + " count:" + count);
@@ -32,6 +54,7 @@ public class ShoppingCart {
 			item = new ShopItem();
 			item.setDessert(d);
 			item.setCount(count);
+			item.setItemId(id);
 			map.put(id,item);
 		}
 		else
