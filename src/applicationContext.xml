@@ -220,6 +220,7 @@
 	<bean id="myorderService" class="edu.nju.desserthouse.service.impl.MyorderServiceImpl">
 		<property name="orderDao" ref="orderDao"></property>
 		<property name="orderDetailDao" ref="orderDetailDao"></property>
+		<property name="shopDao" ref="shopDao"></property>
 	</bean>	
 	
 	<bean id="productCategoryService" class="edu.nju.desserthouse.service.impl.ProductCategoryServiceImpl">

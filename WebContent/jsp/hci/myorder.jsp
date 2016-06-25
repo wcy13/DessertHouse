@@ -18,6 +18,7 @@
 	MyorderVO movo = (MyorderVO) request.getAttribute("movo");
 	List<Order> orderList = movo.orderList;
 	HashMap<Integer, List<OrderDetailVO>> oodMap = movo.oodMap;//key为oid
+	HashMap<Integer,Shop> sidshopMap = movo.sidshopMap;
 	
 %>
 <body>
@@ -84,22 +85,40 @@
 				<a href="/DessertHouse/index" class="bread-nav-item">首页</a> <span
 					class="bread-nav-label"> > </span> <span class="bread-nav-now">我的订单</span>
 			</div>
-			<%
-				for (Order o : orderList) {
-					List<OrderDetailVO> od = oodMap.get(o.getOid());
-			%>
-			<p><%=o.getOid()%>-<%=o.getCid()%></p>
+			<div class="myorder-panel">
 				<%
-					for (OrderDetailVO odvo : od) {
-						if(odvo.getDiscription()==null){
-							System.out.println("null");
-						}
+					for (Order o : orderList) {
+						List<OrderDetailVO> od = oodMap.get(o.getOid());
 				%>
-				<p><%=odvo.getDid() %>-<%=odvo.getDname() %><%=odvo.getAmount() %>-<%=odvo.getPrice() %>-<%=odvo.getDiscription() %></p>
-			<%
+				<div class="myorder-item">
+					<%
+						for (OrderDetailVO odvo : od) {
+							if(odvo.getDiscription()==null){
+								System.out.println("null");
+							}
+					%>
+					<div class="myorder-title">
+						<span class="myorder-label">2016-03-15 20:20:29</span>
+						<span class="myorder-label">订单号：2</span>
+						<span class="myorder-label">提货站点：广州路店（南京市鼓楼区啊啊啊）</span>
+						<span class="myorder-label">总金额：￥210.0</span>
+						<span class="myorder-label">实际支付：￥210.0</span>
+						<span class="myorder-label float-right">交易状态：已取货</span>
+					</div>
+					<div class="myorder-dessert-item">
+						<img src="<%=odvo.getImage()%>" class="myorder-img"></img>
+					</div>
+					<div>
+						
+					</div>
+				<%
+						}%>
+						</div>
+				<% 		
 					}
-				}
-			%>
+				%>
+			</div>
+			
 		</div>
 
 

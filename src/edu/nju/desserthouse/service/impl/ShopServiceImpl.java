@@ -101,10 +101,12 @@ public class ShopServiceImpl implements ShopService{
 	@Override
 	public CatProVO getCatProVO() {
 		List<ProductCategory> productCategoryList = productCategoryDao.getAllProductCategoryList();
+		List<ProductCategory> pcList = new ArrayList<ProductCategory>();
 		List<Dessert> dessertList = dessertDao.getAllDessertListWithoutCake();
 		HashMap<Integer,List<Dessert>> cpMap = new HashMap<Integer,List<Dessert>>();
 		for (ProductCategory d : productCategoryList) {
-			if((d.getPcid()!=2)||(d.getPpcid()!=2)){
+			if((d.getPcid()!=2)&&(d.getPpcid()!=2)){
+				pcList.add(d);
 				List<Dessert> l = new ArrayList<Dessert>();
 				cpMap.put(d.getPcid(), l);
 			}
@@ -115,7 +117,7 @@ public class ShopServiceImpl implements ShopService{
 			}
 			
 		}
-		CatProVO cpvo = new CatProVO(productCategoryList,dessertList,cpMap);
+		CatProVO cpvo = new CatProVO(pcList,dessertList,cpMap);
 		return cpvo;
 	}
 

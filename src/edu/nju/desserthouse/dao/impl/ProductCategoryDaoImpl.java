@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import edu.nju.desserthouse.dao.BaseDao;
 import edu.nju.desserthouse.dao.ProductCategoryDao;
 import edu.nju.desserthouse.model.Dessert;
+import edu.nju.desserthouse.model.Member;
 import edu.nju.desserthouse.model.ProductCategory;
 
 @Repository
@@ -62,8 +63,9 @@ public class ProductCategoryDaoImpl implements ProductCategoryDao{
 
 	@Override
 	public List<ProductCategory> getAllParentProductCategoryList() {
-		// TODO Auto-generated method stub
-		return null;
+		@SuppressWarnings("unchecked")
+		List<ProductCategory> list = baseDao.getAllList(ProductCategory.class);
+		return list;
 	}
 	
 }
