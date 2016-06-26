@@ -262,13 +262,161 @@ td, th {
 	padding-left: 30px;
 	padding-right: 30px;
 }
-.cart-main .cart-right .clear-all {
-	padding-right: 20px;
+
+.branch-table-sale-settlement {
+	position:relative;
+	background: #dff2ee;
+	height: 115px;
+	text-align: right;
+	border-top:1px solid rgba(41, 205, 181, 0.8);
+	border-bottom:1px solid rgba(41, 205, 181, 0.8);
+	
+} 
+.branch-right-div.price-table{
+	background-color:#fff;
+	border:1px solid rgba(41, 205, 181, 0.8);
+}
+.price-table .branch-table-sale,
+.price-table table.branch-table-sale tr{
+	border:0;
+}
+.price-table table.branch-table-sale tr{
+	border-top:1px solid rgba(41, 205, 181, 0.8);
+}
+.branch-table-sale-detail{
+	position:relative;
+	top:20px;
+	right:10px;	
+}
+.branch-table-sale-settlement .total-label{
+	font-size: 36px;
+	color: #2d1312;
+}
+.branch-table-sale-settlement .total-price {
+	font-size: 72px;
+	color: #2d1312;
+}
+.fa-plus.branchcal-cake,
+.fa-minus.branchcal-cake,
+{
+	position:relative;
+}
+.sale-amount .branch-minus-item-cake i,
+.sale-amount .branch-plus-item-cake i{
+	position:relative;
+}
+.fa-minus:before{
+	position:absolute;
+	left:-10px;
+}
+.sale-amount .branch-plus-item-cake{
+	margin-left:10px;
+	margin-right:0px;
+}
+.fa-plus:before{
+	position:absolute;
+	left: -5px;
+	top: 7px;
+}
+.branch-table-sale-bottom {
+	font-color: #2d1312;
+}
+.branch-table-sale-bottom div {
+	margin-top: 20px;
+	
+}
+.cash-reality-box {
+	width: 80px;
+	height: 40px;
 }
 
-.clear-all a:link, a:visited{
-	color: #2e1312;
-	text-decoration: none;
+.branch-table-sale-bottom .paytype{
+	font-size: 18px;
+	margin-left: 20px;
 }
+
+.branch-table-sale-bottom .cash-charge{
+	font-size: 22px;
+	margin-left: 20px;
+}
+
+.branch-table-sale-bottom .phone-verify {
+	margin-left: 20px;
+	color: #8e8c8c;
+}
+.phone-verify input {
+	border: 1px solid #8e8c8c;
+	height: 40px;
+}
+.phone-verify .phone {
+	width: 220px;
+	margin-right: 10px;
+	border: 1px solid #8e8c8c;
+}
+
+.phone-verify .get-verify-code {
+	width: 80px;
+	height: 40px;
+	background: #fff;
+	font-size: 12px;
+
+}
+
+.get-verify-code a {
+	color: #8e8c8c;
+}
+
+.phone-verify .type-in-code {
+	width: 310px;
+}
+
+.branch-table-sale-bottom .confirm {
+	width: 180px;
+	height: 40px;
+	background: #29cdb5;
+	float: right;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	border: 0px;
+	color: #fff;
+	
+}
+
+#pay-by-phone {
+	display: none;
+}
+
+#js-table-dessert-body {
+	border:1px;
+	align:center;
+	width:310px;
+	height:25px;
+	line-height: 40px;
+}
+
+
+.product-right-table {
+	overflow-x: auto; 
+	overflow-y: auto; 
+	height: 300px; 
+	width:310px;
+}
+
+.price-up-table {
+	overflow-x: auto;
+	overflow-y: auto;
+	height: 200px;
+	width: 698px;
+}
+
+#js-table-sale-body {
+	border:1px;
+	align:center;
+	width:698px;;
+	height:180px;
+	line-height: 40px;
+}
+
 
 
