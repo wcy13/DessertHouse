@@ -104,7 +104,8 @@
 								<td class="sale-did ">1</td>
 								<td class="sale-dname">商品面包</td>
 								<td class="sale-price">￥20.0</td>
-								<td class="sale-amount"><a href="javascript:void(0);"
+								<td class="sale-amount">
+									<a href="javascript:void(0);"
 									onclick="delFunc(this)" id='del-mount'
 									class="branch-minus-item-cake"> <i
 										class="fa fa-minus branch-cal-cake"></i></a> 
@@ -116,7 +117,11 @@
 									id='add-mount' class="branch-plus-item-cake"><i
 										class="fa fa-plus branchcal-cake"></i></a></td>
 								<td class="sale-total" >小计</td>
-								<td class="sale-action"></td>
+								<td class="sale-action">
+									<span>
+									<i id ="trash" class="fa fa-trash-o fa-lg" onclick = "delCart(this)" ></i>
+									</span>
+								</td>
 							</tr>
 						</tbody>
 
@@ -125,7 +130,7 @@
 					<div class="branch-table-sale-settlement">
 						<div class="branch-table-sale-detail">
 							<span class="total-label">总计：¥</span> <span class="total-price"><label
-								id="should-pay-price">921</label></span>
+								id="should-pay-price">0</label></span>
 						</div>
 					</div>
 					<div class="branch-table-sale-bottom">
@@ -168,6 +173,7 @@
 
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="jquery.js"></script>
 
 	<script type="text/javascript">
 		$("input[name='cash-reality']").bind('input propertychange', function() {
@@ -208,7 +214,7 @@
 			           } else {
 				           alert("商品不存在");
 				           }
-		               var newline="<tr class='branch-table-sale-row'>";
+		              $("#js-input").val("");
 		               
 		            }
 		        });
@@ -354,6 +360,7 @@
 			
 			var node = document.createElement("tr");
 			node.className="branch-table-sale-row";
+			node.id = "branch-table-sale-row-"+arr[0];
 			var sale_did = document.createElement("td");
 			sale_did.className="sale-did";
 			sale_did.textContent=arr[0];
@@ -379,8 +386,12 @@
 			
 			node.appendChild(new_amount);
 			node.appendChild(sale_total);
-			var old_action = document.getElementsByClassName("sale-action")[1];
-			node.appendChild(old_action.cloneNode(true));
+
+			var old_trash = document.getElementsByClassName("sale-action")[1];
+			var new_trash = old_trash.cloneNode(true);
+			new_trash.getElementsByTagName("i")[0].id += "-"+arr[0];
+			node.appendChild(new_trash);
+			
 
 			//判断购物车中是否已经存在条目
 			var id = arr[0];
@@ -396,9 +407,16 @@
 			});
 			if (!exists)
 				table.appendChild(node);
-			calTotal()
 
+			calTotal()
 		}
+
+		function delCart(obj){
+			var id = obj.getAttribute("id");
+			var no = id.split("-")[1];
+			$("#branch-table-sale-row-"+no).remove();
+			calTotal();
+			}
 	</script>
 	<script type="text/javascript">
 	function changeType(){
