@@ -715,7 +715,7 @@ public class OrderDaoImpl implements OrderDao {
 
 	@Override
 	public List<Order> getMyOrderList(int cid) {
-		String sql = "SELECT * FROM desserthouse.`order` o where o.cid="+cid;
+		String sql = "SELECT * FROM desserthouse.`order` o where o.cid="+cid+" order by orderTime desc";
 
 		List<Object[]> objects = baseDao.querySQL(sql);
 		List<Order> list = new ArrayList<Order>();
@@ -768,6 +768,53 @@ public class OrderDaoImpl implements OrderDao {
 		order.setSeat((String) objects.get(0)[12]);
 		order.setVerification((int) objects.get(0)[13]);
 		return order;
+	}
+
+	@Override
+	public int getMaxOid() {
+		String sql = "SELECT max(oid) FROM `order`;";
+		Object objects = baseDao.querySQL(sql);
+		String s  = objects.toString();
+		int i = s.indexOf('[');
+		int j = s.lastIndexOf(']');
+		s = s.substring(i+1, j);
+		System.out.println(s);
+		return Integer.parseInt(s);
+	}
+
+	@Override
+	public void save(Order o) {
+		String sql = "insert into `order` values("
+				+ o.getOid()
+				+ ","
+				+ o.getSid()
+				+ ","
+				+ o.getScid()
+				+ ",'"
+				+ o.getOrderTime()
+				+ "',"
+				+ o.getTotal()
+				+ ","
+				+ o.getRealTotal()
+				+ ","
+				+ o.getIsOnline()
+				+ ",'"
+				+ o.getTakeDate()
+				+ "','"
+				+ o.getTakeTime()
+				+ "',"
+				+ o.getIsValid()
+				+ ","
+				+ o.getCid()
+				+ ",'"
+				+ o.getDiscountMessage()
+				+ "','"
+				+ o.getSeat()
+				+ "',"
+				+ o.getVerification()
+				+ ")";
+		baseDao.excuteBySQL(sql);
+		
 	}
 
 	

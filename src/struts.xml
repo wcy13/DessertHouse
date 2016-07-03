@@ -339,6 +339,14 @@
 		<action name="cancelMyOrder" class="CancelMyOrderAction">
 			<result name="myorder">/jsp/hci/myorder.jsp</result>
 		</action>
+		
+		<action name="onlineOrderSubmit" class="OnlineOrderSubmitAction">
+			<result name="index">/jsp/hci/index.jsp</result>
+		</action>
+		
+		<action name="reserve" class="ReserveAction">
+			<result name="index">/jsp/hci/index.jsp</result>
+		</action>
 	</package>
 </struts>
 

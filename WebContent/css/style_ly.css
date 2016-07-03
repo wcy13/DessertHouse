@@ -812,12 +812,14 @@ a:link {
 	height:28px;
 	border :1px solid #cddedb;
 	outline: none;
+	padding-left:10px;
 }
 .area-input{
 	width:70px;
 	height:28px;
 	border :1px solid #818181;
 	outline: none;
+	padding-left:10px;
 }
 .bless-div{
 	float:left;
@@ -884,4 +886,31 @@ a:link {
 	background:white;
 	padding-right:10px;
 	padding-top:10px;
+}
+.cake-speci-div{
+	width: 100%;
+	height: 180px;
+	margin-top: 10px;
+	background: rgba(255, 255, 255, 0.9);
+	border: 1px solid #29cdb5;
+}
+.cake-speci-title{
+	margin-top:15px;
+	margin-left:15px;
+	font-size:18px;
+	font-color:#818181;
+	font-family:微软雅黑;
+}
+.cake-speci-table{
+	margin-top:15px;
+	margin-left:15px;
+	margin-right:15px;
+	font-size:14px;
+	font-color:#818181;
+	font-family:微软雅黑;
+}
+.cake-speci-td1{
+	width:390px;
+	text-align:bottom;
+	padding-top:5px;
 }

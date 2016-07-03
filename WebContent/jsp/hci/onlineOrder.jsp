@@ -118,6 +118,7 @@
 					for (Entry<Integer, List<Dessert>> entry : cpMap.entrySet()) {
 						List<Dessert> l = entry.getValue();
 						for (Dessert d : l) {
+							
 				%>
 				<div class="bread-content-div padding-left-30">
 				<img src="<%=d.getImage()%>" class="bread-img-item"></img>
@@ -158,6 +159,7 @@
 			<%
 				for (int i = 2; i < pcList.size() + 2; i++) {
 					ProductCategory pc = pcList.get(i - 2);
+					
 					List<Dessert> l = cpMap.get(pc.getPcid());
 			%>
 			<div class="cake-div" id='js-<%=i%>'>
@@ -217,12 +219,18 @@
 			<span class="badge css-badge"><%=amount %></span>
 		</a>
 	</div>
-
+<div id="toaster" class="toaster"></div>
+<script type="text/javascript" src="js/script.js"></script>
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	
 	<script type="text/javascript">
 		$(document).ready(function() {
+			
+			$("#js-2").hide();
+			$("#js-3").hide();
+			$("#js-4").hide();
+			$("#js-5").hide();
 			$("#js-nav-2").mouseover(function() {
 				$("#js-nav-1").children("span").removeClass("color-black");
 				$("#js-nav-1").children("span").addClass("color-white");
@@ -308,6 +316,7 @@
 			$("#js-cake-2").removeClass("active");
 			$("#js-cake-3").removeClass("active");
 			$("#js-cake-4").removeClass("active");
+			$("#js-cake-5").removeClass("active");
 			var id = obj.getAttribute("id");
 			arr = id.split('-');
 			var index = arr[2];
@@ -317,6 +326,7 @@
 			$("#js-2").hide();
 			$("#js-3").hide();
 			$("#js-4").hide();
+			$("#js-5").hide();
 			$("#js-" + index).show();
 		}
 	</script>
@@ -350,8 +360,7 @@
 					type: dtype,
 				},
 				success : function(data) {
-					//toaster("成功加入购物车！","success");
-					alert("ok");
+					toaster("成功加入购物车！","success");
 					location.reload();
 				},
 				error : function() {
@@ -413,8 +422,7 @@
 					type: dtype,
 				},
 				success : function(data) {
-					//toaster("成功加入购物车！","success");
-					alert("ok");
+					toaster("成功加入购物车！","success");
 					location.reload();
 				},
 				error : function() {

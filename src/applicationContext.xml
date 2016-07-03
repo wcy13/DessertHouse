@@ -21,9 +21,9 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:mysql://192.168.43.72:3306/desserthouse?characterEncoding=utf-8" />
-		<property name="username" value="ly" />
-		<property name="password" value="ly1996.3.17" />
+			value="jdbc:mysql://localhost:3306/desserthouse?characterEncoding=utf-8" />
+		<property name="username" value="root" />
+		<property name="password" value="" />
 	</bean>
 
 	<!-- 配置sessionFactory -->
@@ -229,6 +229,7 @@
 	
 	<bean id="orderService" class="edu.nju.desserthouse.service.impl.OrderServiceImpl">
 		<property name="orderDao" ref="orderDao"></property>
+		<property name="orderDetailDao" ref="orderDetailDao"></property>
 	</bean>	
 	
 	<!-- define xxAction -->
@@ -567,6 +568,16 @@
 	</bean>
 	
 	<bean id="CancelMyOrderAction" class="edu.nju.desserthouse.action.hci.CancelMyOrderAction">
+		<property name="memberService" ref="memberService"></property>
+		<property name="orderService" ref="orderService"></property>
+	</bean>
+	
+	<bean id="OnlineOrderSubmitAction" class="edu.nju.desserthouse.action.hci.OnlineOrderSubmitAction">
+		<property name="memberService" ref="memberService"></property>
+		<property name="orderService" ref="orderService"></property>
+	</bean>
+	
+	<bean id="ReserveAction" class="edu.nju.desserthouse.action.hci.ReserveAction">
 		<property name="memberService" ref="memberService"></property>
 		<property name="orderService" ref="orderService"></property>
 	</bean>

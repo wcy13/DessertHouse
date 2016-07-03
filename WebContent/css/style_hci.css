@@ -22,6 +22,7 @@
 .text-align-center{
 	text-align:center;
 }
+
 .padding-left-70{
 	padding-left:70px;
 }
@@ -778,5 +779,67 @@ table.branch-table-sale tr{
 	font-size:14px;
 	color:#818181;
 	font-family:微软雅黑;
-	margin-top:10px;
+	margin-bottom:10px;
+	text-align:center;
+}
+/*------------------------------------*\
+    $ toaster
+\*------------------------------------*/
+.toaster {
+    position: fixed;
+    top: 40%;
+    width: 300px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+.toast-item {
+    width: 100%;
+    font-family:微软雅黑;
+    margin-bottom: 15px;
+    color: #fff;
+    padding: 16px 15px;
+    display: none;
+    text-align: center;
+    min-height: 30px;
+    font-size: 18px;
+    line-height: 28px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.15);
+}
+
+.toast-item.error {
+    background-color:rgba(232,74,95,0.8);
+}
+
+.toast-item.success {
+    background-color:rgba(41,205,181,0.8);
+}
+.toaster-icon{
+	margin-right:10px;
+	
+}
+.selfinfo-table{
+	width:100%;
+	margin-top:20px;
+}
+.selfinfo-table th{
+	height:60px;
+}
+.text-align-left{
+	text-align:left;
+	width:280px;
+	font-family:微软雅黑;
+	font-size:16px;
+	height:30px;
+	padding-left:10px;
+}
+
+.text-align-right{
+	text-align:right;
+	width:280px;
+	font-family:微软雅黑;
+	font-size:16px;
+	height:30px;
 }

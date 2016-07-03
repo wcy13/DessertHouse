@@ -100,4 +100,6 @@ public interface OrderDao {
 	public List<Order> getMyOrderList(int cid);
 	public void cancleOrder(int oid);
 	public Order find(int oid);
+	public int getMaxOid();
+	public void save(Order o);
 }

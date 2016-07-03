@@ -175,7 +175,7 @@
 
 
 	</div>
-
+<div id="toaster" class="toaster"></div>
 	<div class="float-bar">
 		<a href="" class="float-bar-item">TOP</a> <a href="/DessertHouse/shoppingCart"
 			class="float-bar-item" onclick="javascript:document.getElementsByTagName('BODY')[0].scrollTop=0;"> <i
@@ -183,7 +183,7 @@
 			<span class="badge css-badge"><%=amount %></span>
 		</a>
 	</div>
-<div id="toaster" class="toaster"></div>
+
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>

@@ -143,8 +143,9 @@
 										if(!o.getSeat().equals("0")){
 											//seat 不为0  在线点单
 									%>
-											<span>在线点单</span><br/>
-											<span class="myorder-item-state-span"><%=sidshopMap.get(o.getSid()).getSname()%>-<%=o.getSeat() %>桌</span>
+											<span class="myorder-item-state-span"><%=o.getSeat() %>桌</span>
+											<br/><span>在线点单</span>
+											
 										<%}else{
 											//seat为0，在线预订
 											if(o.getVerification()==-1){
@@ -166,7 +167,8 @@
 											%>
 												<span>未取货(已过期)</span>
 												<%} else{%>
-												<button id='js-<%=o.getOid() %>' type="button" class="shop-enter-btn" onclick="cancelOrder(this) "  onmouseover="javascript:this.innerHTML='取消订单'" onmouseout="javascript:this.innerHTML='未取货'">未取货</button>
+												<!-- <button id='js-<%=o.getOid() %>' type="button" class="shop-enter-btn" onclick="cancelOrder(this) "  onmouseover="javascript:this.innerHTML='取消订单'" onmouseout="javascript:this.innerHTML='未取货'">未取货</button><br/> -->
+												<span>未取货</span><br/>
 												<span class="myorder-item-state-span">取货验证码：<%=o.getVerification() %></span>
 												<%} %>
 											<%} %>
@@ -297,11 +299,11 @@
 					oid:id,
 				},
 				success : function(data) {
-					alert("取消订单成功");
+					toaster("取消订单成功！","success");
 					location.reload();
 				},
 				error : function() {
-					alert("取消订单成功");
+					toaster("取消订单成功！","success");
 					location.reload();
 				}
 			});

@@ -20,7 +20,7 @@ public class DrinksAction  extends BaseAction{
 	}
 	@Override
 	public String execute() throws Exception {
-		List<Dessert> dessertList = dessertService.getCategoryRelatedDesserts(3);
+		List<Dessert> dessertList = dessertService.getCategoryRelatedDesserts(4);
 		request.setAttribute("dessertList", dessertList);
 		return "drinks";
 	}

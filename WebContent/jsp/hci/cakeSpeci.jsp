@@ -146,9 +146,24 @@
 					<div></div>
 				</div>
 			</div>
+			<div class="cake-speci-div">
+			<div class="cake-speci-title">商品详情</div>
+			<table class="cake-speci-table">
+				<tr>
+					<td class="cake-speci-td1">所属分类：<%=cd.getCategory() %></td>
+					<td class="cake-speci-td1">适合人群：<%=cd.getFitPeople() %></td>
+					<td class="cake-speci-td1">适合节日：<%=cd.getFitDate() %></td>
+				</tr>
+				<tr>
+					<td class="cake-speci-td1">甜度：<%=cd.getSweet() %></td>
+					<td class="cake-speci-td1">保鲜条件：<%=cd.getReserveCondition() %></td>
+					<td class="cake-speci-td1">原材料：<%=cd.getRaw() %></td>
+				</tr>
+			</table>
+			</div>
 		</div>
 
-
+<div id="toaster" class="toaster"></div>
 	</div>
 
 	<div class="float-bar">
@@ -162,6 +177,7 @@
 
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
 	<script>
 		var m = 1;
 		var j = 1;
@@ -233,12 +249,11 @@
 					type: dtype,
 				},
 				success : function(data) {
-					//toaster("成功加入购物车！","success");
-					alert("ok");
+					toaster("成功加入购物车！","success");
 					location.reload();
 				},
 				error : function() {
-					alert("购买失败");
+					toaster("购买失败！","error");
 				}
 			});
 			}

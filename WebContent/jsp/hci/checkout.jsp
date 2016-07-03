@@ -1,3 +1,4 @@
+<%@page import="java.sql.Date"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ page import="java.util.*"%>
@@ -38,6 +39,7 @@
 				class="nav-top-item float-right active">购物车</a> <span
 				class="nav-top-line float-right">|</span>
 			<%
+				double discount = 1.0;
 				if (session.getAttribute("memberInfo") == null) {
 					System.out.println("here");
 			%>
@@ -45,6 +47,7 @@
 			<%
 				} else {
 					Member m = (Member) session.getAttribute("memberInfo");
+					discount = m.getDiscount()*0.1;
 					String sex = "";
 					if (m.getSex() == 0) {
 						sex = "先生";
@@ -103,7 +106,7 @@
 				if (sid == null) {
 			%>
 			<!-- 购物车主体 -->
-			<form action="/DessertHouse/search" method="post" class="">
+			<form id="form2" action="/DessertHouse/reserve" method="post" class="">
 			<div class="cart-div">
 				<div class="title-div">
 					<span class="name-span">商品</span> <span class="price-span">单价</span>
@@ -151,7 +154,7 @@
 						<% 
 							if(d.getJ().length()>0){
 						%>
-						<input type="text" name="bless-<%=d.getDid() %>" class="bless-input" />
+						<s:textfield type="text" name="bless-<%=d.getDid() %>" class="bless-input" />
 						<%} %>
 					</div>
 					<span class="check-total-div">￥<%=totalPrice %></span>
@@ -161,6 +164,7 @@
 				<%
 					}
 				%>
+				<br/>
 				<div class="area-div">
 					<div>
 						<span class="area-span">提货站点：</span> <select id="area-select"
@@ -202,18 +206,30 @@
 							}
 						%>
 
-					</div>
+					</div><br/>
 					<div>
-
-						<span class="area-span">提货时间：</span>
+						<%java.sql.Date currentDate = new java.sql.Date(System.currentTimeMillis());
+						java.sql.Date maxDate = (java.sql.Date)currentDate.clone();
+						maxDate.setMonth(maxDate.getMonth()+1);
+						%>
+						<span class="area-span">提货时间：
+						<input class="area-select" type="date" id="mydate" name="mydate" min="<%=currentDate %>" max="<%=maxDate %>" value="<%=currentDate %>"/>
+						<input class="area-select" type="time" id="mytime" name="mytime" min="07:00" max="22:30" value="07:00"/>
+						
+						</span>
 
 					</div>
 				</div>
 				<div class="tail-div">
-					<span class="cart-total-span">总计金额：￥<%=cart.getTotalPrices()%></span>
+					<%
+					double realTotal = discount*cart.getTotalPrices();
+					realTotal = (double)Math.round(realTotal);
+				%>
+					<span class="cart-total-span"> 实际支付：￥<%=realTotal %></span> 
+					<span class="cart-total-span"> 总计金额：￥<%=cart.getTotalPrices()%> </span>
 				</div>
 				<div class="check-select-div">
-					<a href="/DessertHouse/checkout" class="check-account-item">立即支付</a>
+					<a href="javascript:void(0);" onclick="submitOrder2()" class="check-account-item">立即支付</a>
 					<a href="/DessertHouse/shoppingCart" class="check-continue-item">返回购物车</a>
 				</div>
 				<%
@@ -229,7 +245,7 @@
 					String sname = (String) session.getAttribute("sname");
 			%>
 			<!-- 购物车主体 -->
-			<form action="/DessertHouse/search" method="post" class="">
+			<form action="/DessertHouse/onlineOrderSubmit" method="post" id="form1">
 			<div class="cart-div">
 				<div class="title-div">
 					<span class="name-span">商品</span> <span class="arr-price-span">单价</span>
@@ -281,16 +297,22 @@
 						class="area-span-2"><%=sname%>&nbsp;</span> <span
 						class="area-span-3">地址：<%=disname%></span>
 					<div class="seat-div">
-						<span class="area-span-1">请输入您的座位号： </span> <input
-							class="area-input" />
+						<span class="area-span-1">请输入您的座位号： </span> <s:textfield
+							class="area-input" name="seatNum" />
 					</div>
 				</div>
 				<div class="tail-div">
-					<span class="cart-total-span">总计金额：￥<%=cart.getTotalPrices()%></span>
+				<%
+					double realTotal = discount*cart.getTotalPrices();
+					realTotal = (double)Math.round(realTotal);
+				%>
+					<span class="cart-total-span"> 实际支付：￥<%=realTotal %></span> 
+					<span class="cart-total-span"> 总计金额：￥<%=cart.getTotalPrices()%> </span>
+					
 				</div>
 
 				<div class="check-select-div">
-					<a href="/DessertHouse/checkout" class="check-account-item">立即支付</a>
+					<a href="javascript:void(0);" onclick="submitOrder()" class="check-account-item">立即支付</a>
 					<a href="/DessertHouse/shoppingCart" class="check-continue-item">返回购物车</a>
 				</div>
 				<%
@@ -314,7 +336,8 @@
 			<span class="badge css-badge"><%=amount %></span>
 		</a>
 	</div>
-
+<div id="toaster" class="toaster"></div>
+<script type="text/javascript" src="js/script.js"></script>
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript">
@@ -393,7 +416,16 @@
 		}
 	</script>
 	<script type="text/javascript">
-		
+		function submitOrder(){
+			toaster("付款成功！","success");
+			$("#form1").submit();
+		}
+	</script>
+	<script type="text/javascript">
+		function submitOrder2(){
+			toaster("付款成功！","success");
+			$("#form2").submit();
+		}
 	</script>
 </body>
 </html>
